@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="NdEOjZEL0Rzj4MhtuqwQ">
-    <mxGraphModel dx="613" dy="2013" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="770" dy="1872" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -527,15 +527,6 @@
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="1059.5" y="539" as="sourcePoint" />
             <mxPoint x="1060" y="630" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="y7BbNnUgKBoXpzkD37sf-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Cargo" vertex="1">
-          <mxGeometry height="30" width="60" x="240" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="y7BbNnUgKBoXpzkD37sf-9" edge="1" parent="1" source="y7BbNnUgKBoXpzkD37sf-7" style="endArrow=none;html=1;rounded=0;startArrow=oval;startFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="LOeZTrG3LX8mY91xfKUt-9" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="310" y="330" as="sourcePoint" />
-            <mxPoint x="520" y="330" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="5Jh8CKA51dPE7OkGvHU3-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;----------&lt;/font&gt;" vertex="1">
