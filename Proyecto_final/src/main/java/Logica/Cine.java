@@ -8,6 +8,7 @@ public class Cine {
     private int id;
     private String nombre;
     private ArrayList <Sala> salas;
+    private ArrayList <Pelicula> peliculas;
 
     public Cine(String calle, String ciudad, int id, String nombre) {
         this.calle = calle;
@@ -15,6 +16,7 @@ public class Cine {
         this.id = id;
         this.nombre = nombre;
         this.salas = new ArrayList <>();
+        this.peliculas = new ArrayList <>();
     }
 
     public String getCalle() {
@@ -38,10 +40,20 @@ public class Cine {
         return this.salas.get(id);
     }
     
+    public Pelicula buscarPelicula(int id)
+    {
+        return this.peliculas.get(id);
+    }
+    
     public void cargarSala(int numero, int id, int capacidad_maxima, int largo_asientos, int ancho_asientos)
     {
         Sala sala = new Sala(numero, id, capacidad_maxima, largo_asientos, ancho_asientos);
         
         this.salas.add(sala);
+    }
+    
+    public void cargarPelicula(Pelicula pelicula)
+    {
+        this.peliculas.add(pelicula);
     }
 }

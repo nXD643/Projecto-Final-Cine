@@ -242,10 +242,6 @@ public class Fachada {
         total = multiplicados + simples;
         
         digito_verificador = total % 10;
-        if (digito_verificador == 0)
-        {
-            return true;
-        }
-        return false;
+        return digito_verificador == 0;
     }
 }

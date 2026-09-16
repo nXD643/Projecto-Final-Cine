@@ -6,15 +6,15 @@ public class Funcion {
     private LocalDate fecha;
     private int id;
     private int precio_base;
-    private Pelicula pelicula;
     private Asiento[][] asientos;
     private String hora;
+    private int idPelicula;
 
-    public Funcion(LocalDate fecha, int id, int precio_base, Pelicula pelicula, int largo, int ancho, String hora) {
+    public Funcion(LocalDate fecha, int id, int precio_base, int idPelicula, int largo, int ancho, String hora) {
         this.fecha = fecha;
         this.id = id;
         this.precio_base = precio_base;
-        this.pelicula = pelicula;
+        this.idPelicula = idPelicula;
         this.asientos = new Asiento[largo][ancho];
         this.hora = hora;
     }
@@ -31,8 +31,8 @@ public class Funcion {
         return precio_base;
     }
 
-    public Pelicula getPelicula() {
-        return pelicula;
+    public int getIdPelicula() {
+        return idPelicula;
     }
 
     public String getHora() {

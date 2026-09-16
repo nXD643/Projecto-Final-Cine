@@ -37,9 +37,9 @@ public class Sala {
         return this.funciones.get(id);
     }
     
-    public void cargarFuncion(LocalDate fecha, int id, int precio_base, Pelicula pelicula, String hora)
+    public void cargarFuncion(LocalDate fecha, int id, int precio_base, int idPelicula, String hora)
     {
-        Funcion funcion = new Funcion(fecha, id, precio_base, pelicula, this.largo, this.ancho, hora);
+        Funcion funcion = new Funcion(fecha, id, precio_base, idPelicula, this.largo, this.ancho, hora);
         
         this.funciones.add(funcion);
     }
