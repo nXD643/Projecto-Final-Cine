@@ -4,6 +4,7 @@
  */
 package Grafica;
 import Logica.Fachada;
+import Logica.ListaCines;
 
 /**
  *
@@ -20,9 +21,20 @@ public class ElegirCine extends javax.swing.JFrame {
     public ElegirCine() {
         initComponents();
         
-        //fachada.getCines().buscarCine(0);
-        //ElegirCine.addItem("ASDa");
-    }
+        
+        ListaCines listaCines = fachada.getCines();
+        
+        // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
+        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine1");
+        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine2");
+        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine3");
+        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine4");
+        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine5");
+        //         
+        
+        for (int numeroCine = listaCines.cines.size()-1;numeroCine >= 0;numeroCine--)
+            ElegirCine.addItem(listaCines.cines.get(numeroCine).getNombre());
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,7 +53,6 @@ public class ElegirCine extends javax.swing.JFrame {
 
         InicioLabel.setText("Elige a que cine vas a ir");
 
-        ElegirCine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ElegirCine.addActionListener(this::ElegirCineActionPerformed);
 
         SiguienteBtn.setText("Siguiente");
@@ -52,27 +63,26 @@ public class ElegirCine extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SiguienteBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ElegirCine, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(145, Short.MAX_VALUE)
-                        .addComponent(InicioLabel)))
+                .addContainerGap(145, Short.MAX_VALUE)
+                .addComponent(InicioLabel)
                 .addContainerGap(145, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SiguienteBtn)
+                    .addComponent(ElegirCine, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(168, 168, 168))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(115, Short.MAX_VALUE)
                 .addComponent(InicioLabel)
-                .addGap(45, 45, 45)
+                .addGap(48, 48, 48)
                 .addComponent(ElegirCine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(40, 40, 40)
                 .addComponent(SiguienteBtn)
-                .addGap(32, 32, 32))
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -84,8 +94,7 @@ public class ElegirCine extends javax.swing.JFrame {
     }//GEN-LAST:event_ElegirCineActionPerformed
 
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
-        // String cineElegido = ElegirCine.getSelectedItem().toString();
-        // fachada.getCines().cargarCine(cineElegido);
+        String cineElegido = ElegirCine.getSelectedItem().toString();
         ElegirPelicula ventana = new ElegirPelicula();
         ventana.setVisible(true);
         setVisible(false);

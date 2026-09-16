@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class ListaCines {
     public ArrayList <Cine> cines;
+    private int cineSeleccionado;
 
     public ListaCines() {
         this.cines = new ArrayList <>();
@@ -20,4 +21,6 @@ public class ListaCines {
         
         this.cines.add(cine);
     }
+    
+    
 }

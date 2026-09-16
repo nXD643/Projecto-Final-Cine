@@ -4,6 +4,7 @@
  */
 package Grafica;
 import Logica.Fachada;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,8 +44,8 @@ public class Registrarse extends javax.swing.JFrame {
         TelefonoLabel = new javax.swing.JLabel();
         TelefonoIngresado = new javax.swing.JTextField();
         ContrasenaLabel = new javax.swing.JLabel();
-        ContrasenaIngresada = new javax.swing.JTextField();
         InicioDeSesionBtn = new javax.swing.JButton();
+        ContrasenaIngresada = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,13 +62,28 @@ public class Registrarse extends javax.swing.JFrame {
         DocumentoLabel.setText("Documento");
 
         ApellidoIngresado.addActionListener(this::ApellidoIngresadoActionPerformed);
+        ApellidoIngresado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ApellidoIngresadoKeyTyped(evt);
+            }
+        });
 
         DocumentoIngresado.addActionListener(this::DocumentoIngresadoActionPerformed);
+        DocumentoIngresado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DocumentoIngresadoKeyTyped(evt);
+            }
+        });
 
         CorreoLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         CorreoLabel.setText("Correo Electronico");
 
         CorreoIngresado.addActionListener(this::CorreoIngresadoActionPerformed);
+        CorreoIngresado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CorreoIngresadoKeyTyped(evt);
+            }
+        });
 
         UsuarioLabel5.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
@@ -75,19 +91,33 @@ public class Registrarse extends javax.swing.JFrame {
         UsuarioLabel.setText("Nombre");
 
         NombreIngresado.addActionListener(this::NombreIngresadoActionPerformed);
+        NombreIngresado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NombreIngresadoKeyTyped(evt);
+            }
+        });
 
         TelefonoLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         TelefonoLabel.setText("Telefono");
 
         TelefonoIngresado.addActionListener(this::TelefonoIngresadoActionPerformed);
+        TelefonoIngresado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TelefonoIngresadoKeyTyped(evt);
+            }
+        });
 
         ContrasenaLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         ContrasenaLabel.setText("Contrasena");
 
-        ContrasenaIngresada.addActionListener(this::ContrasenaIngresadaActionPerformed);
-
         InicioDeSesionBtn.setText("Ya tengo cuenta, prefiero iniciar sesion");
         InicioDeSesionBtn.addActionListener(this::InicioDeSesionBtnActionPerformed);
+
+        ContrasenaIngresada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ContrasenaIngresadaKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,9 +151,9 @@ public class Registrarse extends javax.swing.JFrame {
                                     .addComponent(ContrasenaLabel)
                                     .addComponent(DocumentoLabel))
                                 .addGap(21, 21, 21)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DocumentoIngresado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(DocumentoIngresado, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                                    .addComponent(ContrasenaIngresada)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(6, 6, 6)
@@ -157,10 +187,10 @@ public class Registrarse extends javax.swing.JFrame {
                     .addComponent(ApellidoLabel)
                     .addComponent(ApellidoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ContrasenaLabel)
-                    .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                    .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CorreoLabel)
                     .addComponent(CorreoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -177,18 +207,24 @@ public class Registrarse extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(204, 204, 204)
                     .addComponent(UsuarioLabel5)
-                    .addContainerGap(96, Short.MAX_VALUE)))
+                    .addContainerGap(98, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
-        // fachada.registo(Integer.parseInt(DocumentoIngresado.getText()),NombreIngresado.getText(),ApellidoIngresado.getText(),CorreoIngresado.getText());
-        ElegirCine ventana = new ElegirCine();
-        ventana.setVisible(true);
-        setVisible(false);
-        // TODO add your handling code here:
+        String contrasena = new String(ContrasenaIngresada.getPassword());
+        int documento = Integer.parseInt(DocumentoIngresado.getText());
+        boolean registrarse = fachada.registo(documento,NombreIngresado.getText(),ApellidoIngresado.getText(),contrasena,CorreoIngresado.getText());
+        
+        if (registrarse == true) {
+            ElegirCine ventana = new ElegirCine();
+            ventana.setVisible(true);
+            setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido registrar, verifique y pruebe de nuevo");
+        }
     }//GEN-LAST:event_AceptarBtnActionPerformed
 
     private void ApellidoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoIngresadoActionPerformed
@@ -211,10 +247,6 @@ public class Registrarse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TelefonoIngresadoActionPerformed
 
-    private void ContrasenaIngresadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaIngresadaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ContrasenaIngresadaActionPerformed
-
     private void InicioDeSesionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioDeSesionBtnActionPerformed
         InicioDeSesion ventana = new InicioDeSesion();
         ventana.setVisible(true);
@@ -222,6 +254,58 @@ public class Registrarse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_InicioDeSesionBtnActionPerformed
 
+    private void DocumentoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DocumentoIngresadoKeyTyped
+        String documento = DocumentoIngresado.getText();
+    
+        if (documento.length() >= 8) {
+            DocumentoIngresado.setText(documento.substring(0,7));
+            JOptionPane.showMessageDialog(rootPane, "El documento no puede tener mas de 8 caracteres");
+        }
+    }//GEN-LAST:event_DocumentoIngresadoKeyTyped
+    
+    private void NombreIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreIngresadoKeyTyped
+        String nombre = NombreIngresado.getText();
+    
+        if (nombre.length() >= 15) {
+            NombreIngresado.setText(nombre.substring(0,14));
+            JOptionPane.showMessageDialog(rootPane, "El nombre no puede tener mas de 15 caracteres");
+        } 
+    }//GEN-LAST:event_NombreIngresadoKeyTyped
+
+    private void ApellidoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidoIngresadoKeyTyped
+        String apellido = ApellidoIngresado.getText();
+    
+        if (apellido.length() >= 15) {
+            DocumentoIngresado.setText(apellido.substring(0,14));
+            JOptionPane.showMessageDialog(rootPane, "El apellido no puede tener mas de 15 caracteres");
+        }
+    }//GEN-LAST:event_ApellidoIngresadoKeyTyped
+
+    private void ContrasenaIngresadaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContrasenaIngresadaKeyTyped
+        String contrasena = new String(ContrasenaIngresada.getPassword());
+    
+        if (contrasena.length() >= 20) {
+            DocumentoIngresado.setText(contrasena.substring(0,19));
+            JOptionPane.showMessageDialog(rootPane, "La contrasena no puede tener mas de 20 caracteres");
+        }
+    }//GEN-LAST:event_ContrasenaIngresadaKeyTyped
+
+    private void CorreoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CorreoIngresadoKeyTyped
+        String correo = CorreoIngresado.getText();
+    
+        if (correo.length() >= 30) {
+            DocumentoIngresado.setText(correo.substring(0,29));
+            JOptionPane.showMessageDialog(rootPane, "El correo no puede tener mas de 30 caracteres");
+        }    }//GEN-LAST:event_CorreoIngresadoKeyTyped
+
+    private void TelefonoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoIngresadoKeyTyped
+        String telefono = TelefonoIngresado.getText();
+    
+        if (telefono.length() >= 10) {
+            DocumentoIngresado.setText(telefono.substring(0,9));
+            JOptionPane.showMessageDialog(rootPane, "Un numero de telefono puede tener como maximo 10 caracteres");
+        }    }//GEN-LAST:event_TelefonoIngresadoKeyTyped
+       
     /**
      * @param args the command line arguments
      */
@@ -251,7 +335,7 @@ public class Registrarse extends javax.swing.JFrame {
     private javax.swing.JButton AceptarBtn;
     private javax.swing.JTextField ApellidoIngresado;
     private javax.swing.JLabel ApellidoLabel;
-    private javax.swing.JTextField ContrasenaIngresada;
+    private javax.swing.JPasswordField ContrasenaIngresada;
     private javax.swing.JLabel ContrasenaLabel;
     private javax.swing.JTextField CorreoIngresado;
     private javax.swing.JLabel CorreoLabel;

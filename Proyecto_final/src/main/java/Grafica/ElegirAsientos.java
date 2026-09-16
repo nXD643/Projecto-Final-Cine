@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Grafica;
+import Logica.Fachada;
+
 
 /**
  *
@@ -10,6 +12,7 @@ package Grafica;
  */
 public class ElegirAsientos extends javax.swing.JFrame {
     
+    private Fachada fachada = Fachada.getInstancia();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirAsientos.class.getName());
 
     /**
@@ -17,6 +20,8 @@ public class ElegirAsientos extends javax.swing.JFrame {
      */
     public ElegirAsientos() {
         initComponents();
+        
+        //fachada.
     }
 
     /**
@@ -30,6 +35,7 @@ public class ElegirAsientos extends javax.swing.JFrame {
 
         ConfirmarBtn = new javax.swing.JButton();
         VolverBtn = new javax.swing.JButton();
+        Asientos = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,6 +44,17 @@ public class ElegirAsientos extends javax.swing.JFrame {
 
         VolverBtn.setText("Volver");
         VolverBtn.addActionListener(this::VolverBtnActionPerformed);
+
+        javax.swing.GroupLayout AsientosLayout = new javax.swing.GroupLayout(Asientos);
+        Asientos.setLayout(AsientosLayout);
+        AsientosLayout.setHorizontalGroup(
+            AsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        AsientosLayout.setVerticalGroup(
+            AsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 258, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,11 +66,17 @@ public class ElegirAsientos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addComponent(ConfirmarBtn)
                 .addGap(50, 50, 50))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Asientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(270, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(Asientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConfirmarBtn)
                     .addComponent(VolverBtn))
@@ -103,6 +126,7 @@ public class ElegirAsientos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Asientos;
     private javax.swing.JButton ConfirmarBtn;
     private javax.swing.JButton VolverBtn;
     // End of variables declaration//GEN-END:variables

@@ -57,10 +57,10 @@
                                   <Component id="ContrasenaLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="DocumentoLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="DocumentoIngresado" alignment="1" min="-2" pref="199" max="-2" attributes="0"/>
-                                  <Component id="ContrasenaIngresada" alignment="1" min="-2" pref="199" max="-2" attributes="0"/>
+                              <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="DocumentoIngresado" pref="199" max="32767" attributes="0"/>
+                                  <Component id="ContrasenaIngresada" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
@@ -109,11 +109,11 @@
                   <Component id="ApellidoIngresado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ContrasenaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ContrasenaIngresada" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="ContrasenaLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="ContrasenaIngresada" min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="CorreoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CorreoIngresado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
@@ -133,7 +133,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
                   <Component id="UsuarioLabel5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="96" max="32767" attributes="0"/>
+                  <EmptySpace pref="98" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -175,11 +175,13 @@
     <Component class="javax.swing.JTextField" name="ApellidoIngresado">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ApellidoIngresadoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ApellidoIngresadoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="DocumentoIngresado">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DocumentoIngresadoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="DocumentoIngresadoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="CorreoLabel">
@@ -193,6 +195,7 @@
     <Component class="javax.swing.JTextField" name="CorreoIngresado">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CorreoIngresadoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CorreoIngresadoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="UsuarioLabel5">
@@ -213,6 +216,7 @@
     <Component class="javax.swing.JTextField" name="NombreIngresado">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NombreIngresadoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="NombreIngresadoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="TelefonoLabel">
@@ -226,6 +230,7 @@
     <Component class="javax.swing.JTextField" name="TelefonoIngresado">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TelefonoIngresadoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TelefonoIngresadoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="ContrasenaLabel">
@@ -236,17 +241,17 @@
         <Property name="text" type="java.lang.String" value="Contrasena"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="ContrasenaIngresada">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ContrasenaIngresadaActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="InicioDeSesionBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ya tengo cuenta, prefiero iniciar sesion"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InicioDeSesionBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="ContrasenaIngresada">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ContrasenaIngresadaKeyTyped"/>
       </Events>
     </Component>
   </SubComponents>

@@ -4,6 +4,7 @@
  */
 package Grafica;
 import Logica.Fachada;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,6 +40,7 @@ public class InicioDeSesion extends javax.swing.JFrame {
         ContrasenaIngresada = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
 
         AceptarBtn.setText("Aceptar");
@@ -57,6 +59,8 @@ public class InicioDeSesion extends javax.swing.JFrame {
 
         RegistrarseBtn.setText("No tengo cuenta, prefiero registrarme");
         RegistrarseBtn.addActionListener(this::RegistrarseBtnActionPerformed);
+
+        ContrasenaIngresada.addActionListener(this::ContrasenaIngresadaActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,27 +83,27 @@ public class InicioDeSesion extends javax.swing.JFrame {
                         .addGap(162, 162, 162)
                         .addComponent(AceptarBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(LabelInicio))
+                        .addGap(66, 66, 66)
+                        .addComponent(RegistrarseBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(RegistrarseBtn)))
-                .addContainerGap(208, Short.MAX_VALUE))
+                        .addGap(111, 111, 111)
+                        .addComponent(LabelInicio)))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addComponent(LabelInicio)
-                .addGap(33, 33, 33)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UsuarioLabel)
                     .addComponent(DocumentoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ContrasenaLabel)
-                    .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(86, 86, 86)
+                    .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addComponent(RegistrarseBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AceptarBtn)
@@ -110,12 +114,13 @@ public class InicioDeSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
-        boolean on_inicio = fachada.inicio_sesion(Integer.parseInt(DocumentoIngresado.getText()),ContrasenaIngresada.getText());
-        if (on_inicio == true) {
+        boolean inicio = fachada.inicio_sesion(Integer.parseInt(DocumentoIngresado.getText()),ContrasenaIngresada.getText());
+        if (inicio == true) {
             ElegirCine ventana = new ElegirCine();
             ventana.setVisible(true);
             setVisible(false);
-            System.out.println("oas");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido iniciar sesion, verifique y pruebe de nuevo");
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_AceptarBtnActionPerformed
@@ -130,6 +135,10 @@ public class InicioDeSesion extends javax.swing.JFrame {
         setVisible(false);        
         // TODO add your handling code here:
     }//GEN-LAST:event_RegistrarseBtnActionPerformed
+
+    private void ContrasenaIngresadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaIngresadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContrasenaIngresadaActionPerformed
 
     /**
      * @param args the command line arguments
