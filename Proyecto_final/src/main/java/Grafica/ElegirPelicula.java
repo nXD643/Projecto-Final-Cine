@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Grafica;
+import Logica.Fachada;
+import Logica.Cine;
 
 /**
  *
@@ -11,12 +13,25 @@ package Grafica;
 public class ElegirPelicula extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirPelicula.class.getName());
-
+    private Fachada fachada = Fachada.getInstancia();
+    private Cine cine_actual = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
+    
     /**
      * Creates new form ElegirCine
      */
     public ElegirPelicula() {
         initComponents();
+        
+        // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
+        cine_actual.cargarSala(2, 1234, MAXIMIZED_HORIZ, PROPERTIES, SOMEBITS);
+        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
+        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
+        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
+        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
+        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
+
+        //   
+        
         int cantidad_funciones = 10;
         for (int i = 0; i < cantidad_funciones; i++) {
             Pelicula pelicula = new Pelicula(this);

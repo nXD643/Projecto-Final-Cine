@@ -14,7 +14,8 @@ public class ElegirCine extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirCine.class.getName());
     private Fachada fachada = Fachada.getInstancia();
-    
+    private ListaCines listaCines = fachada.getCines();
+ 
     /**
      * Creates new form ElegirCine
      */
@@ -22,14 +23,13 @@ public class ElegirCine extends javax.swing.JFrame {
         initComponents();
         
         
-        ListaCines listaCines = fachada.getCines();
         
         // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
         listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine1");
-        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine2");
-        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine3");
-        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine4");
-        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine5");
+        listaCines.cargarCine("Callex", "Ciudadx", 321, "Cine2");
+        listaCines.cargarCine("Callex", "Ciudadx", 100, "Cine3");
+        listaCines.cargarCine("Callex", "Ciudadx", 010, "Cine4");
+        listaCines.cargarCine("Callex", "Ciudadx", 432, "Cine5");
         //         
         
         for (int numeroCine = listaCines.cines.size()-1;numeroCine >= 0;numeroCine--)
@@ -95,6 +95,8 @@ public class ElegirCine extends javax.swing.JFrame {
 
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
         String cineElegido = ElegirCine.getSelectedItem().toString();
+        listaCines.setCineSeleccionado(123); // temporal
+        
         ElegirPelicula ventana = new ElegirPelicula();
         ventana.setVisible(true);
         setVisible(false);

@@ -21,6 +21,12 @@ public class ListaCines {
         
         this.cines.add(cine);
     }
-    
-    
+
+    public int getCineSeleccionado() {
+        return cineSeleccionado;
+    }
+
+    public void setCineSeleccionado(int cineSeleccionado) {
+        this.cineSeleccionado = cineSeleccionado;
+    }
 }
