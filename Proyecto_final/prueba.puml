@@ -1,0 +1,26 @@
+@startuml
+class com.mycompany.proyecto_final.Asiento
+class com.mycompany.proyecto_final.Cine
+class com.mycompany.proyecto_final.Cliente
+class com.mycompany.proyecto_final.Compra
+class com.mycompany.proyecto_final.Entrada
+class com.mycompany.proyecto_final.Fachada
+class com.mycompany.proyecto_final.Funcion
+class com.mycompany.proyecto_final.ListaCines
+class com.mycompany.proyecto_final.Pelicula
+class com.mycompany.proyecto_final.Proyecto_final
+class com.mycompany.proyecto_final.Sala
+class java.util.ArrayList
+class java.util.Date
+com.mycompany.proyecto_final.Cine ..> java.util.ArrayList
+com.mycompany.proyecto_final.Cliente ..> java.util.ArrayList
+com.mycompany.proyecto_final.Compra ..> java.util.ArrayList
+com.mycompany.proyecto_final.Compra ..> java.util.Date
+com.mycompany.proyecto_final.Entrada ..> java.util.Date
+com.mycompany.proyecto_final.Fachada ..> java.util.ArrayList
+com.mycompany.proyecto_final.Funcion ..> java.util.Date
+com.mycompany.proyecto_final.ListaCines ..> java.util.ArrayList
+com.mycompany.proyecto_final.Pelicula ..> java.util.ArrayList
+com.mycompany.proyecto_final.Pelicula ..> java.util.Date
+com.mycompany.proyecto_final.Sala ..> java.util.ArrayList
+@enduml
