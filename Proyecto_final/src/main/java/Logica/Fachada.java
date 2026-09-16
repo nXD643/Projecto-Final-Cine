@@ -24,7 +24,7 @@ public class Fachada {
         return instancia;
     }
     
-    private boolean inicio_sesion(int documento, String contrasena)
+    public boolean inicio_sesion(int documento, String contrasena)
     {
         // Hay que terminarlo
         
@@ -37,7 +37,7 @@ public class Fachada {
         return true;
     }
     
-    private boolean registo(int documento, String nombre, String apellido, String correo_electronico, String contrasena)
+    public boolean registo(int documento, String nombre, String apellido, String correo_electronico, String contrasena)
     {
         if (!verificarCedula(documento))
         {

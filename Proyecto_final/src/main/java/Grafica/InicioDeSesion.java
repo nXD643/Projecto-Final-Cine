@@ -33,12 +33,13 @@ public class InicioDeSesion extends javax.swing.JFrame {
         AceptarBtn = new javax.swing.JButton();
         LabelInicio = new javax.swing.JLabel();
         UsuarioLabel = new javax.swing.JLabel();
-        UsuarioIngresado = new javax.swing.JTextField();
+        DocumentoIngresado = new javax.swing.JTextField();
         ContrasenaLabel = new javax.swing.JLabel();
-        ContrasenaIngresada = new javax.swing.JTextField();
         RegistrarseBtn = new javax.swing.JButton();
+        ContrasenaIngresada = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         AceptarBtn.setText("Aceptar");
         AceptarBtn.addActionListener(this::AceptarBtnActionPerformed);
@@ -49,12 +50,10 @@ public class InicioDeSesion extends javax.swing.JFrame {
         UsuarioLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         UsuarioLabel.setText("Documento");
 
-        UsuarioIngresado.addActionListener(this::UsuarioIngresadoActionPerformed);
+        DocumentoIngresado.addActionListener(this::DocumentoIngresadoActionPerformed);
 
         ContrasenaLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         ContrasenaLabel.setText("Contrasena");
-
-        ContrasenaIngresada.addActionListener(this::ContrasenaIngresadaActionPerformed);
 
         RegistrarseBtn.setText("No tengo cuenta, prefiero registrarme");
         RegistrarseBtn.addActionListener(this::RegistrarseBtnActionPerformed);
@@ -67,28 +66,25 @@ public class InicioDeSesion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ContrasenaLabel)
-                                .addGap(21, 21, 21)
-                                .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(UsuarioLabel)
                                 .addGap(21, 21, 21)
-                                .addComponent(UsuarioIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(DocumentoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ContrasenaLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(ContrasenaIngresada))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(162, 162, 162)
-                        .addComponent(AceptarBtn)))
-                .addContainerGap(52, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(AceptarBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(LabelInicio))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(RegistrarseBtn)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,12 +94,12 @@ public class InicioDeSesion extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UsuarioLabel)
-                    .addComponent(UsuarioIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(DocumentoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ContrasenaLabel)
-                    .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                    .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(86, 86, 86)
                 .addComponent(RegistrarseBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AceptarBtn)
@@ -114,21 +110,19 @@ public class InicioDeSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
-        // fachada.inicio_sesion(Integer.parseInt(DocumentoIngresado.getText()),ContrasenaIngresada.getText);
-        ElegirCine ventana = new ElegirCine();
-        ventana.setVisible(true);
-        setVisible(false);
-        System.out.println("oas");
+        boolean on_inicio = fachada.inicio_sesion(Integer.parseInt(DocumentoIngresado.getText()),ContrasenaIngresada.getText());
+        if (on_inicio == true) {
+            ElegirCine ventana = new ElegirCine();
+            ventana.setVisible(true);
+            setVisible(false);
+            System.out.println("oas");
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_AceptarBtnActionPerformed
 
-    private void UsuarioIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioIngresadoActionPerformed
+    private void DocumentoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoIngresadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioIngresadoActionPerformed
-
-    private void ContrasenaIngresadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaIngresadaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ContrasenaIngresadaActionPerformed
+    }//GEN-LAST:event_DocumentoIngresadoActionPerformed
 
     private void RegistrarseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseBtnActionPerformed
         Registrarse ventana = new Registrarse();
@@ -164,11 +158,11 @@ public class InicioDeSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AceptarBtn;
-    private javax.swing.JTextField ContrasenaIngresada;
+    private javax.swing.JPasswordField ContrasenaIngresada;
     private javax.swing.JLabel ContrasenaLabel;
+    private javax.swing.JTextField DocumentoIngresado;
     private javax.swing.JLabel LabelInicio;
     private javax.swing.JButton RegistrarseBtn;
-    private javax.swing.JTextField UsuarioIngresado;
     private javax.swing.JLabel UsuarioLabel;
     // End of variables declaration//GEN-END:variables
 }

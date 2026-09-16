@@ -2,9 +2,11 @@ package Logica;
 
 import java.sql.*;
 import java.time.*;
+import Grafica.Presentacion;
 
 public class Proyecto_final {
     public static void main(String[] args) {
+        
         
         
         LocalDate fecha = LocalDate.of(2026, 7, 20);
@@ -48,5 +50,8 @@ public class Proyecto_final {
         f.verificarCedula(58376015);
         
         System.out.println(f.verificarTarjeta("4003600000000014"));
+        
+        Presentacion ventana_inicio = new Presentacion();
+        ventana_inicio.setVisible(true);
     }
 }
