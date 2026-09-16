@@ -1,0 +1,73 @@
+package Logica;
+
+import java.time.LocalDate;
+
+public class Funcion {
+    private LocalDate fecha;
+    private int id;
+    private int precio_base;
+    private Pelicula pelicula;
+    private Asiento[][] asientos;
+    private String hora;
+
+    public Funcion(LocalDate fecha, int id, int precio_base, Pelicula pelicula, int largo, int ancho, String hora) {
+        this.fecha = fecha;
+        this.id = id;
+        this.precio_base = precio_base;
+        this.pelicula = pelicula;
+        this.asientos = new Asiento[largo][ancho];
+        this.hora = hora;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPrecio_base() {
+        return precio_base;
+    }
+
+    public Pelicula getPelicula() {
+        return pelicula;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+       
+    public Asiento buscarAsiento(int id)
+    {
+        for(int i = 0; i < this.asientos.length; i ++)
+        {
+            for(int j = 0; j < this.asientos[0].length; j ++)
+            {
+                if(this.asientos[i][j].getId() == id)
+                {
+                    return this.asientos[i][j];
+                }
+            }
+        }
+        return null;
+    }
+    
+    // Puede que no funcione, revisar
+    public void cargarAsiento(int id, boolean estado)
+    {
+        Asiento asiento = new Asiento(id, estado);
+        
+        for(int i = 0; i < this.asientos.length; i ++)
+        {
+            for(int j = 0; j < this.asientos[0].length; j ++)
+            {
+                if(this.asientos[i][j] == null)
+                {
+                    this.asientos[i][j] = asiento;
+                }
+            }
+        }
+    }
+}
