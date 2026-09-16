@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="NdEOjZEL0Rzj4MhtuqwQ">
-    <mxGraphModel dx="770" dy="1872" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="924" dy="2012" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -603,6 +603,18 @@
         </mxCell>
         <mxCell id="V4aABZ8JwwM5Q7P9nt5K-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Apellido" vertex="1">
           <mxGeometry height="30" width="60" x="601" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="3jphJMof1_6Yr_0C8ZHc-1" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;startArrow=oval;startFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="FOiZT3VuQ7tfF4Rd8GiM-96" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1040" y="-125" as="sourcePoint" />
+            <mxPoint x="1120" y="-130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3jphJMof1_6Yr_0C8ZHc-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Contraseña" vertex="1">
+          <mxGeometry height="30" width="60" x="967.5" y="-140" as="geometry" />
+        </mxCell>
+        <mxCell id="3jphJMof1_6Yr_0C8ZHc-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Text" vertex="1">
+          <mxGeometry height="30" width="60" x="850" y="-275" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
