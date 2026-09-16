@@ -37,13 +37,13 @@ public class Fachada {
         return true;
     }
     
-    public boolean registo(int documento, String nombre, String apellido, String correo_electronico, String contrasena)
+    public boolean registo(int documento, String nombre, String apellido, String correo_electronico, String contrasena, ArrayList telefonos)
     {
         if (!verificarCedula(documento))
         {
             return false;
         }
-        this.cliente = new Cliente(documento, nombre, apellido, correo_electronico, contrasena);
+        this.cliente = new Cliente(documento, nombre, apellido, correo_electronico, contrasena, telefonos);
         
         return true;
     }
