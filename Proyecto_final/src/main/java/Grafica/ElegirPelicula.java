@@ -17,9 +17,9 @@ public class ElegirPelicula extends javax.swing.JFrame {
      */
     public ElegirPelicula() {
         initComponents();
-    int cantidad_funciones = 10;
+        int cantidad_funciones = 10;
         for (int i = 0; i < cantidad_funciones; i++) {
-            Pelicula pelicula = new Pelicula();
+            Pelicula pelicula = new Pelicula(this);
             PeliculasPanel.add(pelicula);
         }
     }

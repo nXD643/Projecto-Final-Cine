@@ -103,7 +103,7 @@ public class MetodoDePago extends javax.swing.JFrame {
     }//GEN-LAST:event_SiguienteBtnActionPerformed
 
     private void VolverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBtnActionPerformed
-        ElegirFuncion ventana = new ElegirFuncion();
+        ElegirAsientos ventana = new ElegirAsientos();
         ventana.setVisible(true);
         setVisible(false);
         // TODO add your handling code here:

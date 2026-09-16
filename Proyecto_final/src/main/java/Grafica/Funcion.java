@@ -9,12 +9,14 @@ package Grafica;
  * @author nacho
  */
 public class Funcion extends javax.swing.JPanel {
+    private ElegirFuncion elegirfuncion;
 
     /**
      * Creates new form Funcion
      */
-    public Funcion() {
+    public Funcion(ElegirFuncion elegirfuncion) {
         initComponents();
+        this.elegirfuncion = elegirfuncion;
     }
 
     /**
@@ -59,7 +61,7 @@ public class Funcion extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ElegirAsientos ventana = new ElegirAsientos();
         ventana.setVisible(true);
-        this.setVisible(false);
+        elegirfuncion.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -4,17 +4,22 @@
  */
 package Grafica;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author nacho
  */
 public class Pelicula extends javax.swing.JPanel {
-
+    private ElegirPelicula elegirpeli;
+    
     /**
      * Creates new form Pelicula
      */
-    public Pelicula() {
+    public Pelicula(ElegirPelicula elegirpeli) {
         initComponents();
+        this.elegirpeli = elegirpeli;
+        System.out.println(elegirpeli);
     }
 
     /**
@@ -56,9 +61,12 @@ public class Pelicula extends javax.swing.JPanel {
     private void PeliculaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeliculaBtnActionPerformed
         ElegirFuncion ventana = new ElegirFuncion();
         ventana.setVisible(true);
+        elegirpeli.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_PeliculaBtnActionPerformed
 
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PeliculaBtn;

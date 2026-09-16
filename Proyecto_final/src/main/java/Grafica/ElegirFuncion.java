@@ -20,7 +20,7 @@ public ElegirFuncion() {
     
     int cantidad_funciones = 10;
     for (int i = 0; i < cantidad_funciones; i++) {
-        Funcion funcion = new Funcion();
+        Funcion funcion = new Funcion(this);
         FuncionesPanel.add(funcion);
     }
 }
@@ -57,7 +57,9 @@ public ElegirFuncion() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VolverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBtnActionPerformed
-        
+        ElegirPelicula ventana = new ElegirPelicula();
+        ventana.setVisible(true);
+        setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_VolverBtnActionPerformed
 
