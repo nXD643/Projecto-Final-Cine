@@ -1,4 +1,15 @@
-/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/Main.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/Asiento.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/ElegirAsientos.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/ElegirCine.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/ElegirFuncion.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/ElegirPelicula.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/Funcion.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/InicioDeSesion.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/MetodoDePago.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/PagoRealizado.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/Pelicula.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/Presentacion.java
+/home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Grafica/Registrarse.java
 /home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Logica/Asiento.java
 /home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Logica/Cine.java
 /home/nahuel/Repositories/Projecto-Final-Cine/Proyecto_final/src/main/java/Logica/Cliente.java

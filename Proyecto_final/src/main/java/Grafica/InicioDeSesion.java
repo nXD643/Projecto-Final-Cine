@@ -12,7 +12,7 @@ import Logica.Fachada;
 public class InicioDeSesion extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InicioDeSesion.class.getName());
-    private Fachada fachada = new Fachada();
+    private Fachada fachada = Fachada.getInstancia();
     
     /**
      * Creates new form InicioDeSesion
