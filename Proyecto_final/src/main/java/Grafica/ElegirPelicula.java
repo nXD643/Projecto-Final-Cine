@@ -5,6 +5,9 @@
 package Grafica;
 import Logica.Fachada;
 import Logica.Cine;
+import Logica.Pelicula;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +18,7 @@ public class ElegirPelicula extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirPelicula.class.getName());
     private Fachada fachada = Fachada.getInstancia();
     private Cine cine_actual = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
+    private ArrayList<Pelicula> peliculas = cine_actual.ListaPeliculas();
     
     /**
      * Creates new form ElegirCine
@@ -23,18 +27,20 @@ public class ElegirPelicula extends javax.swing.JFrame {
         initComponents();
         
         // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
-        cine_actual.cargarSala(2, 1234, MAXIMIZED_HORIZ, PROPERTIES, SOMEBITS);
-        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
-        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
-        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
-        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
-        cine_actual.buscarSala(WIDTH).buscarFuncion(WIDTH).getPelicula();
-
+        for (int i = 0;i < 10; i++) {
+            LocalDate date = LocalDate.of(2020, 1, 8);
+            ArrayList<String> genero = new ArrayList();
+            genero.add("Terror");
+            Pelicula pelicula = new Pelicula("3 hs",17,"Spiderman",19201,date,genero);
+            peliculas.add(pelicula);
+        }
         //   
-        
-        int cantidad_funciones = 10;
+
+        int cantidad_funciones = peliculas.size();
         for (int i = 0; i < cantidad_funciones; i++) {
-            Pelicula pelicula = new Pelicula(this);
+            Pelicula peliculaActual = peliculas.get(i);
+            Peliculaui pelicula = new Peliculaui(this);
+            
             PeliculasPanel.add(pelicula);
         }
     }
