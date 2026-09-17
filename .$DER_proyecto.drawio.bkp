@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="NdEOjZEL0Rzj4MhtuqwQ">
-    <mxGraphModel dx="2991" dy="2702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1371" dy="3041" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -286,7 +286,7 @@
           <mxGeometry height="30" width="60" x="1090" y="620" as="geometry" />
         </mxCell>
         <mxCell id="FOiZT3VuQ7tfF4Rd8GiM-85" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
-          <mxGeometry height="30" width="60" x="850" y="622.5" as="geometry" />
+          <mxGeometry height="30" width="60" x="890" y="-1610" as="geometry" />
         </mxCell>
         <mxCell id="FOiZT3VuQ7tfF4Rd8GiM-93" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;direction=south;" value="&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="80" x="1147.5" y="50" as="geometry" />
@@ -515,7 +515,7 @@
           <mxGeometry height="30" width="60" x="1170" y="250" as="geometry" />
         </mxCell>
         <mxCell id="y7BbNnUgKBoXpzkD37sf-2" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;font style=&quot;font-size: 40px;&quot;&gt;RNE:&lt;/font&gt;&lt;/h1&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;1. El cliente puede cancelar su entrada solamente antes del inicio de la función.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;2. El atributo cargo de la entidad Empleado puede solamente tener como valor a &quot;Cajero&quot; y &quot;Acomodador&quot;.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;3. El atributo estado de la relacion Compra puede tener solamente&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;font-size: 24px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;como valor a &quot;Cancelado&quot; y &quot;Activo&quot;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 24px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 24px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;4. La entidad Sala puede albergar una funcion a la vez&lt;/span&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="488" width="520" x="1500" y="-613" as="geometry" />
+          <mxGeometry height="488" width="520" x="1500" y="-358" as="geometry" />
         </mxCell>
         <mxCell id="y7BbNnUgKBoXpzkD37sf-3" edge="1" parent="1" style="endArrow=oval;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=1;" target="FOiZT3VuQ7tfF4Rd8GiM-30" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
@@ -612,6 +612,34 @@
         </mxCell>
         <mxCell id="3jphJMof1_6Yr_0C8ZHc-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Contraseña" vertex="1">
           <mxGeometry height="30" width="60" x="967.5" y="-140" as="geometry" />
+        </mxCell>
+        <mxCell id="s67xYzJIjdOc1Aq4L61X-2" edge="1" parent="1" source="FOiZT3VuQ7tfF4Rd8GiM-84" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" target="FOiZT3VuQ7tfF4Rd8GiM-27" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1010" y="510" />
+              <mxPoint x="1010" y="430" />
+            </Array>
+            <mxPoint x="870" y="622.5" as="sourcePoint" />
+            <mxPoint x="870" y="342.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s67xYzJIjdOc1Aq4L61X-3" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;direction=south;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="970" y="431.5" as="geometry" />
+        </mxCell>
+        <mxCell id="s67xYzJIjdOc1Aq4L61X-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Aloja" vertex="1">
+          <mxGeometry height="30" width="60" x="980" y="456.5" as="geometry" />
+        </mxCell>
+        <mxCell id="s67xYzJIjdOc1Aq4L61X-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="N" vertex="1">
+          <mxGeometry height="30" width="60" x="850" y="342.5" as="geometry" />
+        </mxCell>
+        <mxCell id="s67xYzJIjdOc1Aq4L61X-6" edge="1" parent="1" source="s67xYzJIjdOc1Aq4L61X-3" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;endFill=0;startArrow=none;startFill=0;" target="FOiZT3VuQ7tfF4Rd8GiM-27" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="790" y="642.5" as="sourcePoint" />
+            <mxPoint x="870" y="332.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s67xYzJIjdOc1Aq4L61X-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="N" vertex="1">
+          <mxGeometry height="30" width="60" x="1110" y="590" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

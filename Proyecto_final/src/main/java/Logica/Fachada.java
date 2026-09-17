@@ -32,8 +32,6 @@ public class Fachada {
         {
             return false;
         }
-        
-        this.cliente = cliente;
         return true;
     }
     
