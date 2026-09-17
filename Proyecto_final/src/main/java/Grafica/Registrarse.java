@@ -216,7 +216,7 @@ public class Registrarse extends javax.swing.JFrame {
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
         String contrasena = new String(ContrasenaIngresada.getPassword());
         int documento = Integer.parseInt(DocumentoIngresado.getText());
-        boolean registrarse = fachada.registo(documento,NombreIngresado.getText(),ApellidoIngresado.getText(),contrasena,CorreoIngresado.getText());
+        boolean registrarse = fachada.registo(documento,NombreIngresado.getText(),ApellidoIngresado.getText(),contrasena,CorreoIngresado.getText(),null);
         
         if (registrarse == true) {
             ElegirCine ventana = new ElegirCine();

@@ -10,13 +10,13 @@ import javax.swing.JFrame;
  *
  * @author nacho
  */
-public class Pelicula extends javax.swing.JPanel {
+public class Peliculaui extends javax.swing.JPanel {
     private ElegirPelicula elegirpeli;
     
     /**
      * Creates new form Pelicula
      */
-    public Pelicula(ElegirPelicula elegirpeli) {
+    public Peliculaui(ElegirPelicula elegirpeli) {
         initComponents();
         this.elegirpeli = elegirpeli;
         System.out.println(elegirpeli);
@@ -34,12 +34,15 @@ public class Pelicula extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         PeliculaBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel2.setText("Nombre: Hola");
 
         jLabel1.setText("Nombre: Hola");
 
         PeliculaBtn.addActionListener(this::PeliculaBtnActionPerformed);
+
+        jLabel3.setText("Genero: Terror");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -49,6 +52,8 @@ public class Pelicula extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -56,7 +61,9 @@ public class Pelicula extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(PeliculaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -75,5 +82,6 @@ public class Pelicula extends javax.swing.JPanel {
     private javax.swing.JButton PeliculaBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
