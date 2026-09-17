@@ -40,9 +40,9 @@ public class Cine {
         return this.salas.get(id);
     }
     
-    public Pelicula buscarPelicula(int id)
+    public ArrayList ListaPeliculas()
     {
-        return this.peliculas.get(id);
+        return this.peliculas;
     }
     
     public void cargarSala(int numero, int id, int capacidad_maxima, int largo_asientos, int ancho_asientos)
