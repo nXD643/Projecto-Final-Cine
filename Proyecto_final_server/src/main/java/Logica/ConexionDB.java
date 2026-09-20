@@ -115,22 +115,19 @@ public class ConexionDB {
         return datos_obtenidos.split(";");
     }
         
-    public static String obtenerTelefonos() {
+    public static String obtenerTelefonos(String IDcliente) {
         return "";// Obtiene los telefonos de la base de datos
-    }
-    public static String obtenerSala(String ID) {
-        return "";// Obtiene la sala de la base de datos
     }
     public static String obtenerFunciones(String IDpelicula) {
         return "";// obtiene las funciones de la base de datos
     }
-    public static String obtenerPeliculas(String ) {
+    public static String obtenerPeliculas(String IDcine) {
         return "";// obtiene las peliculas de la base de datos
     }
     public static String obtenerCines() {
         return "";// obtiene los cines de la base de datos
     }
-    public static String obtenerAsientos(String IDsala) {
+    public static String obtenerSala(String IDsala) {
         return "";// obtiene los asientos de la base de datos
     }
     public static String obtenerComrpas(String IDusuario) {
