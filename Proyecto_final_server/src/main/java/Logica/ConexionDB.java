@@ -23,6 +23,11 @@ public class ConexionDB {
             return false;
         }
     }
+    
+    public static void conectarJava() {
+        ;// conecta el servidor con la aplicacion
+    }
+    
     public static Connection realizarConexion()
     {
         String url = "jdbc:mysql://localhost:3306/complejo_cines";
@@ -108,5 +113,27 @@ public class ConexionDB {
             System.out.println("Error con la sentencia MYSQL");
         }
         return datos_obtenidos.split(";");
+    }
+        
+    public static String obtenerTelefonos() {
+        return "";// Obtiene los telefonos de la base de datos
+    }
+    public static String obtenerSala(String ID) {
+        return "";// Obtiene la sala de la base de datos
+    }
+    public static String obtenerFunciones(String IDpelicula) {
+        return "";// obtiene las funciones de la base de datos
+    }
+    public static String obtenerPeliculas(String ) {
+        return "";// obtiene las peliculas de la base de datos
+    }
+    public static String obtenerCines() {
+        return "";// obtiene los cines de la base de datos
+    }
+    public static String obtenerAsientos(String IDsala) {
+        return "";// obtiene los asientos de la base de datos
+    }
+    public static String obtenerComrpas(String IDusuario) {
+        return "";// obtieen las compras del usuario 
     }
 }
