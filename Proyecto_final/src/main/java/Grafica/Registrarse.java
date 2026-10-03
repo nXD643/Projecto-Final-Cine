@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Grafica;
+
 import Logica.Fachada;
 import javax.swing.JOptionPane;
 
@@ -11,9 +12,10 @@ import javax.swing.JOptionPane;
  * @author nacho
  */
 public class Registrarse extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registrarse.class.getName());
     Fachada fachada = Fachada.getInstancia();
+
     /**
      * Creates new form InicioDeSesion
      */
@@ -214,16 +216,21 @@ public class Registrarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
-        String contrasena = new String(ContrasenaIngresada.getPassword());
-        int documento = Integer.parseInt(DocumentoIngresado.getText());
-        boolean registrarse = fachada.registo(documento,NombreIngresado.getText(),ApellidoIngresado.getText(),contrasena,CorreoIngresado.getText(),null);
-        
-        if (registrarse == true) {
-            ElegirCine ventana = new ElegirCine();
-            ventana.setVisible(true);
-            setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "No se ha podido registrar, verifique y pruebe de nuevo");
+
+        try { // El try and catch es por si el docummento es un numero no valido, puede devolver un error, pasa lo mismo si es null al pasarlo a int
+            String contrasena = new String(ContrasenaIngresada.getPassword());
+            int documento = Integer.parseInt(DocumentoIngresado.getText());
+         
+            boolean registrarse = fachada.registo(documento, NombreIngresado.getText(), ApellidoIngresado.getText(), contrasena, CorreoIngresado.getText(), null);
+            if (registrarse == true) {
+                ElegirCine ventana = new ElegirCine();
+                ventana.setVisible(true);
+                setVisible(false);
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido iniciar sesion, verifique y pruebe de nuevo");
         }
     }//GEN-LAST:event_AceptarBtnActionPerformed
 
@@ -250,62 +257,62 @@ public class Registrarse extends javax.swing.JFrame {
     private void InicioDeSesionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioDeSesionBtnActionPerformed
         InicioDeSesion ventana = new InicioDeSesion();
         ventana.setVisible(true);
-        setVisible(false);   
+        setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_InicioDeSesionBtnActionPerformed
 
     private void DocumentoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DocumentoIngresadoKeyTyped
         String documento = DocumentoIngresado.getText();
-    
+
         if (documento.length() >= 8) {
-            DocumentoIngresado.setText(documento.substring(0,7));
+            DocumentoIngresado.setText(documento.substring(0, 7));
             JOptionPane.showMessageDialog(rootPane, "El documento no puede tener mas de 8 caracteres");
         }
     }//GEN-LAST:event_DocumentoIngresadoKeyTyped
-    
+
     private void NombreIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreIngresadoKeyTyped
         String nombre = NombreIngresado.getText();
-    
+
         if (nombre.length() >= 15) {
-            NombreIngresado.setText(nombre.substring(0,14));
+            NombreIngresado.setText(nombre.substring(0, 14));
             JOptionPane.showMessageDialog(rootPane, "El nombre no puede tener mas de 15 caracteres");
-        } 
+        }
     }//GEN-LAST:event_NombreIngresadoKeyTyped
 
     private void ApellidoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidoIngresadoKeyTyped
         String apellido = ApellidoIngresado.getText();
-    
+
         if (apellido.length() >= 15) {
-            DocumentoIngresado.setText(apellido.substring(0,14));
+            DocumentoIngresado.setText(apellido.substring(0, 14));
             JOptionPane.showMessageDialog(rootPane, "El apellido no puede tener mas de 15 caracteres");
         }
     }//GEN-LAST:event_ApellidoIngresadoKeyTyped
 
     private void ContrasenaIngresadaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContrasenaIngresadaKeyTyped
         String contrasena = new String(ContrasenaIngresada.getPassword());
-    
+
         if (contrasena.length() >= 20) {
-            DocumentoIngresado.setText(contrasena.substring(0,19));
+            DocumentoIngresado.setText(contrasena.substring(0, 19));
             JOptionPane.showMessageDialog(rootPane, "La contrasena no puede tener mas de 20 caracteres");
         }
     }//GEN-LAST:event_ContrasenaIngresadaKeyTyped
 
     private void CorreoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CorreoIngresadoKeyTyped
         String correo = CorreoIngresado.getText();
-    
+
         if (correo.length() >= 30) {
-            DocumentoIngresado.setText(correo.substring(0,29));
+            DocumentoIngresado.setText(correo.substring(0, 29));
             JOptionPane.showMessageDialog(rootPane, "El correo no puede tener mas de 30 caracteres");
         }    }//GEN-LAST:event_CorreoIngresadoKeyTyped
 
     private void TelefonoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoIngresadoKeyTyped
         String telefono = TelefonoIngresado.getText();
-    
+
         if (telefono.length() >= 10) {
-            DocumentoIngresado.setText(telefono.substring(0,9));
+            DocumentoIngresado.setText(telefono.substring(0, 9));
             JOptionPane.showMessageDialog(rootPane, "Un numero de telefono puede tener como maximo 10 caracteres");
         }    }//GEN-LAST:event_TelefonoIngresadoKeyTyped
-       
+
     /**
      * @param args the command line arguments
      */
