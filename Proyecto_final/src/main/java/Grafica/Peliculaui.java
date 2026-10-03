@@ -10,13 +10,13 @@ import javax.swing.JFrame;
  *
  * @author nacho
  */
-public class Peliculaui extends javax.swing.JPanel {
+public class PeliculaUI extends javax.swing.JPanel {
     private ElegirPelicula elegirpeli;
     
     /**
      * Creates new form Pelicula
      */
-    public Peliculaui(ElegirPelicula elegirpeli) {
+    public PeliculaUI(ElegirPelicula elegirpeli) {
         initComponents();
         this.elegirpeli = elegirpeli;
         System.out.println(elegirpeli);

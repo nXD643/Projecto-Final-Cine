@@ -34,12 +34,13 @@ public class ElegirPelicula extends javax.swing.JFrame {
             Pelicula pelicula = new Pelicula("3 hs",17,"Spiderman",19201,date,genero);
             peliculas.add(pelicula);
         }
-        //   
-
+        
+        
+        //   extraer las peliculas de la parte logica
         int cantidad_funciones = peliculas.size();
         for (int i = 0; i < cantidad_funciones; i++) {
             Pelicula peliculaActual = peliculas.get(i);
-            Peliculaui pelicula = new Peliculaui(this);
+            PeliculaUI pelicula = new PeliculaUI(this);
             
             PeliculasPanel.add(pelicula);
         }

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Grafica;
+
 import Logica.Fachada;
 import javax.swing.JOptionPane;
 
@@ -11,10 +12,10 @@ import javax.swing.JOptionPane;
  * @author nacho
  */
 public class InicioDeSesion extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InicioDeSesion.class.getName());
     private Fachada fachada = Fachada.getInstancia();
-    
+
     /**
      * Creates new form InicioDeSesion
      */
@@ -112,15 +113,18 @@ public class InicioDeSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
-        boolean inicio = fachada.inicio_sesion(Integer.parseInt(DocumentoIngresado.getText()),ContrasenaIngresada.getText());
-        if (inicio == true) {
-            ElegirCine ventana = new ElegirCine();
-            ventana.setVisible(true);
-            setVisible(false);
-        } else {
+        if (DocumentoIngresado.getText().isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "No se ha podido iniciar sesion, verifique y pruebe de nuevo");
+        } else {
+            boolean inicio = fachada.inicio_sesion(Integer.parseInt(DocumentoIngresado.getText()), ContrasenaIngresada.getText());
+            if (inicio == true) {
+                ElegirCine ventana = new ElegirCine();
+                ventana.setVisible(true);
+                setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "No se ha podido iniciar sesion, verifique y pruebe de nuevo");
+            }
         }
-        // TODO add your handling code here:
     }//GEN-LAST:event_AceptarBtnActionPerformed
 
     private void DocumentoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoIngresadoActionPerformed
@@ -130,7 +134,7 @@ public class InicioDeSesion extends javax.swing.JFrame {
     private void RegistrarseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseBtnActionPerformed
         Registrarse ventana = new Registrarse();
         ventana.setVisible(true);
-        setVisible(false);        
+        setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_RegistrarseBtnActionPerformed
 
