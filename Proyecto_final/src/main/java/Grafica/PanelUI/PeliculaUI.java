@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Grafica;
+package Grafica.PanelUI;
 
+import Grafica.Menus.ElegirFuncion;
+import Grafica.Menus.ElegirPelicula;
 import javax.swing.JFrame;
 
 /**
@@ -11,15 +13,15 @@ import javax.swing.JFrame;
  * @author nacho
  */
 public class PeliculaUI extends javax.swing.JPanel {
-    private ElegirPelicula elegirpeli;
+    private ElegirPelicula siguienteVentana;
     
     /**
      * Creates new form Pelicula
      */
-    public PeliculaUI(ElegirPelicula elegirpeli) {
+    public PeliculaUI(ElegirPelicula siguienteVentana) {
         initComponents();
-        this.elegirpeli = elegirpeli;
-        System.out.println(elegirpeli);
+        this.siguienteVentana = siguienteVentana;
+        System.out.println(siguienteVentana);
     }
 
     /**
@@ -71,7 +73,7 @@ public class PeliculaUI extends javax.swing.JPanel {
     private void PeliculaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeliculaBtnActionPerformed
         ElegirFuncion ventana = new ElegirFuncion();
         ventana.setVisible(true);
-        elegirpeli.setVisible(false);
+        siguienteVentana.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_PeliculaBtnActionPerformed
 

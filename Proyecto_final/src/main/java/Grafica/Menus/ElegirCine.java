@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Grafica;
+package Grafica.Menus;
+import Grafica.Menus.ElegirPelicula;
 import Logica.Fachada;
 import Logica.ListaCines;
 
@@ -14,7 +15,7 @@ public class ElegirCine extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirCine.class.getName());
     private Fachada fachada = Fachada.getInstancia();
- 
+    
     /**
      * Creates new form ElegirCine
      */
@@ -32,7 +33,7 @@ public class ElegirCine extends javax.swing.JFrame {
         for (int numeroCine = fachada.getCines().cines.size()-1;numeroCine >= 0;numeroCine--)
             ElegirCine.addItem(fachada.getCines().cines.get(numeroCine).getNombre());
         }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,11 +85,11 @@ public class ElegirCine extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void ElegirCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElegirCineActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ElegirCineActionPerformed
-
+    
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
         String cineElegido = ElegirCine.getSelectedItem().toString();
         fachada.getCines().setCineSeleccionado(123); // temporal
@@ -98,7 +99,7 @@ public class ElegirCine extends javax.swing.JFrame {
         ventana.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_SiguienteBtnActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -119,11 +120,11 @@ public class ElegirCine extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new ElegirCine().setVisible(true));
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ElegirCine;
     private javax.swing.JLabel InicioLabel;

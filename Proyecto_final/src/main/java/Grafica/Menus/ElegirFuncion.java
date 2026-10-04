@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Grafica;
+package Grafica.Menus;
 
+import Grafica.PanelUI.ConfiguracionUI;
+import Grafica.PanelUI.FuncionUI;
+import Grafica.Menus.ElegirPelicula;
 import Logica.Cine;
 import Logica.Funcion;
 import Logica.Fachada;
@@ -58,8 +61,10 @@ public ElegirFuncion() {
         VolverBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         FuncionesPanel = new javax.swing.JPanel();
+        jButton2 = new ConfiguracionUI();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         VolverBtn.setText("Volver");
@@ -72,7 +77,8 @@ public ElegirFuncion() {
         FuncionesPanel.setLayout(new javax.swing.BoxLayout(FuncionesPanel, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(FuncionesPanel);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 310, 220));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 310, 220));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -112,6 +118,7 @@ public ElegirFuncion() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FuncionesPanel;
     private javax.swing.JButton VolverBtn;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

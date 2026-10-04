@@ -2,7 +2,7 @@ package Logica;
 
 import java.sql.*;
 import java.time.*;
-import Grafica.Presentacion;
+import Grafica.Menus.Presentacion;
 import com.formdev.flatlaf.FlatDarkLaf;
 
 public class Proyecto_final {

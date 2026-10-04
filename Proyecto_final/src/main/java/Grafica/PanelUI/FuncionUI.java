@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Grafica;
+package Grafica.PanelUI;
+
+import Grafica.Menus.ElegirAsientos;
+import Grafica.Menus.ElegirFuncion;
 
 /**
  *

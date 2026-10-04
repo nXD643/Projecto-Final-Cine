@@ -39,24 +39,12 @@
               </Group>
               <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="MetodoDePagoLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="MetodoDePagoIngresado" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="MetodoDePagoIngresado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="MetodoDePagoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="TarjetaIngresada" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="TarjetaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -87,26 +75,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VolverBtnActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="MetodoDePagoIngresado">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="MetodoDePagoLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Metodo de pago"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TarjetaIngresada">
       <Events>

@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Grafica;
+package Grafica.Menus;
+
+import Logica.Fachada;
 
 /**
  *
@@ -11,7 +13,8 @@ package Grafica;
 public class MetodoDePago extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MetodoDePago.class.getName());
-
+    private Fachada fachada = Fachada.getInstancia();
+    
     /**
      * Creates new form ElegirFuncion
      */
@@ -30,8 +33,6 @@ public class MetodoDePago extends javax.swing.JFrame {
 
         SiguienteBtn = new javax.swing.JButton();
         VolverBtn = new javax.swing.JButton();
-        MetodoDePagoIngresado = new javax.swing.JComboBox<>();
-        MetodoDePagoLabel = new javax.swing.JLabel();
         TarjetaIngresada = new javax.swing.JTextField();
         TarjetaLabel = new javax.swing.JLabel();
 
@@ -42,10 +43,6 @@ public class MetodoDePago extends javax.swing.JFrame {
 
         VolverBtn.setText("Volver");
         VolverBtn.addActionListener(this::VolverBtnActionPerformed);
-
-        MetodoDePagoIngresado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        MetodoDePagoLabel.setText("Metodo de pago");
 
         TarjetaIngresada.addActionListener(this::TarjetaIngresadaActionPerformed);
 
@@ -67,21 +64,11 @@ public class MetodoDePago extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(96, 96, 96))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(MetodoDePagoLabel)
-                .addGap(28, 28, 28)
-                .addComponent(MetodoDePagoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MetodoDePagoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MetodoDePagoLabel))
-                .addGap(43, 43, 43)
+                .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TarjetaLabel))
@@ -96,10 +83,16 @@ public class MetodoDePago extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
-        PagoRealizado ventana = new PagoRealizado();
-        ventana.setVisible(true);
-        setVisible(false);
-        // TODO add your handling code here:
+        switch (fachada.verificarTarjeta(TarjetaIngresada.getText())) {
+            case 1: // Visa
+                
+            case 2: // Mastercard
+                
+            case 3: // American Express            
+            PagoRealizado ventana = new PagoRealizado();
+            ventana.setVisible(true);
+            setVisible(false);
+        }
     }//GEN-LAST:event_SiguienteBtnActionPerformed
 
     private void VolverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBtnActionPerformed
@@ -139,8 +132,6 @@ public class MetodoDePago extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> MetodoDePagoIngresado;
-    private javax.swing.JLabel MetodoDePagoLabel;
     private javax.swing.JButton SiguienteBtn;
     private javax.swing.JTextField TarjetaIngresada;
     private javax.swing.JLabel TarjetaLabel;
