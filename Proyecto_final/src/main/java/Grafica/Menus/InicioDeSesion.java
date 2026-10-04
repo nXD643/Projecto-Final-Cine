@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author nacho
  */
 
-public class InicioDeSesion extends javax.swing.JFrame {
+public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InicioDeSesion.class.getName());
     private Fachada fachada = Fachada.getInstancia();
@@ -23,6 +23,7 @@ public class InicioDeSesion extends javax.swing.JFrame {
      * Creates new form InicioDeSesion
      */
     public InicioDeSesion() {
+        initConf();
         initComponents();
     }
 
@@ -35,12 +36,12 @@ public class InicioDeSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        AceptarBtn = new javax.swing.JButton();
+        AceptarBtn = new Grafica.PanelUI.DefaultBtn();
         LabelInicio = new javax.swing.JLabel();
         UsuarioLabel = new javax.swing.JLabel();
         DocumentoIngresado = new javax.swing.JTextField();
         ContrasenaLabel = new javax.swing.JLabel();
-        RegistrarseBtn = new javax.swing.JButton();
+        RegistrarseBtn = new Grafica.PanelUI.DefaultBtn();
         ContrasenaIngresada = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,11 +86,11 @@ public class InicioDeSesion extends javax.swing.JFrame {
                         .addGap(162, 162, 162)
                         .addComponent(AceptarBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(RegistrarseBtn))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
-                        .addComponent(LabelInicio)))
+                        .addComponent(LabelInicio))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(RegistrarseBtn)))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

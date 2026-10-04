@@ -8,12 +8,12 @@ package Grafica.PanelUI;
  *
  * @author nacho
  */
-public class Configuracion extends javax.swing.JPanel {
+public class Menu extends javax.swing.JPanel {
 
     /**
      * Creates new form Configuracion
      */
-    public Configuracion() {
+    public Menu() {
         initComponents();
     }
 

@@ -10,7 +10,7 @@ import Logica.Fachada;
  *
  * @author nacho
  */
-public class MetodoDePago extends javax.swing.JFrame {
+public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MetodoDePago.class.getName());
     private Fachada fachada = Fachada.getInstancia();
@@ -19,6 +19,7 @@ public class MetodoDePago extends javax.swing.JFrame {
      * Creates new form ElegirFuncion
      */
     public MetodoDePago() {
+        initConf();
         initComponents();
     }
 
@@ -31,12 +32,15 @@ public class MetodoDePago extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        SiguienteBtn = new javax.swing.JButton();
-        VolverBtn = new javax.swing.JButton();
+        SiguienteBtn = new Grafica.PanelUI.DefaultBtn();
+        VolverBtn = new Grafica.PanelUI.DefaultBtn();
         TarjetaIngresada = new javax.swing.JTextField();
         TarjetaLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(1920, 1080));
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         SiguienteBtn.setText("Siguiente");
         SiguienteBtn.addActionListener(this::SiguienteBtnActionPerformed);

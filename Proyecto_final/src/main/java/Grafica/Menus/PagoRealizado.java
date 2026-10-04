@@ -10,7 +10,7 @@ import Grafica.Menus.ElegirPelicula;
  *
  * @author nacho
  */
-public class PagoRealizado extends javax.swing.JFrame {
+public class PagoRealizado extends Grafica.PanelUI.DefaultConf {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PagoRealizado.class.getName());
 
@@ -18,6 +18,7 @@ public class PagoRealizado extends javax.swing.JFrame {
      * Creates new form ElegirFuncion
      */
     public PagoRealizado() {
+        initConf();
         initComponents();
     }
 
@@ -30,8 +31,8 @@ public class PagoRealizado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        SalirBtn = new javax.swing.JButton();
-        VolverMenuBtn = new javax.swing.JButton();
+        SalirBtn = new Grafica.PanelUI.DefaultBtn();
+        VolverMenuBtn = new Grafica.PanelUI.DefaultBtn();
         PagoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

@@ -8,7 +8,7 @@ package Grafica.Menus;
  *
  * @author nacho
  */
-public class Presentacion extends javax.swing.JFrame {
+public class Presentacion extends Grafica.PanelUI.DefaultConf {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Presentacion.class.getName());
 
@@ -16,9 +16,8 @@ public class Presentacion extends javax.swing.JFrame {
      * Creates new form Presentacion
      */
     public Presentacion() {
+        initConf();
         initComponents();
-        
-        
     }
 
     /**
@@ -31,8 +30,8 @@ public class Presentacion extends javax.swing.JFrame {
     private void initComponents() {
 
         BienvenidoLabel = new javax.swing.JLabel();
-        InicioSesionBtn = new javax.swing.JButton();
-        RegistrarseBtn = new javax.swing.JButton();
+        InicioSesionBtn = new Grafica.PanelUI.DefaultBtn();
+        RegistrarseBtn = new Grafica.PanelUI.DefaultBtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

@@ -11,7 +11,7 @@ import Logica.ListaCines;
  *
  * @author nacho
  */
-public class ElegirCine extends javax.swing.JFrame {
+public class ElegirCine extends Grafica.PanelUI.DefaultConf {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirCine.class.getName());
     private Fachada fachada = Fachada.getInstancia();
@@ -20,6 +20,7 @@ public class ElegirCine extends javax.swing.JFrame {
      * Creates new form ElegirCine
      */
     public ElegirCine() {
+        initConf();
         initComponents();
         
         // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
@@ -45,7 +46,7 @@ public class ElegirCine extends javax.swing.JFrame {
 
         InicioLabel = new javax.swing.JLabel();
         ElegirCine = new javax.swing.JComboBox<>();
-        SiguienteBtn = new javax.swing.JButton();
+        SiguienteBtn = new Grafica.PanelUI.DefaultBtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

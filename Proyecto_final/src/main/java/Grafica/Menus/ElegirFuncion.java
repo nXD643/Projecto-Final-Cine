@@ -4,7 +4,7 @@
  */
 package Grafica.Menus;
 
-import Grafica.PanelUI.ConfiguracionUI;
+import Grafica.PanelUI.MenuUI;
 import Grafica.PanelUI.FuncionUI;
 import Grafica.Menus.ElegirPelicula;
 import Logica.Cine;
@@ -16,7 +16,7 @@ import Logica.Fachada;
  *
  * @author nacho
  */
-public class ElegirFuncion extends javax.swing.JFrame {
+public class ElegirFuncion extends Grafica.PanelUI.DefaultConf{
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirFuncion.class.getName());
     
@@ -27,8 +27,9 @@ public class ElegirFuncion extends javax.swing.JFrame {
      * Creates new form ElegirFuncion
      */
 public ElegirFuncion() {
+    initConf();
     initComponents();
-            
+    
     int numCineSeleccionado = fachada.getCines().getCineSeleccionado();         
 
     // Validamos si el cine existe antes de usarlo
@@ -46,8 +47,8 @@ public ElegirFuncion() {
     } else {         
         System.out.println("Error: no hay ningún cine seleccionado.");     
     } 
-}
 
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,18 +59,17 @@ public ElegirFuncion() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        VolverBtn = new javax.swing.JButton();
+        VolverBtn = new Grafica.PanelUI.DefaultBtn();
         jScrollPane2 = new javax.swing.JScrollPane();
         FuncionesPanel = new javax.swing.JPanel();
-        jButton2 = new ConfiguracionUI();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
+        setMinimumSize(new java.awt.Dimension(1920, 1080));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         VolverBtn.setText("Volver");
         VolverBtn.addActionListener(this::VolverBtnActionPerformed);
-        getContentPane().add(VolverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
+        getContentPane().add(VolverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, -1, -1));
 
         jScrollPane2.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -77,8 +77,7 @@ public ElegirFuncion() {
         FuncionesPanel.setLayout(new javax.swing.BoxLayout(FuncionesPanel, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(FuncionesPanel);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 310, 220));
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, 50));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 710, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -90,6 +89,7 @@ public ElegirFuncion() {
         // TODO add your handling code here:
     }//GEN-LAST:event_VolverBtnActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -118,7 +118,6 @@ public ElegirFuncion() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FuncionesPanel;
     private javax.swing.JButton VolverBtn;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

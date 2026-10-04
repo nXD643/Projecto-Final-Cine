@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author nacho
  */
-public class Registrarse extends javax.swing.JFrame {
+public class Registrarse extends Grafica.PanelUI.DefaultConf {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registrarse.class.getName());
     Fachada fachada = Fachada.getInstancia();
@@ -21,6 +21,7 @@ public class Registrarse extends javax.swing.JFrame {
      * Creates new form InicioDeSesion
      */
     public Registrarse() {
+        initConf();
         initComponents();
     }
 
@@ -33,7 +34,7 @@ public class Registrarse extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        AceptarBtn = new javax.swing.JButton();
+        AceptarBtn = new Grafica.PanelUI.DefaultBtn();
         LabelInicio = new javax.swing.JLabel();
         ApellidoLabel = new javax.swing.JLabel();
         DocumentoLabel = new javax.swing.JLabel();
@@ -47,7 +48,7 @@ public class Registrarse extends javax.swing.JFrame {
         TelefonoLabel = new javax.swing.JLabel();
         TelefonoIngresado = new javax.swing.JTextField();
         ContrasenaLabel = new javax.swing.JLabel();
-        InicioDeSesionBtn = new javax.swing.JButton();
+        InicioDeSesionBtn = new Grafica.PanelUI.DefaultBtn();
         ContrasenaIngresada = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

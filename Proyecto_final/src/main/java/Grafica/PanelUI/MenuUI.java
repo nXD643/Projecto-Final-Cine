@@ -3,12 +3,12 @@ package Grafica.PanelUI;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class ConfiguracionUI extends JButton {
+public class MenuUI extends JButton {
 
-    public ConfiguracionUI() {
+    public MenuUI() {
         super();
 
-        ImageIcon imagenFondo = new ImageIcon("UI/UserIcon.png");
+        ImageIcon imagenFondo = new ImageIcon("UI/Menu.png");
         setIcon(imagenFondo);
         setBorderPainted(false);
         setContentAreaFilled(false);
@@ -16,8 +16,8 @@ public class ConfiguracionUI extends JButton {
         setOpaque(false);
     }
     
-   private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        Configuracion ventana = new Configuracion();
+   private void MenuUIBtnActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        Menu ventana = new Menu();
         ventana.setVisible(true);
     }                                            
 }

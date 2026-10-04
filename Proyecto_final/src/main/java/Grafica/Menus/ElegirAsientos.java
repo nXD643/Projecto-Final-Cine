@@ -12,7 +12,7 @@ import Logica.Fachada;
  *
  * @author nacho
  */
-public class ElegirAsientos extends javax.swing.JFrame {
+public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
     
     private Fachada fachada = Fachada.getInstancia();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirAsientos.class.getName());
@@ -21,9 +21,8 @@ public class ElegirAsientos extends javax.swing.JFrame {
      * Creates new form ElegirAsientos
      */
     public ElegirAsientos() {
+        initConf();
         initComponents();
-        
-        //fachada.
     }
 
     /**
@@ -35,8 +34,8 @@ public class ElegirAsientos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ConfirmarBtn = new javax.swing.JButton();
-        VolverBtn = new javax.swing.JButton();
+        ConfirmarBtn = new Grafica.PanelUI.DefaultBtn();
+        VolverBtn = new Grafica.PanelUI.DefaultBtn();
         Asientos = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,14 +91,12 @@ public class ElegirAsientos extends javax.swing.JFrame {
         MetodoDePago ventana = new MetodoDePago();
         ventana.setVisible(true);
         setVisible(false);
-        // TODO add your handling code here:
     }//GEN-LAST:event_ConfirmarBtnActionPerformed
 
     private void VolverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBtnActionPerformed
         ElegirFuncion ventana = new ElegirFuncion();
         ventana.setVisible(true);
         setVisible(false);
-        // TODO add your handling code here:
     }//GEN-LAST:event_VolverBtnActionPerformed
 
     /**

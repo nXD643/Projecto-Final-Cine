@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author nacho
  */
-public class ElegirPelicula extends javax.swing.JFrame {
+public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirPelicula.class.getName());
     private Fachada fachada = Fachada.getInstancia();
@@ -25,12 +25,14 @@ public class ElegirPelicula extends javax.swing.JFrame {
      * Creates new form ElegirCine
      */
     public ElegirPelicula() {
+        initConf();
         initComponents();
 
         try { // el try and catch es porque el cine en caso de que no exista o no se defina correctamente, ademas puede dar varios errores diferentes
-            Cine cine_actual = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
-            ArrayList<Pelicula> peliculas = cine_actual.ListaPeliculas();
+            Cine cineActual = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
+            ArrayList<Pelicula> peliculas = cineActual.ListaPeliculas();
 
+            System.out.println(cineActual.getNombre());
             // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
             for (int i = 0; i < 10; i++) {
                 LocalDate date = LocalDate.of(2020, 1, 8);
@@ -49,8 +51,6 @@ public class ElegirPelicula extends javax.swing.JFrame {
             }
         } catch (IndexOutOfBoundsException e) { 
                 JOptionPane.showMessageDialog(rootPane, "No hay peliculas disponibles en el cine o el cine al que se accedio no existe");
-           } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, "No hay pelicula en el cine o el cine al que se accedio no existe");
            }
         }
     
@@ -64,15 +64,17 @@ public class ElegirPelicula extends javax.swing.JFrame {
     private void initComponents() {
 
         InicioLabel = new javax.swing.JLabel();
-        VolverBtn = new javax.swing.JButton();
+        VolverBtn = new Grafica.PanelUI.DefaultBtn();
         jScrollPane2 = new javax.swing.JScrollPane();
         PeliculasPanel = new javax.swing.JPanel();
+        jButton1 = new Grafica.PanelUI.DefaultBtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         InicioLabel.setText("Elige que pelicula ver");
 
         VolverBtn.setText("Volver");
+        VolverBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         VolverBtn.addActionListener(this::VolverBtnActionPerformed);
 
         jScrollPane2.setBackground(new java.awt.Color(0, 153, 153));
@@ -81,6 +83,9 @@ public class ElegirPelicula extends javax.swing.JFrame {
         PeliculasPanel.setBackground(new java.awt.Color(153, 153, 153));
         PeliculasPanel.setLayout(new javax.swing.BoxLayout(PeliculasPanel, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(PeliculasPanel);
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,12 +96,15 @@ public class ElegirPelicula extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(127, 127, 127)
                         .addComponent(InicioLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(VolverBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(VolverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(43, 43, 43)
+                            .addComponent(jButton1))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -107,7 +115,9 @@ public class ElegirPelicula extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(VolverBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(VolverBtn)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -120,6 +130,13 @@ public class ElegirPelicula extends javax.swing.JFrame {
         setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_VolverBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ElegirFuncion ventana = new ElegirFuncion();
+        ventana.setVisible(true);
+        setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +167,7 @@ public class ElegirPelicula extends javax.swing.JFrame {
     private javax.swing.JLabel InicioLabel;
     private javax.swing.JPanel PeliculasPanel;
     private javax.swing.JButton VolverBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
