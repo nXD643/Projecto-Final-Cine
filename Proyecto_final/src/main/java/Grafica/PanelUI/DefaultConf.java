@@ -23,13 +23,13 @@ public class DefaultConf extends JFrame {
     }
     public void initConf() {
         // configuracion del propio jframe
-        Color colorBackground = new Color(3,2,23);
+        Color colorBackground = new Color(0,1,7);
         getContentPane().setBackground(colorBackground);
         
         setBounds(0, 0, 1920, 1080);
         setVisible(true);
 
-        int progress = 1; // temporal, despues esto va a estar en el constructor y va a marcar el progreso
+        int progress = 0; // temporal, despues esto va a estar en el constructor y va a marcar el progreso
 
         // agregar el menu
         add(menuBtn);
@@ -45,8 +45,10 @@ public class DefaultConf extends JFrame {
                 BarraDeProgreso = new ImageIcon("UI/Barra.png");
         }
 
-        add(barraDeProgreso);
-        barraDeProgreso.setIcon(BarraDeProgreso);
-        barraDeProgreso.setBounds(0, 0, 800, 600);
+        if (progress != 0) {
+            add(barraDeProgreso);
+            barraDeProgreso.setIcon(BarraDeProgreso);
+            barraDeProgreso.setBounds(624, 900, 672, 87);
+        }
     }
 }

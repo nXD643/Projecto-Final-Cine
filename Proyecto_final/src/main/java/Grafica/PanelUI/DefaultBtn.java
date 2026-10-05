@@ -6,7 +6,6 @@ package Grafica.PanelUI;
 
 import java.awt.Color;
 import javax.swing.JButton;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,14 +20,15 @@ public class DefaultBtn extends JButton {
         
         this.setBorderPainted(true);
         
-        Color colorBtnFont = new Color(255,255,255); // 255,240,176
+        Color colorBtnFont = new Color(143,103,122); // 255,240,176
         this.setForeground(colorBtnFont);
         
-        java.awt.Font textFont = new java.awt.Font("Verdana", 0, 12);
+        java.awt.Font textFont = new java.awt.Font("Verdana", 0, 64);
         this.setFont(textFont);
-        
-        ImageIcon fondo = new ImageIcon("UI/Menu.png");
+
         this.putClientProperty("JButton.buttonType", "roundRect"); 
-        this.putClientProperty("JComponent.outline", new java.awt.Color(0,0,0,0));
+        this.putClientProperty("JComponent.outline", colorBtnFont);
+        putClientProperty("FlatClientProperties.STYLE", "borderWidth: 100; arc: 20");
+
     }
 }

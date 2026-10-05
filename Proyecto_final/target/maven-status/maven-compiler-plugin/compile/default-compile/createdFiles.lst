@@ -17,6 +17,7 @@ Logica\ConexionServer.class
 Grafica\Menus\InicioDeSesion.class
 Grafica\Menus\PagoRealizado.class
 Logica\Fachada.class
+Grafica\PanelUI\DefaultLabel.class
 Grafica\PanelUI\FuncionUI.class
 Grafica\Menus\ElegirFuncion.class
 Logica\Cliente.class

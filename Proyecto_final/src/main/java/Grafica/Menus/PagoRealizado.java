@@ -33,14 +33,17 @@ public class PagoRealizado extends Grafica.PanelUI.DefaultConf {
 
         SalirBtn = new Grafica.PanelUI.DefaultBtn();
         VolverMenuBtn = new Grafica.PanelUI.DefaultBtn();
-        PagoLabel = new javax.swing.JLabel();
+        PagoLabel = new Grafica.PanelUI.DefaultLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         SalirBtn.setText("Salir");
         SalirBtn.addActionListener(this::SalirBtnActionPerformed);
 
-        VolverMenuBtn.setText("Volver al menu de peliculas");
+        VolverMenuBtn.setText("Volver al menu");
+        VolverMenuBtn.setMaximumSize(new java.awt.Dimension(87, 23));
+        VolverMenuBtn.setMinimumSize(new java.awt.Dimension(87, 23));
+        VolverMenuBtn.setPreferredSize(new java.awt.Dimension(87, 23));
         VolverMenuBtn.addActionListener(this::VolverMenuBtnActionPerformed);
 
         PagoLabel.setText("Se ha realizado el pago correctamente");
@@ -50,27 +53,26 @@ public class PagoRealizado extends Grafica.PanelUI.DefaultConf {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(VolverMenuBtn)
-                        .addGap(29, 29, 29)
-                        .addComponent(SalirBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(PagoLabel)))
-                .addGap(58, 58, 58))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PagoLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(VolverMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addComponent(SalirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(177, Short.MAX_VALUE)
                 .addComponent(PagoLabel)
-                .addGap(114, 114, 114)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SalirBtn)
-                    .addComponent(VolverMenuBtn))
-                .addContainerGap())
+                    .addComponent(VolverMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SalirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         pack();
