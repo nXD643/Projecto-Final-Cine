@@ -14,7 +14,6 @@ public class ElegirCine extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirCine.class.getName());
     private Fachada fachada = Fachada.getInstancia();
-    private ListaCines listaCines = fachada.getCines();
  
     /**
      * Creates new form ElegirCine
@@ -22,18 +21,16 @@ public class ElegirCine extends javax.swing.JFrame {
     public ElegirCine() {
         initComponents();
         
-        
-        
         // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
-        listaCines.cargarCine("Callex", "Ciudadx", 123, "Cine1");
-        listaCines.cargarCine("Callex", "Ciudadx", 321, "Cine2");
-        listaCines.cargarCine("Callex", "Ciudadx", 100, "Cine3");
-        listaCines.cargarCine("Callex", "Ciudadx", 010, "Cine4");
-        listaCines.cargarCine("Callex", "Ciudadx", 432, "Cine5");
+        fachada.getCines().cargarCine("Callex", "Ciudadx", 123, "Cine1");
+        fachada.getCines().cargarCine("Callex", "Ciudadx", 321, "Cine2");
+        fachada.getCines().cargarCine("Callex", "Ciudadx", 100, "Cine3");
+        fachada.getCines().cargarCine("Callex", "Ciudadx", 010, "Cine4");
+        fachada.getCines().cargarCine("Callex", "Ciudadx", 432, "Cine5");
         //         
         
-        for (int numeroCine = listaCines.cines.size()-1;numeroCine >= 0;numeroCine--)
-            ElegirCine.addItem(listaCines.cines.get(numeroCine).getNombre());
+        for (int numeroCine = fachada.getCines().cines.size()-1;numeroCine >= 0;numeroCine--)
+            ElegirCine.addItem(fachada.getCines().cines.get(numeroCine).getNombre());
         }
 
     /**
@@ -89,18 +86,17 @@ public class ElegirCine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ElegirCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElegirCineActionPerformed
-        
         // TODO add your handling code here:
     }//GEN-LAST:event_ElegirCineActionPerformed
 
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
         String cineElegido = ElegirCine.getSelectedItem().toString();
-        listaCines.setCineSeleccionado(123); // temporal
+        fachada.getCines().setCineSeleccionado(123); // temporal
+        System.out.println(fachada.getCines().getCineSeleccionado());
         
         ElegirPelicula ventana = new ElegirPelicula();
         ventana.setVisible(true);
         setVisible(false);
-        // TODO add your handling code here:
     }//GEN-LAST:event_SiguienteBtnActionPerformed
 
     /**

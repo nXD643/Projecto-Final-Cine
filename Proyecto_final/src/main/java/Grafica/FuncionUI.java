@@ -8,15 +8,16 @@ package Grafica;
  *
  * @author nacho
  */
-public class Funcion extends javax.swing.JPanel {
+public class FuncionUI extends javax.swing.JPanel {
     private ElegirFuncion elegirfuncion;
 
     /**
      * Creates new form Funcion
      */
-    public Funcion(ElegirFuncion elegirfuncion) {
+    public FuncionUI(ElegirFuncion elegirfuncion,String fecha, String hora) {
         initComponents();
         this.elegirfuncion = elegirfuncion;
+        FuncionLabel.setText("Hora: " + hora + ", Fecha: " + fecha);
     }
 
     /**
@@ -28,10 +29,10 @@ public class Funcion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        FuncionLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        jLabel1.setText("Hora: 10:30, Fecha: 10/3");
+        FuncionLabel.setText("Hora: 10:30, Fecha: 10/3");
 
         jButton1.setText("Funcion 1");
         jButton1.addActionListener(this::jButton1ActionPerformed);
@@ -44,7 +45,7 @@ public class Funcion extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(FuncionLabel)
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
@@ -52,7 +53,7 @@ public class Funcion extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(FuncionLabel)
                     .addComponent(jButton1))
                 .addContainerGap(8, Short.MAX_VALUE))
         );
@@ -67,7 +68,7 @@ public class Funcion extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel FuncionLabel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

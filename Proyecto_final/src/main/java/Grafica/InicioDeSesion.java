@@ -40,7 +40,6 @@ public class InicioDeSesion extends javax.swing.JFrame {
         ContrasenaIngresada = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         AceptarBtn.setText("Aceptar");
         AceptarBtn.addActionListener(this::AceptarBtnActionPerformed);

@@ -4,6 +4,11 @@
  */
 package Grafica;
 
+import Logica.Cine;
+import Logica.Funcion;
+import Logica.Fachada;
+
+
 /**
  *
  * @author nacho
@@ -11,19 +16,35 @@ package Grafica;
 public class ElegirFuncion extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirFuncion.class.getName());
+    
+    private Fachada fachada = Fachada.getInstancia();
 
+    
     /**
      * Creates new form ElegirFuncion
      */
 public ElegirFuncion() {
     initComponents();
-    
-    int cantidad_funciones = 10;
-    for (int i = 0; i < cantidad_funciones; i++) {
-        Funcion funcion = new Funcion(this);
-        FuncionesPanel.add(funcion);
-    }
+            
+    int numCineSeleccionado = fachada.getCines().getCineSeleccionado();         
+
+    // Validamos si el cine existe antes de usarlo
+    if (numCineSeleccionado != 0) {
+        Cine cineSeleccionado = fachada.getCines().buscarCine(numCineSeleccionado);                  
+        int cantidad_funciones = cineSeleccionado.ListaPeliculas().size();         
+        for (int i = 0; i < cantidad_funciones; i++) {             
+            Funcion funcion = (Funcion) cineSeleccionado.ListaPeliculas().get(i);             
+            String hora = funcion.getHora();             
+            String fecha = funcion.getFecha().toString();              
+            
+            FuncionUI funcionUI = new FuncionUI(this, hora, fecha);             
+            FuncionesPanel.add(funcionUI);             
+        }
+    } else {         
+        System.out.println("Error: no hay ningún cine seleccionado.");     
+    } 
 }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
