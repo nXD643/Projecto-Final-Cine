@@ -117,8 +117,8 @@ create table genero(
 
 create table telefono(
 	cliente_CI int,
-    telefono int,
-    primary key (cliente_CI, telefono),
+    telefono varchar(15),
+    primary key (telefono),
     constraint fk_telefono_cliente foreign key (cliente_CI) references cliente (documento)
 );
 

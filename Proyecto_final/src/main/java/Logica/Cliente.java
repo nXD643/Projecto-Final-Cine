@@ -11,13 +11,13 @@ public class Cliente {
     private ArrayList <String> telefonos;
     private String contrasena;
 
-    public Cliente(int documento, String nombre, String apellido, String correo_electronico, String contrasena, ArrayList telefonos) {
-        this.compras = new ArrayList <>();;
+    public Cliente(int documento, String nombre, String apellido, String correo_electronico, String contrasena) {
+        this.compras = new ArrayList <>();
         this.documento = documento;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo_electronico = correo_electronico;
-        this.telefonos = telefonos;
+        this.telefonos = new ArrayList <>();
         this.contrasena = contrasena;
     }
 
@@ -69,6 +69,11 @@ public class Cliente {
     public void eliminarCompra(int id)
     {
         compras.remove(id);
+    }
+    
+    public void agregarTelefono(String telefono)
+    {
+        telefonos.add(telefono);
     }
     
     public void eliminarTelefono(int id)

@@ -23,27 +23,70 @@ public class Fachada {
         }
         return instancia;
     }
-    
     public boolean inicio_sesion(int documento, String contrasena)
-    {
-        // Hay que terminarlo
+    { 
+        String datos;
+        String[] resultado = null;
+        String[] valores = null;
+        String[] telefonos;
         
         if (!verificarCedula(documento))
         {
             return false;
         }
+        datos = "2;" + documento + ":" + contrasena;
+        
+        resultado = cs.conexion(datos);
+        
+        System.out.println(resultado[0]);
+        
+        valores = resultado[0].split(":");
+        
+        this.cliente = new Cliente(documento, valores[1], valores[2], valores[3], contrasena);
+        
+        telefonos = valores[5].split("/");
+        
+        for (int i = 0; i < telefonos.length; i ++)
+        {
+            this.cliente.agregarTelefono(telefonos[i]);
+        }
+        
         return true;
     }
-    
-    public boolean registo(int documento, String nombre, String apellido, String correo_electronico, String contrasena, ArrayList telefonos)
+    public boolean registro(int documento, String nombre, String apellido, String correo_electronico, String contrasena, ArrayList<String> telefonos)
     {
+        String datos;
+        String[] resultado = null;
+        String telefonos_enviar = "";
+        
         if (!verificarCedula(documento))
         {
             return false;
         }
-        this.cliente = new Cliente(documento, nombre, apellido, correo_electronico, contrasena, telefonos);
+        this.cliente = new Cliente(documento, nombre, apellido, correo_electronico, contrasena);
         
-        return true;
+        for (int i = 0; i < telefonos.size(); i ++)
+        {
+            this.cliente.agregarTelefono(telefonos.get(i));
+        }
+        
+        for (int i = 0; i < telefonos.size(); i ++)
+        {
+            if (i == (telefonos.size() - 1))
+            {
+                telefonos_enviar += telefonos.get(i);
+            }
+            else
+            {
+                telefonos_enviar += telefonos.get(i) + "/";
+            }
+        }
+        
+        datos = "1;" + documento + ":" + nombre + ":" + apellido + ":" + correo_electronico + ":" + contrasena + ":" + telefonos_enviar;
+        
+        resultado = cs.conexion(datos);
+        
+        return Boolean.valueOf(resultado[0]);
     }
 
     public Cliente getCliente() {

@@ -1,3 +1,5 @@
+use complejo_cines;
+
 insert into cine (calle, nombre) values
 ("Bvar. Artigas 1825", "Tres Cruces"),
 ("Av. Italia 5775", "Portones");
