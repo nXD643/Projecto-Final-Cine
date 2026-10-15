@@ -36,28 +36,26 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        AceptarBtn = new Grafica.PanelUI.DefaultBtn();
-        LabelInicio = new javax.swing.JLabel();
-        UsuarioLabel = new javax.swing.JLabel();
+        AceptarBtn = new Grafica.PanelUI.DefaultBtn(3);
+        LabelInicio = new Grafica.PanelUI.DefaultLabel(3);
+        UsuarioLabel = new Grafica.PanelUI.DefaultLabel(1);
         DocumentoIngresado = new javax.swing.JTextField();
-        ContrasenaLabel = new javax.swing.JLabel();
-        RegistrarseBtn = new Grafica.PanelUI.DefaultBtn();
+        ContrasenaLabel = new Grafica.PanelUI.DefaultLabel(1);
+        RegistrarseBtn = new Grafica.PanelUI.DefaultBtn(1);
         ContrasenaIngresada = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         AceptarBtn.setText("Aceptar");
+        AceptarBtn.setPreferredSize(new java.awt.Dimension(100, 100));
         AceptarBtn.addActionListener(this::AceptarBtnActionPerformed);
 
-        LabelInicio.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         LabelInicio.setText("Inicio de sesion");
 
-        UsuarioLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         UsuarioLabel.setText("Documento");
 
         DocumentoIngresado.addActionListener(this::DocumentoIngresadoActionPerformed);
 
-        ContrasenaLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         ContrasenaLabel.setText("Contrasena");
 
         RegistrarseBtn.setText("No tengo cuenta, prefiero registrarme");
@@ -70,47 +68,45 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                .addContainerGap(381, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(LabelInicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(UsuarioLabel)
-                                .addGap(21, 21, 21)
-                                .addComponent(DocumentoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(UsuarioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(ContrasenaLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(ContrasenaIngresada))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(AceptarBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(LabelInicio))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(RegistrarseBtn)))
-                .addContainerGap(430, Short.MAX_VALUE))
+                                .addComponent(ContrasenaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(DocumentoIngresado, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                            .addComponent(ContrasenaIngresada)))
+                    .addComponent(RegistrarseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
+                .addContainerGap(381, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AceptarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(194, Short.MAX_VALUE)
+                .addContainerGap(96, Short.MAX_VALUE)
                 .addComponent(LabelInicio)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UsuarioLabel)
                     .addComponent(DocumentoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ContrasenaLabel)
                     .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(RegistrarseBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AceptarBtn)
-                .addContainerGap())
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(AceptarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
 
         pack();

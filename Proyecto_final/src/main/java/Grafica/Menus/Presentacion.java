@@ -29,9 +29,9 @@ public class Presentacion extends Grafica.PanelUI.DefaultConf {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BienvenidoLabel = new Grafica.PanelUI.DefaultLabel();
-        InicioSesionBtn = new Grafica.PanelUI.DefaultBtn();
-        RegistrarseBtn = new Grafica.PanelUI.DefaultBtn();
+        BienvenidoLabel = new Grafica.PanelUI.DefaultLabel(3);
+        InicioSesionBtn = new Grafica.PanelUI.DefaultBtn(3);
+        RegistrarseBtn = new Grafica.PanelUI.DefaultBtn(3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

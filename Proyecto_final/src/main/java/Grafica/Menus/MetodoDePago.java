@@ -32,10 +32,10 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        SiguienteBtn = new Grafica.PanelUI.DefaultBtn();
-        VolverBtn = new Grafica.PanelUI.DefaultBtn();
+        SiguienteBtn = new Grafica.PanelUI.DefaultBtn(2);
+        VolverBtn = new Grafica.PanelUI.DefaultBtn(2);
         TarjetaIngresada = new javax.swing.JTextField();
-        TarjetaLabel = new javax.swing.JLabel();
+        TarjetaLabel = new Grafica.PanelUI.DefaultLabel(2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1920, 1080));
@@ -65,7 +65,7 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
                         .addComponent(TarjetaLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Grafica.PanelUI;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JButton;
 
 /**
@@ -13,22 +10,42 @@ import javax.swing.JButton;
  */
 public class DefaultBtn extends JButton {
     
-    public DefaultBtn() {
+    public DefaultBtn(int letraTamanio) {
         super();
-        Color colorBtn = new Color(0,1,7); // 118,94,87
-        this.setBackground(colorBtn);
         
+        int fuenteTamanio;
+        int tipo = Font.BOLD;
+        String fuente;
+        
+        switch (letraTamanio) {
+            case 1:
+                fuente = "Sim Sun";
+                fuenteTamanio = 12;
+                break;
+            case 2:
+                fuente = "Verdana";
+                fuenteTamanio = 32;
+                break;
+            case 3:
+                fuente = "SegoreUI";
+                fuenteTamanio = 64;
+                break;
+            default:
+                throw new IllegalArgumentException("Tamanio de letra no valido: " + letraTamanio);
+        }
+        
+        Color colorBtn = new Color(0, 1, 7); // 118,94,87
+        this.setBackground(colorBtn);
         this.setBorderPainted(true);
         
-        Color colorBtnFont = new Color(143,103,122); // 255,240,176
+        Color colorBtnFont = new Color(158, 129, 127); // 143, 103, 122
         this.setForeground(colorBtnFont);
         
-        java.awt.Font textFont = new java.awt.Font("Verdana", 0, 64);
+        Font textFont = new Font(fuente, tipo, fuenteTamanio);
         this.setFont(textFont);
-
+        
         this.putClientProperty("JButton.buttonType", "roundRect"); 
         this.putClientProperty("JComponent.outline", colorBtnFont);
-        putClientProperty("FlatClientProperties.STYLE", "borderWidth: 100; arc: 20");
-
+        this.putClientProperty("FlatClientProperties.STYLE", "borderWidth: 100; arc: 20");
     }
 }

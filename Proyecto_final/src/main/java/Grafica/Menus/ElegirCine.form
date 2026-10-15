@@ -24,17 +24,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="145" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="InicioLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="145" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="SiguienteBtn" min="-2" max="-2" attributes="0"/>
-                  <Component id="ElegirCine" min="-2" pref="86" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="148" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="ElegirCine" pref="86" max="32767" attributes="0"/>
+                  <Component id="SiguienteBtn" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+              <EmptySpace pref="148" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,11 +43,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace pref="115" max="32767" attributes="0"/>
               <Component id="InicioLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
               <Component id="ElegirCine" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
               <Component id="SiguienteBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,6 +57,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Elige a que cine vas a ir"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultLabel(2)"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JComboBox" name="ElegirCine">
       <Properties>
@@ -79,7 +82,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SiguienteBtnActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn()"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn(3)"/>
       </AuxValues>
     </Component>
   </SubComponents>

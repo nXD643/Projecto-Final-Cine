@@ -10,6 +10,7 @@ Logica\Pelicula.class
 Logica\ListaCines.class
 Grafica\PanelUI\Asiento.class
 Grafica\PanelUI\Menu.class
+Grafica\Menus\Test$1.class
 Grafica\Menus\MetodoDePago.class
 Grafica\Menus\ElegirCine.class
 Grafica\Menus\Registrarse$3.class
@@ -23,6 +24,7 @@ Grafica\Menus\ElegirFuncion.class
 Logica\Cliente.class
 Grafica\Menus\ElegirAsientos.class
 Grafica\PanelUI\MenuUI.class
+Grafica\Menus\Test.class
 Grafica\PanelUI\DefaultConf.class
 Grafica\Menus\Registrarse$5.class
 Logica\Proyecto_final.class
@@ -30,6 +32,7 @@ Grafica\Menus\Registrarse$4.class
 Grafica\PanelUI\PeliculaUI.class
 Logica\Sala.class
 Logica\Funcion.class
+Grafica\Menus\Test$2.class
 Grafica\Menus\Registrarse$2.class
 Logica\Cine.class
 Grafica\PanelUI\DefaultBtn.class

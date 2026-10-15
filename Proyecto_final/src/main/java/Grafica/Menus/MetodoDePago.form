@@ -40,7 +40,7 @@
                       <Component id="TarjetaIngresada" min="-2" pref="96" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="96" max="32767" attributes="0"/>
+              <EmptySpace pref="117" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,7 +71,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SiguienteBtnActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn()"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn(2)"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="VolverBtn">
@@ -82,7 +82,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VolverBtnActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn()"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn(2)"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="TarjetaIngresada">
@@ -94,6 +94,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Tarjeta"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultLabel(2)"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

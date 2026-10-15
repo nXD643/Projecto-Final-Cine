@@ -34,8 +34,8 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ConfirmarBtn = new Grafica.PanelUI.DefaultBtn();
-        VolverBtn = new Grafica.PanelUI.DefaultBtn();
+        ConfirmarBtn = new Grafica.PanelUI.DefaultBtn(2);
+        VolverBtn = new Grafica.PanelUI.DefaultBtn(2);
         Asientos = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

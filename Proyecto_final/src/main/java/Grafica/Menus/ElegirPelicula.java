@@ -64,10 +64,10 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
     private void initComponents() {
 
         InicioLabel = new javax.swing.JLabel();
-        VolverBtn = new Grafica.PanelUI.DefaultBtn();
+        VolverBtn = new Grafica.PanelUI.DefaultBtn(2);
         jScrollPane2 = new javax.swing.JScrollPane();
         PeliculasPanel = new javax.swing.JPanel();
-        jButton1 = new Grafica.PanelUI.DefaultBtn();
+        jButton1 = new Grafica.PanelUI.DefaultBtn(2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

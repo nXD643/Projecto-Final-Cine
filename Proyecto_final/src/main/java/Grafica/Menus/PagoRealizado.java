@@ -31,9 +31,9 @@ public class PagoRealizado extends Grafica.PanelUI.DefaultConf {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        SalirBtn = new Grafica.PanelUI.DefaultBtn();
-        VolverMenuBtn = new Grafica.PanelUI.DefaultBtn();
-        PagoLabel = new Grafica.PanelUI.DefaultLabel();
+        SalirBtn = new Grafica.PanelUI.DefaultBtn(3);
+        VolverMenuBtn = new Grafica.PanelUI.DefaultBtn(3);
+        PagoLabel = new Grafica.PanelUI.DefaultLabel(3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,7 +72,7 @@ public class PagoRealizado extends Grafica.PanelUI.DefaultConf {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(VolverMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SalirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
