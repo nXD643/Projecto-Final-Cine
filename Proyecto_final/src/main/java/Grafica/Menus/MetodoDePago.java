@@ -21,6 +21,7 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
     public MetodoDePago() {
         initConf();
         initComponents();
+        add_background();
     }
 
     /**
@@ -34,8 +35,9 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
 
         SiguienteBtn = new Grafica.PanelUI.DefaultBtn(2);
         VolverBtn = new Grafica.PanelUI.DefaultBtn(2);
-        TarjetaIngresada = new javax.swing.JTextField();
+        TarjetaIngresada = new Grafica.PanelUI.DefaultTextField();
         TarjetaLabel = new Grafica.PanelUI.DefaultLabel(2);
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1920, 1080));
@@ -46,39 +48,45 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
         VolverBtn.setText("Volver");
         VolverBtn.addActionListener(this::VolverBtnActionPerformed);
 
+        TarjetaIngresada.setMaximumSize(new java.awt.Dimension(500, 500));
         TarjetaIngresada.addActionListener(this::TarjetaIngresadaActionPerformed);
 
         TarjetaLabel.setText("Tarjeta");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Projecto-Final-Cine\\Proyecto_final\\UI\\Tarjetas\\MasterCard.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(117, Short.MAX_VALUE)
+                .addContainerGap(127, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(VolverBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(SiguienteBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TarjetaLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(117, Short.MAX_VALUE))
+                        .addGap(28, 28, 28)
+                        .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel1)))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
+                .addContainerGap(106, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TarjetaLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                    .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TarjetaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SiguienteBtn)
                     .addComponent(VolverBtn))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -87,6 +95,7 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
         switch (fachada.verificarTarjeta(TarjetaIngresada.getText())) {
             case 1: // Visa
+                
                 
             case 2: // Mastercard
                 
@@ -138,5 +147,6 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
     private javax.swing.JTextField TarjetaIngresada;
     private javax.swing.JLabel TarjetaLabel;
     private javax.swing.JButton VolverBtn;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

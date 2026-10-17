@@ -23,6 +23,7 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
     public Registrarse() {
         initConf();
         initComponents();
+        add_background();
     }
 
     /**
@@ -46,9 +47,9 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
         CorreoIngresado = new javax.swing.JTextField();
         TelefonoLabel = new Grafica.PanelUI.DefaultLabel(1);
         TelefonoIngresado = new javax.swing.JTextField();
-        RegistrarseBtn = new Grafica.PanelUI.DefaultBtn(1);
         AceptarBtn = new Grafica.PanelUI.DefaultBtn(3);
         LabelInicio1 = new Grafica.PanelUI.DefaultLabel(3);
+        RegistrarseBtn1 = new Grafica.PanelUI.DefaultBtn(1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,59 +106,58 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
             }
         });
 
-        RegistrarseBtn.setText("Ya tengo cuenta, prefiero iniciar sesion");
-        RegistrarseBtn.addActionListener(this::RegistrarseBtnActionPerformed);
-
         AceptarBtn.setText("Aceptar");
         AceptarBtn.setPreferredSize(new java.awt.Dimension(100, 100));
         AceptarBtn.addActionListener(this::AceptarBtnActionPerformed);
 
-        LabelInicio1.setText("Registrate");
+        LabelInicio1.setText("Registrarse     ");
+
+        RegistrarseBtn1.setText("Ya tengo cuenta, prefiero iniciar sesion");
+        RegistrarseBtn1.addActionListener(this::RegistrarseBtn1ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(493, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ContrasenaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(TelefonoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(TelefonoIngresado))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(UsuarioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DocumentoLabel))
-                            .addGap(30, 30, 30)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(NombreIngresado)
-                                .addComponent(DocumentoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ApellidoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CorreoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(30, 30, 30)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(CorreoIngresado)
-                                .addComponent(ApellidoIngresado)
-                                .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(TelefonoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(TelefonoIngresado))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(UsuarioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                            .addComponent(DocumentoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NombreIngresado)
+                            .addComponent(DocumentoIngresado)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ApellidoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CorreoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ApellidoIngresado)
+                            .addComponent(CorreoIngresado)
+                            .addComponent(ContrasenaIngresada)))
                     .addComponent(AceptarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                     .addComponent(LabelInicio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(493, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(RegistrarseBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(557, Short.MAX_VALUE)
+                .addComponent(RegistrarseBtn1)
+                .addContainerGap(557, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(LabelInicio1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DocumentoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DocumentoLabel))
@@ -165,51 +165,39 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UsuarioLabel)
                     .addComponent(NombreIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ApellidoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ApellidoLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ContrasenaLabel)
                     .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CorreoLabel)
                     .addComponent(CorreoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TelefonoLabel)
                     .addComponent(TelefonoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                .addComponent(RegistrarseBtn)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(RegistrarseBtn1)
+                .addGap(38, 38, 38)
                 .addComponent(AceptarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(58, 58, 58))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ApellidoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoIngresadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ApellidoIngresadoActionPerformed
-
     private void DocumentoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoIngresadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DocumentoIngresadoActionPerformed
 
-    private void CorreoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorreoIngresadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CorreoIngresadoActionPerformed
-
     private void NombreIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreIngresadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreIngresadoActionPerformed
-
-    private void TelefonoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonoIngresadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TelefonoIngresadoActionPerformed
 
     private void DocumentoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DocumentoIngresadoKeyTyped
         String documento = DocumentoIngresado.getText();
@@ -229,47 +217,6 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
         }
     }//GEN-LAST:event_NombreIngresadoKeyTyped
 
-    private void ApellidoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidoIngresadoKeyTyped
-        String apellido = ApellidoIngresado.getText();
-
-        if (apellido.length() >= 15) {
-            DocumentoIngresado.setText(apellido.substring(0, 14));
-            JOptionPane.showMessageDialog(rootPane, "El apellido no puede tener mas de 15 caracteres");
-        }
-    }//GEN-LAST:event_ApellidoIngresadoKeyTyped
-
-    private void ContrasenaIngresadaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContrasenaIngresadaKeyTyped
-        String contrasena = new String(ContrasenaIngresada.getPassword());
-
-        if (contrasena.length() >= 20) {
-            DocumentoIngresado.setText(contrasena.substring(0, 19));
-            JOptionPane.showMessageDialog(rootPane, "La contrasena no puede tener mas de 20 caracteres");
-        }
-    }//GEN-LAST:event_ContrasenaIngresadaKeyTyped
-
-    private void CorreoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CorreoIngresadoKeyTyped
-        String correo = CorreoIngresado.getText();
-
-        if (correo.length() >= 30) {
-            DocumentoIngresado.setText(correo.substring(0, 29));
-            JOptionPane.showMessageDialog(rootPane, "El correo no puede tener mas de 30 caracteres");
-        }    }//GEN-LAST:event_CorreoIngresadoKeyTyped
-
-    private void TelefonoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoIngresadoKeyTyped
-        String telefono = TelefonoIngresado.getText();
-
-        if (telefono.length() >= 10) {
-            DocumentoIngresado.setText(telefono.substring(0, 9));
-            JOptionPane.showMessageDialog(rootPane, "Un numero de telefono puede tener como maximo 10 caracteres");
-        }    }//GEN-LAST:event_TelefonoIngresadoKeyTyped
-
-    private void RegistrarseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseBtnActionPerformed
-        InicioDeSesion ventana = new InicioDeSesion();
-        ventana.setVisible(true);
-        setVisible(false);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegistrarseBtnActionPerformed
-
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
         try { // El try and catch es por si el docummento es un numero no valido, puede devolver un error, pasa lo mismo si es null
             boolean inicio = fachada.inicio_sesion(Integer.parseInt(DocumentoIngresado.getText()), ContrasenaIngresada.getText());
@@ -284,6 +231,60 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
             JOptionPane.showMessageDialog(rootPane, "No se ha podido iniciar sesion, verifique y pruebe de nuevo");
         }
     }//GEN-LAST:event_AceptarBtnActionPerformed
+
+    private void RegistrarseBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseBtn1ActionPerformed
+        InicioDeSesion ventana = new InicioDeSesion();
+        ventana.setVisible(true);
+        setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarseBtn1ActionPerformed
+
+    private void TelefonoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoIngresadoKeyTyped
+        String telefono = TelefonoIngresado.getText();
+
+        if (telefono.length() >= 10) {
+            DocumentoIngresado.setText(telefono.substring(0, 9));
+            JOptionPane.showMessageDialog(rootPane, "Un numero de telefono puede tener como maximo 10 caracteres");
+        }
+    }//GEN-LAST:event_TelefonoIngresadoKeyTyped
+
+    private void TelefonoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonoIngresadoActionPerformed
+    }//GEN-LAST:event_TelefonoIngresadoActionPerformed
+
+    private void CorreoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CorreoIngresadoKeyTyped
+        String correo = CorreoIngresado.getText();
+
+        if (correo.length() >= 30) {
+            DocumentoIngresado.setText(correo.substring(0, 29));
+            JOptionPane.showMessageDialog(rootPane, "El correo no puede tener mas de 30 caracteres");
+        }
+    }//GEN-LAST:event_CorreoIngresadoKeyTyped
+
+    private void CorreoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorreoIngresadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CorreoIngresadoActionPerformed
+
+    private void ApellidoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidoIngresadoKeyTyped
+        String apellido = ApellidoIngresado.getText();
+
+        if (apellido.length() >= 15) {
+            DocumentoIngresado.setText(apellido.substring(0, 14));
+            JOptionPane.showMessageDialog(rootPane, "El apellido no puede tener mas de 15 caracteres");
+        }
+    }//GEN-LAST:event_ApellidoIngresadoKeyTyped
+
+    private void ApellidoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoIngresadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApellidoIngresadoActionPerformed
+
+    private void ContrasenaIngresadaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContrasenaIngresadaKeyTyped
+        String contrasena = new String(ContrasenaIngresada.getPassword());
+
+        if (contrasena.length() >= 20) {
+            DocumentoIngresado.setText(contrasena.substring(0, 19));
+            JOptionPane.showMessageDialog(rootPane, "La contrasena no puede tener mas de 20 caracteres");
+        }
+    }//GEN-LAST:event_ContrasenaIngresadaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -322,7 +323,7 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
     private javax.swing.JLabel DocumentoLabel;
     private javax.swing.JLabel LabelInicio1;
     private javax.swing.JTextField NombreIngresado;
-    private javax.swing.JButton RegistrarseBtn;
+    private javax.swing.JButton RegistrarseBtn1;
     private javax.swing.JTextField TelefonoIngresado;
     private javax.swing.JLabel TelefonoLabel;
     private javax.swing.JLabel UsuarioLabel;

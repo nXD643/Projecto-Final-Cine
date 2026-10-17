@@ -25,6 +25,7 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
     public InicioDeSesion() {
         initConf();
         initComponents();
+        add_background();
     }
 
     /**
@@ -36,81 +37,107 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        AceptarBtn = new Grafica.PanelUI.DefaultBtn(3);
-        LabelInicio = new Grafica.PanelUI.DefaultLabel(3);
+        DocumentoLabel = new Grafica.PanelUI.DefaultLabel(1);
+        DocumentoIngresado = new Grafica.PanelUI.DefaultTextField();
         UsuarioLabel = new Grafica.PanelUI.DefaultLabel(1);
-        DocumentoIngresado = new javax.swing.JTextField();
-        ContrasenaLabel = new Grafica.PanelUI.DefaultLabel(1);
-        RegistrarseBtn = new Grafica.PanelUI.DefaultBtn(1);
-        ContrasenaIngresada = new javax.swing.JPasswordField();
+        AceptarBtn = new Grafica.PanelUI.DefaultBtn(3);
+        LabelInicio1 = new Grafica.PanelUI.DefaultLabel(3);
+        RegistrarseBtn1 = new Grafica.PanelUI.DefaultBtn(1);
+        ContrasenaIngresada = new Grafica.PanelUI.DefaultPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        DocumentoLabel.setText("Documento");
+
+        DocumentoIngresado.addActionListener(this::DocumentoIngresadoActionPerformed);
+        DocumentoIngresado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DocumentoIngresadoKeyTyped(evt);
+            }
+        });
+
+        UsuarioLabel.setText("Contrasena");
+
+        AceptarBtn.setBackground(new java.awt.Color(158, 129, 127));
+        AceptarBtn.setForeground(new java.awt.Color(255, 255, 255));
         AceptarBtn.setText("Aceptar");
+        AceptarBtn.setBorderPainted(false);
         AceptarBtn.setPreferredSize(new java.awt.Dimension(100, 100));
         AceptarBtn.addActionListener(this::AceptarBtnActionPerformed);
 
-        LabelInicio.setText("Inicio de sesion");
+        LabelInicio1.setText("Iniciar Sesion");
 
-        UsuarioLabel.setText("Documento");
-
-        DocumentoIngresado.addActionListener(this::DocumentoIngresadoActionPerformed);
-
-        ContrasenaLabel.setText("Contrasena");
-
-        RegistrarseBtn.setText("No tengo cuenta, prefiero registrarme");
-        RegistrarseBtn.addActionListener(this::RegistrarseBtnActionPerformed);
+        RegistrarseBtn1.setText("Ya tengo cuenta, prefiero iniciar sesion");
+        RegistrarseBtn1.addActionListener(this::RegistrarseBtn1ActionPerformed);
 
         ContrasenaIngresada.addActionListener(this::ContrasenaIngresadaActionPerformed);
+        ContrasenaIngresada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ContrasenaIngresadaKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(381, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(LabelInicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(UsuarioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ContrasenaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(DocumentoIngresado, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                            .addComponent(ContrasenaIngresada)))
-                    .addComponent(RegistrarseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
-                .addContainerGap(381, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AceptarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(UsuarioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                            .addComponent(DocumentoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DocumentoIngresado)
+                            .addComponent(ContrasenaIngresada)))
+                    .addComponent(AceptarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                    .addComponent(LabelInicio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(557, Short.MAX_VALUE)
+                .addComponent(RegistrarseBtn1)
+                .addContainerGap(557, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
-                .addComponent(LabelInicio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(LabelInicio1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UsuarioLabel)
-                    .addComponent(DocumentoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ContrasenaLabel)
-                    .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addComponent(RegistrarseBtn)
-                .addGap(18, 18, Short.MAX_VALUE)
+                    .addComponent(DocumentoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DocumentoLabel))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(UsuarioLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addComponent(RegistrarseBtn1)
+                .addGap(36, 36, 36)
                 .addComponent(AceptarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void DocumentoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoIngresadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DocumentoIngresadoActionPerformed
+
+    private void DocumentoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DocumentoIngresadoKeyTyped
+        String documento = DocumentoIngresado.getText();
+
+        if (documento.length() >= 8) {
+            DocumentoIngresado.setText(documento.substring(0, 7));
+            JOptionPane.showMessageDialog(rootPane, "El documento no puede tener mas de 8 caracteres");
+        }
+    }//GEN-LAST:event_DocumentoIngresadoKeyTyped
 
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
         try { // El try and catch es por si el docummento es un numero no valido, puede devolver un error, pasa lo mismo si es null
@@ -127,16 +154,21 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
         }
     }//GEN-LAST:event_AceptarBtnActionPerformed
 
-    private void DocumentoIngresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoIngresadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DocumentoIngresadoActionPerformed
-
-    private void RegistrarseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseBtnActionPerformed
+    private void RegistrarseBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseBtn1ActionPerformed
         Registrarse ventana = new Registrarse();
         ventana.setVisible(true);
         setVisible(false);
         // TODO add your handling code here:
-    }//GEN-LAST:event_RegistrarseBtnActionPerformed
+    }//GEN-LAST:event_RegistrarseBtn1ActionPerformed
+
+    private void ContrasenaIngresadaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContrasenaIngresadaKeyTyped
+        String contrasena = new String(ContrasenaIngresada.getPassword());
+
+        if (contrasena.length() >= 20) {
+            DocumentoIngresado.setText(contrasena.substring(0, 19));
+            JOptionPane.showMessageDialog(rootPane, "La contrasena no puede tener mas de 20 caracteres");
+        }
+    }//GEN-LAST:event_ContrasenaIngresadaKeyTyped
 
     private void ContrasenaIngresadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaIngresadaActionPerformed
         // TODO add your handling code here:
@@ -170,10 +202,10 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AceptarBtn;
     private javax.swing.JPasswordField ContrasenaIngresada;
-    private javax.swing.JLabel ContrasenaLabel;
     private javax.swing.JTextField DocumentoIngresado;
-    private javax.swing.JLabel LabelInicio;
-    private javax.swing.JButton RegistrarseBtn;
+    private javax.swing.JLabel DocumentoLabel;
+    private javax.swing.JLabel LabelInicio1;
+    private javax.swing.JButton RegistrarseBtn1;
     private javax.swing.JLabel UsuarioLabel;
     // End of variables declaration//GEN-END:variables
 }

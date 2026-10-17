@@ -29,6 +29,7 @@ public class ElegirFuncion extends Grafica.PanelUI.DefaultConf{
 public ElegirFuncion() {
     initConf();
     initComponents();
+    add_background();
     
     int numCineSeleccionado = fachada.getCines().getCineSeleccionado();         
 
@@ -59,7 +60,7 @@ public ElegirFuncion() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        VolverBtn = new Grafica.PanelUI.DefaultBtn(2);
+        VolverBtn = new Grafica.PanelUI.DefaultBtn(3);
         jScrollPane2 = new javax.swing.JScrollPane();
         FuncionesPanel = new javax.swing.JPanel();
 
@@ -71,7 +72,6 @@ public ElegirFuncion() {
 
         jScrollPane2.setBackground(new java.awt.Color(0, 153, 153));
 
-        FuncionesPanel.setBackground(new java.awt.Color(153, 153, 153));
         FuncionesPanel.setLayout(new javax.swing.BoxLayout(FuncionesPanel, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(FuncionesPanel);
 
@@ -82,18 +82,18 @@ public ElegirFuncion() {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 983, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(VolverBtn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(198, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(VolverBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
 
         pack();

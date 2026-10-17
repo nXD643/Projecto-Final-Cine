@@ -18,6 +18,7 @@ public class Presentacion extends Grafica.PanelUI.DefaultConf {
     public Presentacion() {
         initConf();
         initComponents();
+        add_background();
     }
 
     /**

@@ -23,6 +23,8 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
     public ElegirAsientos() {
         initConf();
         initComponents();
+        add_background();
+
     }
 
     /**

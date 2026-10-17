@@ -21,14 +21,22 @@ public class DefaultConf extends JFrame {
 
     public DefaultConf() {
     }
+    public void add_background() {
+        // fondo
+        JLabel fondo = new JLabel();
+        fondo.setIcon(new ImageIcon("UI/BackgroundInicio.png"));
+        fondo.setBounds(0, 0, 1920, 1080);
+        this.add(fondo);
+   
+        setBounds(0, 0, 1920, 1080);
+        setVisible(true);
+    }
+    
     public void initConf() {
         // configuracion del propio jframe
         Color colorBackground = new Color(0,1,7);
         getContentPane().setBackground(colorBackground);
         
-        setBounds(0, 0, 1920, 1080);
-        setVisible(true);
-
         int progress = 0; // temporal, despues esto va a estar en el constructor y va a marcar el progreso
 
         // agregar el menu

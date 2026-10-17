@@ -8,6 +8,7 @@ import Grafica.PanelUI.PeliculaUI;
 import Logica.Fachada;
 import Logica.Cine;
 import Logica.Pelicula;
+import com.formdev.flatlaf.FlatDarkLaf;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -25,13 +26,16 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
      * Creates new form ElegirCine
      */
     public ElegirPelicula() {
+        
+        FlatDarkLaf.setup();
         initConf();
         initComponents();
-
+        add_background();
+        
         try { // el try and catch es porque el cine en caso de que no exista o no se defina correctamente, ademas puede dar varios errores diferentes
             Cine cineActual = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
             ArrayList<Pelicula> peliculas = cineActual.ListaPeliculas();
-
+            
             System.out.println(cineActual.getNombre());
             // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
             for (int i = 0; i < 10; i++) {
@@ -41,7 +45,7 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
                 Pelicula pelicula = new Pelicula("3 hs", 17, "Spiderman", 19201, date, genero);
                 peliculas.add(pelicula);
             }
-
+            
             //   extraer las peliculas de la parte logica
             int cantidad_funciones = peliculas.size();
             for (int i = 0; i < cantidad_funciones; i++) {
@@ -53,7 +57,7 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
                 JOptionPane.showMessageDialog(rootPane, "No hay peliculas disponibles en el cine o el cine al que se accedio no existe");
            }
         }
-    
+        
         /**
          * This method is called from within the constructor to initialize the
          * form. WARNING: Do NOT modify this code. The content of this method is
@@ -63,11 +67,10 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        InicioLabel = new javax.swing.JLabel();
+        InicioLabel = new Grafica.PanelUI.DefaultLabel(3);
         VolverBtn = new Grafica.PanelUI.DefaultBtn(2);
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane2 = new Grafica.PanelUI.DefaultScrollPanel();
         PeliculasPanel = new javax.swing.JPanel();
-        jButton1 = new Grafica.PanelUI.DefaultBtn(2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,45 +83,33 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
         jScrollPane2.setBackground(new java.awt.Color(0, 153, 153));
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        PeliculasPanel.setBackground(new java.awt.Color(153, 153, 153));
+        PeliculasPanel.setBackground(new java.awt.Color(0, 0, 0));
+        PeliculasPanel.setOpaque(false);
         PeliculasPanel.setLayout(new javax.swing.BoxLayout(PeliculasPanel, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(PeliculasPanel);
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(InicioLabel))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(VolverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(43, 43, 43)
-                            .addComponent(jButton1))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addComponent(InicioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VolverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(InicioLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(VolverBtn)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(45, 45, 45)
+                .addComponent(InicioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addComponent(VolverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
 
         pack();
@@ -128,15 +119,7 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
         ElegirCine ventana = new ElegirCine();
         ventana.setVisible(true);
         setVisible(false);
-        // TODO add your handling code here:
     }//GEN-LAST:event_VolverBtnActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ElegirFuncion ventana = new ElegirFuncion();
-        ventana.setVisible(true);
-        setVisible(false);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,7 +150,6 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
     private javax.swing.JLabel InicioLabel;
     private javax.swing.JPanel PeliculasPanel;
     private javax.swing.JButton VolverBtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

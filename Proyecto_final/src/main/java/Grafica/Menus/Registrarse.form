@@ -24,24 +24,24 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="493" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="ContrasenaLabel" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="ContrasenaLabel" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="TelefonoLabel" min="-2" pref="132" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="TelefonoIngresado" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="UsuarioLabel" min="-2" pref="132" max="-2" attributes="0"/>
-                              <Component id="DocumentoLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="UsuarioLabel" pref="132" max="32767" attributes="0"/>
+                              <Component id="DocumentoLabel" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="NombreIngresado" max="32767" attributes="0"/>
-                              <Component id="DocumentoIngresado" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="DocumentoIngresado" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -50,21 +50,17 @@
                               <Component id="CorreoLabel" min="-2" pref="132" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="CorreoIngresado" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="ApellidoIngresado" alignment="0" max="32767" attributes="0"/>
-                              <Component id="ContrasenaIngresada" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="CorreoIngresado" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ContrasenaIngresada" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="AceptarBtn" pref="362" max="32767" attributes="0"/>
+                      <Component id="LabelInicio1" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="AceptarBtn" pref="362" max="32767" attributes="0"/>
-                  <Component id="LabelInicio1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="RegistrarseBtn1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="493" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="RegistrarseBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -72,9 +68,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="83" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
               <Component id="LabelInicio1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="75" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="DocumentoIngresado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="DocumentoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -84,31 +80,31 @@
                   <Component id="UsuarioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="NombreIngresado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="ApellidoIngresado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="ApellidoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="ContrasenaLabel" min="-2" max="-2" attributes="0"/>
                   <Component id="ContrasenaIngresada" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="CorreoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CorreoIngresado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="TelefonoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="TelefonoIngresado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="102" max="32767" attributes="0"/>
-              <Component id="RegistrarseBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <Component id="RegistrarseBtn1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="AceptarBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -197,17 +193,6 @@
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TelefonoIngresadoKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="RegistrarseBtn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ya tengo cuenta, prefiero iniciar sesion"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarseBtnActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn(1)"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JButton" name="AceptarBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
@@ -224,10 +209,21 @@
     </Component>
     <Component class="javax.swing.JLabel" name="LabelInicio1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registrate"/>
+        <Property name="text" type="java.lang.String" value="Registrarse     "/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultLabel(3)"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="RegistrarseBtn1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ya tengo cuenta, prefiero iniciar sesion"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarseBtn1ActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn(1)"/>
       </AuxValues>
     </Component>
   </SubComponents>

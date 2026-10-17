@@ -20,6 +20,7 @@ public class PagoRealizado extends Grafica.PanelUI.DefaultConf {
     public PagoRealizado() {
         initConf();
         initComponents();
+        add_background();
     }
 
     /**

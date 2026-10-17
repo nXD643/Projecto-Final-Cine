@@ -22,6 +22,7 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
     public ElegirCine() {
         initConf();
         initComponents();
+        add_background();
         
         // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
         fachada.getCines().cargarCine("Callex", "Ciudadx", 123, "Cine1");
@@ -78,8 +79,8 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
                 .addContainerGap(115, Short.MAX_VALUE)
                 .addComponent(InicioLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(ElegirCine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(ElegirCine, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SiguienteBtn)
                 .addContainerGap(32, Short.MAX_VALUE))
         );

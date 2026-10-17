@@ -39,7 +39,7 @@ public class DefaultLabel extends JLabel {
         }
         
         // color de la fuente 143,103,122
-        Color colorBtnFont = new Color(143, 103, 122);
+        Color colorBtnFont = new Color(158, 129, 127);
         this.setForeground(colorBtnFont);
         // fuente y tamano
         java.awt.Font textFont = new java.awt.Font(fuente, fuenteTipo, fuenteTamanio);
