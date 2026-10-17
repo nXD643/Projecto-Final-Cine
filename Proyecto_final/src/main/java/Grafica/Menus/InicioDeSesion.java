@@ -140,7 +140,7 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
     }//GEN-LAST:event_DocumentoIngresadoKeyTyped
 
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
-        try { // El try and catch es por si el docummento es un numero no valido, puede devolver un error, pasa lo mismo si es null
+        try { // El try and catch es por si el docummento es un numero no valido puede devolver un error, pasa lo mismo si es null
             boolean inicio = fachada.inicio_sesion(Integer.parseInt(DocumentoIngresado.getText()), ContrasenaIngresada.getText());
             if (inicio == true) {
                 ElegirCine ventana = new ElegirCine();
