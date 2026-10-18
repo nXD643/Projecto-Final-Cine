@@ -205,13 +205,14 @@ public class ConexionDB {
     public static boolean anadirCompra(String datos) {
         try {
             String[] valores = datos.split(":");
-            String sql = "call add_compra(?, ?, ?, ?)";
+            String sql = "call nueva_compra(?, ?, ?, ?, ?)";
             Connection connection = realizarConexion();
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, valores[0]);
             ps.setString(2, valores[1]);
             ps.setString(3, valores[2]);
             ps.setString(4, valores[3]);
+            ps.setString(5, valores[4]);
             ResultSet rs = ps.executeQuery();
 
             return true;
@@ -224,7 +225,7 @@ public class ConexionDB {
     public static boolean anadirEntrada(String datos) {
         try {
             String[] valores = datos.split(":");
-            String sql = "call add_entrada(?, ?, ?, ?, ?, ?)";
+            String sql = "call nueva_entrada(?, ?, ?, ?, ?, ?)";
             Connection connection = realizarConexion();
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, valores[0]);
