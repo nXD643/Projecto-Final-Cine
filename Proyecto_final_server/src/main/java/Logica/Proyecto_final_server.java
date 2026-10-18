@@ -61,8 +61,30 @@ public class Proyecto_final_server {
             case 2:
                 datos_recibidos = ConexionDB.inicio_sesion(valores[1]);
                 break;
-            case 3: // Implementar en las funciones de la fachada
+            case 3:
                 datos_recibidos = ConexionDB.compras_cliente(valores[1]);
+                break;
+            case 4:
+                datos_recibidos = ConexionDB.obtenerCines();
+                break;
+            case 5:
+                datos_recibidos = ConexionDB.obtenerSala(valores[1]);
+                break;
+            case 6:
+                datos_recibidos = ConexionDB.obtenerFunciones(valores[1]);
+                break;
+            case 7:
+                datos_recibidos = ConexionDB.obtenerPeliculas(valores[1]);
+                break;
+            case 8:
+                datos_recibidos = ConexionDB.obtenerGeneros(valores[1]);
+                break;
+            case 9:
+                datos_recibidos = ConexionDB.obtenerAsientos(valores[1]);
+                break; 
+            case 10:
+                datos_recibidos = ConexionDB.entradas_compra(valores[1]);
+                break;
         }
         return datos_recibidos;
     }

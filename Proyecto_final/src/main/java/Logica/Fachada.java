@@ -42,15 +42,23 @@ public class Fachada {
         
         valores = resultado[0].split(":");
         
-        this.cliente = new Cliente(documento, valores[1], valores[2], valores[3], contrasena);
+        this.cliente = new Cliente(documento, valores[0], valores[1], valores[2], contrasena);
         
-        telefonos = valores[5].split("/");
+        telefonos = valores[3].split("/");
         
         for (int i = 0; i < telefonos.length; i ++)
         {
             this.cliente.agregarTelefono(telefonos[i]);
         }
         
+        datos = "3;" + documento;
+        
+        resultado = cs.conexion(datos);
+        
+        for (int i = 0; i < resultado.length; i ++)
+        {
+            this.cliente.cargarCompras(resultado[i], i);
+        }
         return true;
     }
     public boolean registro(int documento, String nombre, String apellido, String correo_electronico, String contrasena, ArrayList<String> telefonos)
@@ -95,6 +103,10 @@ public class Fachada {
 
     public ListaCines getCines() {
         return cines;
+    }
+
+    public ConexionServer getCs() {
+        return cs;
     }
     
     public boolean verificarCancelacion(int idCompra, int idEntrada)
@@ -284,5 +296,155 @@ public class Fachada {
         
         digito_verificador = total % 10;
         return digito_verificador == 0;
+    }
+    public boolean anadir_cines()
+    {
+        String datos;
+        String[] resultado = null;
+        String[] resultado_salas = null;
+        String[] valores = null;
+        Integer[] valores_sala = null;
+        
+        datos = "4;";
+        
+        resultado = cs.conexion(datos);
+        
+        System.out.println(resultado[0]);
+        
+        for (int i = 0; i < resultado.length; i ++)
+        {
+            valores = resultado[i].split(":");
+            
+            this.cines.cargarCine(valores[1], valores[2], Integer.parseInt(valores[0]), valores[3]);
+            
+            anadir_salas(Integer.parseInt(valores[0]));
+        }
+        
+        return true;
+    }
+    public boolean anadir_peliculas (int id_pelicula, int id_cine)
+    {
+        String datos = "7;" + id_pelicula;
+        String[] resultado = null;
+        String[] valores = null;
+        ArrayList<String> generos = null;
+        LocalDate anio_estreno;
+        
+        resultado = cs.conexion(datos);
+        
+        for (int i = 0; i < resultado.length; i ++)
+        {
+            valores = resultado[i].split(":");
+            
+            generos = obtener_generos(Integer.parseInt(valores[3]));
+
+            anio_estreno = LocalDate.parse(valores[4]);
+            
+            Pelicula pelicula = new Pelicula(valores[0], valores[1], valores[2], Integer.parseInt(valores[3]), anio_estreno, generos);
+            
+            this.cines.buscarCine(id_cine - 1).cargarPelicula(pelicula);
+        }
+        
+        return true;
+    }
+    public ArrayList<String> obtener_generos (int id_pelicula)
+    {
+        String datos = "8;" + id_pelicula;
+        String[] resultado = null;
+        String[] valores = null;
+        ArrayList<String> generos = new ArrayList<>();
+        
+        resultado = cs.conexion(datos);
+        
+        for (int i = 0; i < resultado.length; i ++)
+        {
+            valores = resultado[i].split(":");
+            
+            generos.add(valores[0]);
+        }
+        return generos;
+    }
+    public boolean anadir_salas (int id_cine)
+    {
+        String datos = "5;" + id_cine;
+        String[] resultado = null;
+        String[] valores = null;
+        Integer[] valores_sala = null;
+        
+        resultado = cs.conexion(datos);
+
+        for (int i = 0; i < resultado.length; i ++)
+        {
+            valores = resultado[i].split(":");
+
+            valores_sala = convertirInt(valores);
+
+            this.cines.buscarCine(id_cine - 1).cargarSala(valores_sala[1], valores_sala[2], valores_sala[3], valores_sala[4], valores_sala[5]);
+
+            anadir_funciones(valores_sala[1], id_cine);
+        }
+        
+        return true;
+    }
+    public boolean anadir_funciones(int id_sala, int id_cine)
+    {
+        String datos;
+        String[] resultado = null;
+        String[] valores = null;
+        LocalDate fecha;
+        
+        datos = "6;" + id_sala;
+                
+        resultado = cs.conexion(datos);
+        
+        System.out.println(resultado[0]);
+        
+        for (int i = 0; i < resultado.length; i ++)
+        {
+            valores = resultado[i].split("\\.");
+            
+            fecha = LocalDate.parse(valores[0]);
+            
+            this.cines.buscarCine(id_cine - 1).buscarSala(id_sala - 1).cargarFuncion(fecha, Integer.parseInt(valores[1]), Integer.parseInt(valores[2]), Integer.parseInt(valores[3]), valores[4]);
+            
+            anadir_peliculas(Integer.parseInt(valores[3]), id_cine);
+            
+            anadir_asientos(i, id_cine, id_sala);
+        }
+        
+        return true;
+    }
+    public boolean anadir_asientos(int id_funcion, int id_cine, int id_sala)
+    {
+        String datos;
+        String[] resultado = null;
+        String[] valores = null;
+        
+        datos = "9;" + id_funcion;
+        
+        resultado = cs.conexion(datos);
+        
+        System.out.println(resultado[0]);
+        
+        if (!resultado[0].equals(""))
+        {
+            for (int i = 0; i < resultado.length; i ++)
+            {
+                valores = resultado[i].split(":");
+
+                this.cines.buscarCine(id_cine - 1).buscarSala(id_sala - 1).buscarFuncion(id_funcion).cargarAsiento(Integer.parseInt(valores[0]), Integer.parseInt(valores[1]), Integer.parseInt(valores[2]), Boolean.getBoolean(valores[3]));
+            }
+        }
+        
+        return true;
+    }
+    public Integer[] convertirInt (String[] texto)
+    {
+        Integer numero[] = new Integer[texto.length];
+        for (int i = 0; i < texto.length; i ++)
+        {
+            numero[i] = Integer.parseInt(texto[i]);
+        }
+        return numero;
     }
 }

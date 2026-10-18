@@ -31,7 +31,7 @@ public class ElegirPelicula extends javax.swing.JFrame {
             LocalDate date = LocalDate.of(2020, 1, 8);
             ArrayList<String> genero = new ArrayList();
             genero.add("Terror");
-            Pelicula pelicula = new Pelicula("3 hs",17,"Spiderman",19201,date,genero);
+            Pelicula pelicula = new Pelicula("3 hs","17","Spiderman",19201,date,genero);
             peliculas.add(pelicula);
         }
         //   

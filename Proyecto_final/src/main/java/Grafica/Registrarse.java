@@ -4,6 +4,7 @@
  */
 package Grafica;
 import Logica.Fachada;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -216,7 +217,9 @@ public class Registrarse extends javax.swing.JFrame {
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
         String contrasena = new String(ContrasenaIngresada.getPassword());
         int documento = Integer.parseInt(DocumentoIngresado.getText());
-        boolean registrarse = fachada.registo(documento,NombreIngresado.getText(),ApellidoIngresado.getText(),contrasena,CorreoIngresado.getText(),null);
+        ArrayList<String> telefonos= new ArrayList<>();
+        telefonos.add(TelefonoIngresado.getText());
+        boolean registrarse = fachada.registro(documento,NombreIngresado.getText(),ApellidoIngresado.getText(),contrasena,CorreoIngresado.getText(), telefonos);
         
         if (registrarse == true) {
             ElegirCine ventana = new ElegirCine();

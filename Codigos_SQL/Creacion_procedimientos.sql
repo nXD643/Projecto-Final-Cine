@@ -2,7 +2,7 @@ delimiter //
 
 create procedure inicio_sesion(in ci int, passwd varchar(30))
 begin
-    select * from cliente where documento = ci and contrasena = passwd;
+    select nombre, apellido, correo_electronico from cliente where documento = ci and contrasena = passwd;
 end //
 
 create procedure registro_cliente(in ci int, nom varchar(30), ape varchar(30), correo varchar(50), passwd varchar(30))
@@ -12,7 +12,7 @@ end //
 
 create procedure compras_cliente (in ci int)
 begin 
-	select * from compra where cliente_CI = ci;
+	select fecha, hora, metodo_pago, motivo, estado, importe_total, id from compra where cliente_CI = ci;
 end //
 
 create procedure entradas_compra (in idCompra int)
@@ -32,12 +32,7 @@ end //
 
 create procedure get_funciones (in idSala int)
 begin
-	select * from funcione where sala_ID = idSala;
-end //
-
-create procedure get_asientos (in idFuncion int)
-begin
-	select * from sala where funcion_ID = idFuncion;
+	select fecha, id, precio_base, pelicula_ID, hora from funcion where sala_ID = idSala;
 end //
 
 create procedure add_compra (in ci int, fecha date, hora varchar(30), metodo_pago varchar(20))
@@ -63,4 +58,19 @@ end //
 create procedure obtener_telefono (in ci int)
 begin
 	select telefono from telefono where cliente_CI = ci;
+end //
+
+create procedure obtener_pelicula (in id_pelicula int)
+begin
+	select duracion, clasificacion_por_edad, titulo, id, anio_estreno from pelicula where id = id_pelicula;
+end //
+
+create procedure obtener_generos (in id_pelicula int)
+begin
+	select genero from genero where pelicula_ID = id_pelicula;
+end //
+
+create procedure obtener_asientos (in id_funcion int)
+begin
+	select id, fila, numero, estado from asiento where funcion_ID = id_funcion;
 end //

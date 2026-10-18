@@ -84,11 +84,14 @@ public class ConexionDB {
             
             while (rs.next())
             {
-                datos_obtenidos += rs.getInt("documento") + ":" + rs.getString("nombre") + ":" + rs.getString("apellido") + ":" + rs.getString("correo_electronico") + ":" + rs.getString("contrasena") + ":";
+                datos_obtenidos += rs.getString("nombre") + ":" + rs.getString("apellido") + ":" + rs.getString("correo_electronico") + ":";
             }
-            String telefonos = obtener_telefonos(valores[0]);
-            telefonos = telefonos.substring(0, telefonos.length() - 1) + ';';
-            datos_obtenidos += telefonos;
+            if (!datos_obtenidos.equals(""))
+            {
+                String telefonos = obtener_telefonos(valores[0]);
+                telefonos = telefonos.substring(0, (telefonos.length() - 1)) + ';';
+                datos_obtenidos += telefonos;
+            } 
         }
         catch (SQLException ex)
         {
@@ -112,7 +115,7 @@ public class ConexionDB {
             
             while (rs.next())
             {
-                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("cliente_CI") + ":" + rs.getDate("fecha") + ":" + rs.getString("hora") + rs.getString("metodo_pago") + rs.getString("motivo") + rs.getBoolean("estado") + ";";
+                datos_obtenidos += rs.getDate("fecha") + "/" + rs.getString("hora") + "/" + rs.getString("metodo_pago") + "/" + rs.getString("motivo") + "/" + rs.getBoolean("estado") + "/" + rs.getInt("importe_total") + "/" + rs.getInt("id") + ";";
             }
         }
         catch (SQLException ex)
@@ -122,7 +125,7 @@ public class ConexionDB {
         return datos_obtenidos;
     }
     
-    public static String[] entradas_compra(String datos)
+    public static String entradas_compra(String datos)
     {
         String datos_obtenidos = "";
         
@@ -137,17 +140,16 @@ public class ConexionDB {
             
             while (rs.next())
             {
-                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("precio_pagado") + ":" + rs.getInt("asiento_ID") + ":" + rs.getInt("sala_ID") + ":" + rs.getInt("cine_ID") + rs.getInt("funcion_ID") + rs.getInt("compra_ID") + ";";
+                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("precio_pagado") + ":" + rs.getInt("sala_ID") + ":" + rs.getInt("funcion_ID") + ":" + rs.getInt("cine_ID") + ":" + rs.getInt("asiento_ID") + ":" + rs.getInt("compra_ID") + ";";
             }
         }
         catch (SQLException ex)
         {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return datos_obtenidos.split(";");
+        return datos_obtenidos;
     }
-    
-    public static String[] obtenerCines()
+    public static String obtenerCines()
     {
         String datos_obtenidos = "";
         
@@ -160,17 +162,17 @@ public class ConexionDB {
             
             while (rs.next())
             {
-                datos_obtenidos += rs.getInt("id") + ":" + rs.getString("calle") + ":" + rs.getString("nombre") + ";";
+                datos_obtenidos += rs.getInt("id") + ":" + rs.getString("calle") + ":" + rs.getString("ciudad") + ":" + rs.getString("nombre") + ";";
             }
         }
         catch (SQLException ex)
         {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return datos_obtenidos.split(";");
+        return datos_obtenidos;
     }
         
-    public static String[] obtenerSala(String datos)
+    public static String obtenerSala(String datos)
     {
         String datos_obtenidos = "";
         
@@ -185,16 +187,16 @@ public class ConexionDB {
             
             while (rs.next())
             {
-                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("cine_ID") + ":" + rs.getInt("numero") + ":" + rs.getInt("capacidad") + ";";
+                datos_obtenidos += rs.getInt("cine_ID") + ":" + rs.getInt("numero") + ":" + rs.getInt("id") + ":" + rs.getInt("capacidad_maxima") + ":" + rs.getInt("largo_asientos") + ":" + rs.getInt("ancho_asientos") + ";";
             }
         }
         catch (SQLException ex)
         {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return datos_obtenidos.split(";");
+        return datos_obtenidos;
     }
-    public static String[] obtenerFunciones(String datos)
+    public static String obtenerFunciones(String datos)
     {
         String datos_obtenidos = "";
         
@@ -209,23 +211,23 @@ public class ConexionDB {
             
             while (rs.next())
             {
-                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("sala_Id") + ":" + rs.getInt("cine_ID") + ":" + rs.getDate("fecha") + ":" + rs.getString("hora") + rs.getInt("precio_base") + ";";
+                datos_obtenidos += rs.getDate("fecha") + "." + rs.getInt("id") + "." + rs.getInt("precio_base") + "." + rs.getInt("pelicula_ID") + "." + rs.getString("hora") + ";";
             }
         }
         catch (SQLException ex)
         {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return datos_obtenidos.split(";");
+        return datos_obtenidos;
     }
-    public static String[] obtenerAsientos(String datos)
+    public static String obtenerAsientos(String datos)
     {
         String datos_obtenidos = "";
         
         try
         {
             String[] valores = datos.split(":");
-            String sql = "call get_asientos(?)";
+            String sql = "call obtener_asientos(?)";
             Connection connection = realizarConexion();
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, valores[0]);
@@ -233,14 +235,14 @@ public class ConexionDB {
             
             while (rs.next())
             {
-                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("sala_Id") + ":" + rs.getInt("cine_ID") + ":" + rs.getString("fila") + ":" + rs.getInt("numero") + ";";
+                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("fila") + ":" + rs.getInt("numero") + ":" + rs.getBoolean("estado") + ";";
             }
         }
         catch (SQLException ex)
         {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return datos_obtenidos.split(";");
+        return datos_obtenidos;
     }
     public static boolean anadirCompra(String datos)
     {
@@ -350,7 +352,48 @@ public class ConexionDB {
         }
         return datos_obtenidos;
     }
-    public static String obtenerPeliculas(String IDcine) {
-        return "";// obtiene las peliculas de la base de datos
+    public static String obtenerPeliculas(String pelicula_ID) {
+        String datos_obtenidos = "";
+        
+        try
+        {
+            String sql = "call obtener_pelicula(?)";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, pelicula_ID);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next())
+            {
+                datos_obtenidos += rs.getString("duracion") + ":" + rs.getString("clasificacion_por_edad") + ":" + rs.getString("titulo") + ":" + rs.getInt("id") + ":" + rs.getDate("anio_estreno") + ";";
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return datos_obtenidos;
+    }
+    public static String obtenerGeneros(String pelicula_id) {
+        String datos_obtenidos = "";
+        
+        try
+        {
+            String sql = "call obtener_generos(?)";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, pelicula_id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next())
+            {
+                datos_obtenidos += rs.getString("genero") + ";";
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return datos_obtenidos;
     }
 }
