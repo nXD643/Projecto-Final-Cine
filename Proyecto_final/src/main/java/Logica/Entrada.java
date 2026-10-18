@@ -1,24 +1,30 @@
 package Logica;
 
+import java.time.LocalDate;
+
 public class Entrada {
     private int id;
+    private LocalDate fecha_emision;
     private int precio;
     private int id_sala;
     private int id_funcion;
     private int id_cine;
-    private int id_asiento;
 
-    public Entrada(int id, int precio, int id_sala, int id_funcion, int id_cine, int id_asiento) {
+    public Entrada(int id, LocalDate fecha_emision, int precio, int id_sala, int id_funcion, int id_cine) {
         this.id = id;
+        this.fecha_emision = fecha_emision;
         this.precio = precio;
         this.id_sala = id_sala;
         this.id_funcion = id_funcion;
         this.id_cine = id_cine;
-        this.id_asiento = id_asiento;
     }
 
     public int getId() {
         return id;
+    }
+
+    public LocalDate getFecha_emision() {
+        return fecha_emision;
     }
 
     public int getPrecio() {

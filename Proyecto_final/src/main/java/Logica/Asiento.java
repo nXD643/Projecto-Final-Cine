@@ -1,27 +1,15 @@
 package Logica;
 public class Asiento {
     private int id;
-    private int fila;
-    private int numero;
     private boolean estado;
 
-    public Asiento(int id, int fila, int numero, boolean estado) {
+    public Asiento(int id, boolean estado) {
         this.id = id;
-        this.fila = fila;
-        this.numero = numero;
         this.estado = estado;
     }
 
     public int getId() {
         return id;
-    }
-
-    public int getFila() {
-        return fila;
-    }
-
-    public int getNumero() {
-        return numero;
     }
 
     public boolean isEstado() {

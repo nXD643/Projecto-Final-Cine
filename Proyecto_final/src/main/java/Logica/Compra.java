@@ -6,30 +6,15 @@ import java.time.LocalDate;
 public class Compra {
     private ArrayList <Entrada> lista;
     private LocalDate fecha;
-    private String hora;
     private String metodo_pago;
     private boolean activo;
-    private String motivo;
-    private int importe_total;
 
-    public Compra(LocalDate fecha, String hora, String metodo_pago, boolean activo, int importe_total) {
+    public Compra(LocalDate fecha, String metodo_pago) {
         this.lista = new ArrayList <>();
         this.fecha = fecha;
-        this.hora = hora;
         this.metodo_pago = metodo_pago;
-        this.activo = activo;
-        this.importe_total = importe_total;
-    }   
-    
-    public Compra(LocalDate fecha, String hora, String metodo_pago, boolean activo, String motivo, int importe_total) {
-        this.lista = new ArrayList <>();
-        this.fecha = fecha;
-        this.hora = hora;
-        this.metodo_pago = metodo_pago;
-        this.activo = activo;
-        this.motivo = motivo;
-        this.importe_total = importe_total;
-    }   
+        this.activo = true;
+    }    
 
     public LocalDate getFecha() {
         return fecha;
@@ -39,10 +24,6 @@ public class Compra {
         return metodo_pago;
     }
 
-    public int getImporte_total() {
-        return importe_total;
-    }
-    
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
@@ -52,18 +33,9 @@ public class Compra {
         return this.lista.get(index);
     }
     
-    public void anadirEntrada(String datos)
+    public void anadirEntrada(int id, LocalDate fecha_emision, int precio, int id_sala, int id_funcion, int id_cine)
     {
-        String[] valores_str = null;
-        Integer[] valores = null;
-        
-        valores_str = datos.split(":");
-        
-        System.out.println(datos);
-        
-        valores = Fachada.getInstancia().convertirInt(valores_str);
-                
-        Entrada entrada = new Entrada(valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]);
+        Entrada entrada = new Entrada(id, fecha_emision, precio, id_sala, id_funcion, id_cine);
         this.lista.add(entrada);
     }
     

@@ -54,10 +54,20 @@ public class Funcion {
         return null;
     }
     
-    public void cargarAsiento(int id, int fila, int numero, boolean estado)
+    // Puede que no funcione, revisar
+    public void cargarAsiento(int id, boolean estado)
     {
-        Asiento asiento = new Asiento(id - 1, fila - 1, numero, estado);
+        Asiento asiento = new Asiento(id, estado);
         
-        this.asientos[fila][numero] = asiento;
+        for(int i = 0; i < this.asientos.length; i ++)
+        {
+            for(int j = 0; j < this.asientos[0].length; j ++)
+            {
+                if(this.asientos[i][j] == null)
+                {
+                    this.asientos[i][j] = asiento;
+                }
+            }
+        }
     }
 }

@@ -23,6 +23,11 @@ public class ConexionDB {
             return false;
         }
     }
+    
+    public static void conectarJava() {
+        ;// conecta el servidor con la aplicacion
+    }
+    
     public static Connection realizarConexion()
     {
         String url = "jdbc:mysql://localhost:3306/complejo_cines";
@@ -39,12 +44,11 @@ public class ConexionDB {
         }
         return conexion;
     }
-    public static String registro_cliente(String datos)
+    public static void registro_cliente(String datos)
     {
         try
         {
             String[] valores = datos.split(":");
-            String[] telefono = valores[5].split("/");
             String sql = "call registro_cliente(?, ?, ?, ?, ?)";
             Connection connection = realizarConexion();
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -54,21 +58,13 @@ public class ConexionDB {
             ps.setString(4, valores[3]);
             ps.setString(5, valores[4]);            
             ps.executeUpdate();
-            
-            for (int i = 0; i < telefono.length; i ++)
-            {
-                agregar_telefonos(telefono[i], valores[0]);
-            }
-            
-            return "true";
         }
         catch (SQLException ex)
         {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return "false";
     }
-    public static String inicio_sesion(String datos)
+    public static String[] inicio_sesion(String datos)
     {
         String datos_obtenidos = "";
         
@@ -84,26 +80,20 @@ public class ConexionDB {
             
             while (rs.next())
             {
-                datos_obtenidos += rs.getString("nombre") + ":" + rs.getString("apellido") + ":" + rs.getString("correo_electronico") + ":";
+                datos_obtenidos += rs.getInt("documento") + ":" + rs.getString("nombre") + ":" + rs.getString("apellido") + ":" + rs.getString("correo_electronico") + ":" + rs.getString("contrasena") + ";";
             }
-            if (!datos_obtenidos.equals(""))
-            {
-                String telefonos = obtener_telefonos(valores[0]);
-                telefonos = telefonos.substring(0, (telefonos.length() - 1)) + ';';
-                datos_obtenidos += telefonos;
-            } 
         }
         catch (SQLException ex)
         {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return datos_obtenidos;
+        return datos_obtenidos.split(";");
     }
     
-    public static String compras_cliente(String datos)
+    public static String[] compras_cliente(String datos)
     {
         String datos_obtenidos = "";
-        System.out.println(datos);
+        
         try
         {
             String[] valores = datos.split(":");
@@ -115,285 +105,32 @@ public class ConexionDB {
             
             while (rs.next())
             {
-                datos_obtenidos += rs.getDate("fecha") + "/" + rs.getString("hora") + "/" + rs.getString("metodo_pago") + "/" + rs.getString("motivo") + "/" + rs.getBoolean("estado") + "/" + rs.getInt("importe_total") + "/" + rs.getInt("id") + ";";
+                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("cliente_CI") + ":" + rs.getInt("entrada_ID") + ":" + rs.getDate("fecha") + ":" + rs.getString("hora") + rs.getString("metodo_pago") + rs.getString("motivo") + rs.getBoolean("estado") + ";";
             }
         }
         catch (SQLException ex)
         {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return datos_obtenidos;
-    }
-    
-    public static String entradas_compra(String datos)
-    {
-        String datos_obtenidos = "";
-        
-        try
-        {
-            String[] valores = datos.split(":");
-            String sql = "call entradas_compra(?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, valores[0]);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next())
-            {
-                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("precio_pagado") + ":" + rs.getInt("sala_ID") + ":" + rs.getInt("funcion_ID") + ":" + rs.getInt("cine_ID") + ":" + rs.getInt("asiento_ID") + ":" + rs.getInt("compra_ID") + ";";
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return datos_obtenidos;
-    }
-    public static String obtenerCines()
-    {
-        String datos_obtenidos = "";
-        
-        try
-        {
-            String sql = "call get_cines()";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next())
-            {
-                datos_obtenidos += rs.getInt("id") + ":" + rs.getString("calle") + ":" + rs.getString("ciudad") + ":" + rs.getString("nombre") + ";";
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return datos_obtenidos;
+        return datos_obtenidos.split(";");
     }
         
-    public static String obtenerSala(String datos)
-    {
-        String datos_obtenidos = "";
-        
-        try
-        {
-            String[] valores = datos.split(":");
-            String sql = "call get_salas(?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, valores[0]);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next())
-            {
-                datos_obtenidos += rs.getInt("cine_ID") + ":" + rs.getInt("numero") + ":" + rs.getInt("id") + ":" + rs.getInt("capacidad_maxima") + ":" + rs.getInt("largo_asientos") + ":" + rs.getInt("ancho_asientos") + ";";
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return datos_obtenidos;
+    public static String obtenerTelefonos(String IDcliente) {
+        return "";// Obtiene los telefonos de la base de datos
     }
-    public static String obtenerFunciones(String datos)
-    {
-        String datos_obtenidos = "";
-        
-        try
-        {
-            String[] valores = datos.split(":");
-            String sql = "call get_funciones(?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, valores[0]);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next())
-            {
-                datos_obtenidos += rs.getDate("fecha") + "." + rs.getInt("id") + "." + rs.getInt("precio_base") + "." + rs.getInt("pelicula_ID") + "." + rs.getString("hora") + ";";
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return datos_obtenidos;
+    public static String obtenerFunciones(String IDpelicula) {
+        return "";// obtiene las funciones de la base de datos
     }
-    public static String obtenerAsientos(String datos)
-    {
-        String datos_obtenidos = "";
-        
-        try
-        {
-            String[] valores = datos.split(":");
-            String sql = "call obtener_asientos(?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, valores[0]);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next())
-            {
-                datos_obtenidos += rs.getInt("id") + ":" + rs.getInt("fila") + ":" + rs.getInt("numero") + ":" + rs.getBoolean("estado") + ";";
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return datos_obtenidos;
+    public static String obtenerPeliculas(String IDcine) {
+        return "";// obtiene las peliculas de la base de datos
     }
-    public static boolean anadirCompra(String datos)
-    {
-        try
-        {
-            String[] valores = datos.split(":");
-            String sql = "call add_compra(?, ?, ?, ?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, valores[0]);
-            ps.setString(2, valores[1]);
-            ps.setString(3, valores[2]);
-            ps.setString(4, valores[3]);
-            ResultSet rs = ps.executeQuery();
-            
-            return true;
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return false;
+    public static String obtenerCines() {
+        return "";// obtiene los cines de la base de datos
     }
-    public static boolean anadirEntrada(String datos)
-    {
-        try
-        {
-            String[] valores = datos.split(":");
-            String sql = "call add_entrada(?, ?, ?, ?, ?, ?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, valores[0]);
-            ps.setString(2, valores[1]);
-            ps.setString(3, valores[2]);
-            ps.setString(4, valores[3]);
-            ps.setString(5, valores[4]);
-            ps.setString(6, valores[5]);
-            ResultSet rs = ps.executeQuery();
-            
-            return true;
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return false;
+    public static String obtenerSala(String IDsala) {
+        return "";// obtiene los asientos de la base de datos
     }
-    public static boolean cancelarCompra(String datos)
-    {
-        try
-        {
-            String[] valores = datos.split(":");
-            String sql = "call cancelar_compra(?, ?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, valores[0]);
-            ps.setString(2, valores[1]);
-            ResultSet rs = ps.executeQuery();
-            
-            return true;
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return false;
-    }
-    public static boolean agregar_telefonos(String telefonos, String documento)
-    {
-        try
-        {
-            String sql = "call agregar_telefono(?, ?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, documento);
-            ps.setString(2, telefonos);
-            ResultSet rs = ps.executeQuery();
-            
-            return true;
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return false;
-    }
-    public static String obtener_telefonos(String documento)
-    {
-        String datos_obtenidos = "";
-        
-        try
-        {
-            String sql = "call obtener_telefono(?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, documento);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next())
-            {
-                datos_obtenidos += rs.getString("telefono") + "/";
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return datos_obtenidos;
-    }
-    public static String obtenerPeliculas(String pelicula_ID) {
-        String datos_obtenidos = "";
-        
-        try
-        {
-            String sql = "call obtener_pelicula(?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, pelicula_ID);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next())
-            {
-                datos_obtenidos += rs.getString("duracion") + ":" + rs.getString("clasificacion_por_edad") + ":" + rs.getString("titulo") + ":" + rs.getInt("id") + ":" + rs.getDate("anio_estreno") + ";";
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return datos_obtenidos;
-    }
-    public static String obtenerGeneros(String pelicula_id) {
-        String datos_obtenidos = "";
-        
-        try
-        {
-            String sql = "call obtener_generos(?)";
-            Connection connection = realizarConexion();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, pelicula_id);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next())
-            {
-                datos_obtenidos += rs.getString("genero") + ";";
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error con la sentencia MYSQL");
-        }
-        return datos_obtenidos;
+    public static String obtenerComrpas(String IDusuario) {
+        return "";// obtieen las compras del usuario 
     }
 }
