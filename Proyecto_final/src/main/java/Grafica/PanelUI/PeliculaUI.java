@@ -20,8 +20,8 @@ public class PeliculaUI extends javax.swing.JPanel {
      */
     public PeliculaUI(ElegirPelicula siguienteVentana) {
         initComponents();
+        
         this.siguienteVentana = siguienteVentana;
-        System.out.println(siguienteVentana);
     }
 
     /**
@@ -51,7 +51,6 @@ public class PeliculaUI extends javax.swing.JPanel {
         NombrePeli.setForeground(new java.awt.Color(255, 255, 255));
         NombrePeli.setText("Spiderman");
 
-        PeliculaBtn.setIcon(new javax.swing.ImageIcon("/home/nacho/Godot/Projecto-Final-Cine/Proyecto_final/UI/ImagenPeliTest.png")); // NOI18N
         PeliculaBtn.setMaximumSize(new java.awt.Dimension(235, 235));
         PeliculaBtn.addActionListener(this::PeliculaBtnActionPerformed);
 
@@ -75,18 +74,15 @@ public class PeliculaUI extends javax.swing.JPanel {
                 .addComponent(PeliculaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GeneroPeli)
-                            .addComponent(EstrenoPeli)
-                            .addComponent(ClasificacionPeli)
-                            .addComponent(DuracionPeli))
-                        .addGap(671, 671, 671))
+                    .addComponent(GeneroPeli)
+                    .addComponent(EstrenoPeli)
+                    .addComponent(ClasificacionPeli)
+                    .addComponent(DuracionPeli)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(NombrePeli)
                         .addGap(763, 763, 763)
-                        .addComponent(jLabel1)
-                        .addGap(22, 22, 22))))
+                        .addComponent(jLabel1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +91,7 @@ public class PeliculaUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(PeliculaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(10, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(NombrePeli)

@@ -30,7 +30,7 @@ public class ElegirFuncion extends Grafica.PanelUI.DefaultConf {
         add_background();
 
         int numCineSeleccionado = fachada.getCines().getCineSeleccionado();
-
+            
         // Validamos si el cine existe antes de usarlo
         if (numCineSeleccionado != 0) {
             Cine cineSeleccionado = fachada.getCines().buscarCine(numCineSeleccionado);

@@ -6,6 +6,7 @@ package Grafica.Menus;
 import Grafica.Menus.ElegirPelicula;
 import Logica.Fachada;
 import Logica.ListaCines;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,17 +25,16 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
         initComponents();
         add_background();
         
-        // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
-        fachada.getCines().cargarCine("Callex", "Ciudadx", 123, "Cine1");
-        fachada.getCines().cargarCine("Callex", "Ciudadx", 321, "Cine2");
-        fachada.getCines().cargarCine("Callex", "Ciudadx", 100, "Cine3");
-        fachada.getCines().cargarCine("Callex", "Ciudadx", 010, "Cine4");
-        fachada.getCines().cargarCine("Callex", "Ciudadx", 432, "Cine5");
-        //         
-        
-        for (int numeroCine = fachada.getCines().cines.size()-1;numeroCine >= 0;numeroCine--)
-            ElegirCine.addItem(fachada.getCines().cines.get(numeroCine).getNombre());
+        if (fachada.anadir_cines()) {        
+            for (int numeroCine = fachada.getCines().cines.size()-1;numeroCine >= 0;numeroCine--) {
+                ElegirCine.addItem(fachada.getCines().cines.get(numeroCine).getNombre());
+            }
+    } else {
+            JOptionPane.showMessageDialog(rootPane, "No se han podido cargar los cines, intentelo de nuevo");
+            SiguienteBtn.disable();
         }
+}
+        
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,9 +80,9 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
                 .addComponent(InicioLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(ElegirCine, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(SiguienteBtn)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();

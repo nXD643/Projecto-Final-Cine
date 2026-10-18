@@ -31,7 +31,6 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
         add_background();
         
         try { // el try and catch es porque el cine en caso de que no exista o no se defina correctamente, ademas puede dar varios errores diferentes
-            // Cine cineActual = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
             ArrayList<Pelicula> peliculas = new ArrayList<>();
             
             // System.out.println(cineActual.ListaPeliculas());
@@ -40,7 +39,7 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
                 LocalDate date = LocalDate.of(2020, 1, 8);
                 ArrayList<String> genero = new ArrayList();
                 genero.add("Terror");
-                Pelicula pelicula = new Pelicula("3 hs", 17, "Spiderman", 19201, date, genero);
+                Pelicula pelicula = new Pelicula("3 hs", "+17", "Spiderman", 19201, date, genero);
                 peliculas.add(pelicula);
             }
             
