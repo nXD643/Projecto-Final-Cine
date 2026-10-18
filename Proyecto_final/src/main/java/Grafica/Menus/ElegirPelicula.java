@@ -26,19 +26,17 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
      * Creates new form ElegirCine
      */
     public ElegirPelicula() {
-        
-        FlatDarkLaf.setup();
         initConf();
         initComponents();
         add_background();
         
         try { // el try and catch es porque el cine en caso de que no exista o no se defina correctamente, ademas puede dar varios errores diferentes
-            Cine cineActual = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
-            ArrayList<Pelicula> peliculas = cineActual.ListaPeliculas();
+            // Cine cineActual = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
+            ArrayList<Pelicula> peliculas = new ArrayList<>();
             
-            System.out.println(cineActual.getNombre());
+            // System.out.println(cineActual.ListaPeliculas());
             // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 2; i++) {
                 LocalDate date = LocalDate.of(2020, 1, 8);
                 ArrayList<String> genero = new ArrayList();
                 genero.add("Terror");
@@ -82,8 +80,10 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
 
         jScrollPane2.setBackground(new java.awt.Color(0, 153, 153));
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(3276700, 3276700));
 
         PeliculasPanel.setBackground(new java.awt.Color(0, 0, 0));
+        PeliculasPanel.setMaximumSize(new java.awt.Dimension(20000, 20000));
         PeliculasPanel.setOpaque(false);
         PeliculasPanel.setLayout(new javax.swing.BoxLayout(PeliculasPanel, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(PeliculasPanel);
@@ -93,11 +93,11 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(InicioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VolverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(VolverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

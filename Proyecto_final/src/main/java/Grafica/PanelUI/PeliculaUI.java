@@ -34,39 +34,81 @@ public class PeliculaUI extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        NombrePeli = new Grafica.PanelUI.DefaultLabel(2);
         PeliculaBtn = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        GeneroPeli = new Grafica.PanelUI.DefaultLabel(1);
+        EstrenoPeli = new Grafica.PanelUI.DefaultLabel(1);
+        DuracionPeli = new Grafica.PanelUI.DefaultLabel(1);
+        ClasificacionPeli = new Grafica.PanelUI.DefaultLabel(1);
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel2.setText("Nombre: Hola");
 
-        jLabel1.setText("Nombre: Hola");
+        setBackground(new java.awt.Color(51, 51, 51));
+        setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(1182, 163));
 
+        NombrePeli.setForeground(new java.awt.Color(255, 255, 255));
+        NombrePeli.setText("Spiderman");
+
+        PeliculaBtn.setIcon(new javax.swing.ImageIcon("/home/nacho/Godot/Projecto-Final-Cine/Proyecto_final/UI/ImagenPeliTest.png")); // NOI18N
+        PeliculaBtn.setMaximumSize(new java.awt.Dimension(235, 235));
         PeliculaBtn.addActionListener(this::PeliculaBtnActionPerformed);
 
-        jLabel3.setText("Genero: Terror");
+        GeneroPeli.setForeground(new java.awt.Color(255, 255, 255));
+        GeneroPeli.setText("Genero:  Terror psicologico, Aventura");
+
+        EstrenoPeli.setForeground(new java.awt.Color(255, 255, 255));
+        EstrenoPeli.setText("Anio de estreno: 2017");
+
+        DuracionPeli.setForeground(new java.awt.Color(255, 255, 255));
+        DuracionPeli.setText("Duracion: 1hs 30min");
+
+        ClasificacionPeli.setForeground(new java.awt.Color(255, 255, 255));
+        ClasificacionPeli.setText("Edad minima: +17");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PeliculaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(PeliculaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(GeneroPeli)
+                            .addComponent(EstrenoPeli)
+                            .addComponent(ClasificacionPeli)
+                            .addComponent(DuracionPeli))
+                        .addGap(671, 671, 671))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(NombrePeli)
+                        .addGap(763, 763, 763)
+                        .addComponent(jLabel1)
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(PeliculaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PeliculaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(10, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(NombrePeli)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(DuracionPeli)
+                        .addGap(18, 18, 18)
+                        .addComponent(GeneroPeli)
+                        .addGap(18, 18, 18)
+                        .addComponent(ClasificacionPeli)
+                        .addGap(18, 18, 18)
+                        .addComponent(EstrenoPeli)
+                        .addGap(42, 42, 42))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -81,9 +123,13 @@ public class PeliculaUI extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ClasificacionPeli;
+    private javax.swing.JLabel DuracionPeli;
+    private javax.swing.JLabel EstrenoPeli;
+    private javax.swing.JLabel GeneroPeli;
+    private javax.swing.JLabel NombrePeli;
     private javax.swing.JButton PeliculaBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
 package Grafica.Menus;
 
 import Logica.Fachada;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -37,7 +38,7 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
         VolverBtn = new Grafica.PanelUI.DefaultBtn(2);
         TarjetaIngresada = new Grafica.PanelUI.DefaultTextField();
         TarjetaLabel = new Grafica.PanelUI.DefaultLabel(2);
-        jLabel1 = new javax.swing.JLabel();
+        TarjetaIcono = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1920, 1080));
@@ -50,17 +51,22 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
 
         TarjetaIngresada.setMaximumSize(new java.awt.Dimension(500, 500));
         TarjetaIngresada.addActionListener(this::TarjetaIngresadaActionPerformed);
+        TarjetaIngresada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TarjetaIngresadaKeyTyped(evt);
+            }
+        });
 
         TarjetaLabel.setText("Tarjeta");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Projecto-Final-Cine\\Proyecto_final\\UI\\Tarjetas\\MasterCard.png")); // NOI18N
+        TarjetaIcono.setIcon(new javax.swing.ImageIcon("/home/nacho/Godot/Projecto-Final-Cine/Proyecto_final/UI/Tarjetas/MasterCard.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(127, Short.MAX_VALUE)
+                .addContainerGap(95, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(VolverBtn)
@@ -71,17 +77,18 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
                         .addGap(28, 28, 28)
                         .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(jLabel1)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                        .addComponent(TarjetaIcono)))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(106, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TarjetaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TarjetaIcono)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TarjetaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SiguienteBtn)
@@ -117,6 +124,20 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
         // TODO add your handling code here:
     }//GEN-LAST:event_TarjetaIngresadaActionPerformed
 
+    private void TarjetaIngresadaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TarjetaIngresadaKeyTyped
+        ImageIcon imagen;
+        switch (fachada.verificarTarjeta(TarjetaIngresada.getText())) {
+            case 1:
+                imagen = new ImageIcon("/UI/Tarjetas/VISA.png");
+            case 2:
+                imagen = new ImageIcon("/UI/Tarjetas/MasterCard.png");
+            case 3:
+                imagen = new ImageIcon("/UI/Tarjetas/AmericanExpress.png");
+            default:
+                imagen = new ImageIcon("/UI/Tarjetas/Advertencia.png");
+        }
+    }//GEN-LAST:event_TarjetaIngresadaKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -144,9 +165,9 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SiguienteBtn;
+    private javax.swing.JLabel TarjetaIcono;
     private javax.swing.JTextField TarjetaIngresada;
     private javax.swing.JLabel TarjetaLabel;
     private javax.swing.JButton VolverBtn;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
