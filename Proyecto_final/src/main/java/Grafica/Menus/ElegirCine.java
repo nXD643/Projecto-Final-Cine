@@ -94,7 +94,7 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
     
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
         String cineElegido = ElegirCine.getSelectedItem().toString();
-        fachada.getCines().setCineSeleccionado(123); // temporal
+        //fachada.getCines().setCineSeleccionado(123); // temporal
         System.out.println(fachada.getCines().getCineSeleccionado());
         
         ElegirPelicula ventana = new ElegirPelicula();

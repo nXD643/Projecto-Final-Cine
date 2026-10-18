@@ -11,45 +11,43 @@ import Logica.Cine;
 import Logica.Funcion;
 import Logica.Fachada;
 
-
 /**
  *
  * @author nacho
  */
-public class ElegirFuncion extends Grafica.PanelUI.DefaultConf{
-    
+public class ElegirFuncion extends Grafica.PanelUI.DefaultConf {
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirFuncion.class.getName());
-    
+
     private Fachada fachada = Fachada.getInstancia();
 
-    
     /**
      * Creates new form ElegirFuncion
      */
-public ElegirFuncion() {
-    initConf();
-    initComponents();
-    add_background();
-    
-    int numCineSeleccionado = fachada.getCines().getCineSeleccionado();         
+    public ElegirFuncion() {
+        initConf();
+        initComponents();
+        add_background();
 
-    // Validamos si el cine existe antes de usarlo
-    if (numCineSeleccionado != 0) {
-        Cine cineSeleccionado = fachada.getCines().buscarCine(numCineSeleccionado);                  
-        int cantidad_funciones = cineSeleccionado.ListaPeliculas().size();         
-        for (int i = 0; i < cantidad_funciones; i++) {             
-            Funcion funcion = (Funcion) cineSeleccionado.ListaPeliculas().get(i);             
-            String hora = funcion.getHora();             
-            String fecha = funcion.getFecha().toString();              
-            
-            FuncionUI funcionUI = new FuncionUI(this, hora, fecha);             
-            FuncionesPanel.add(funcionUI);             
+        int numCineSeleccionado = fachada.getCines().getCineSeleccionado();
+
+        // Validamos si el cine existe antes de usarlo
+        if (numCineSeleccionado != 0) {
+            Cine cineSeleccionado = fachada.getCines().buscarCine(numCineSeleccionado);
+            int cantidad_funciones = cineSeleccionado.ListaPeliculas().size();
+            for (int i = 0; i < cantidad_funciones; i++) {
+                Funcion funcion = (Funcion) cineSeleccionado.ListaPeliculas().get(i);
+                String hora = funcion.getHora();
+                String fecha = funcion.getFecha().toString();
+
+                FuncionUI funcionUI = new FuncionUI(this, hora, fecha);
+                FuncionesPanel.add(funcionUI);
+            }
+        } else {
+            System.out.println("Error: no hay ningun cine seleccionado.");
         }
-    } else {         
-        System.out.println("Error: no hay ningún cine seleccionado.");     
-    } 
 
-}
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -106,7 +104,6 @@ public ElegirFuncion() {
         // TODO add your handling code here:
     }//GEN-LAST:event_VolverBtnActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */

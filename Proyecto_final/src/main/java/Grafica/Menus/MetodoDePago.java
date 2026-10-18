@@ -37,7 +37,7 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
         SiguienteBtn = new Grafica.PanelUI.DefaultBtn(2);
         VolverBtn = new Grafica.PanelUI.DefaultBtn(2);
         TarjetaIngresada = new Grafica.PanelUI.DefaultTextField();
-        TarjetaLabel = new Grafica.PanelUI.DefaultLabel(2);
+        TarjetaLabel = new Grafica.PanelUI.DefaultLabel(3);
         TarjetaIcono = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,6 +49,7 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
         VolverBtn.setText("Volver");
         VolverBtn.addActionListener(this::VolverBtnActionPerformed);
 
+        TarjetaIngresada.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         TarjetaIngresada.setMaximumSize(new java.awt.Dimension(500, 500));
         TarjetaIngresada.addActionListener(this::TarjetaIngresadaActionPerformed);
         TarjetaIngresada.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -59,37 +60,37 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
 
         TarjetaLabel.setText("Tarjeta");
 
-        TarjetaIcono.setIcon(new javax.swing.ImageIcon("/home/nacho/Godot/Projecto-Final-Cine/Proyecto_final/UI/Tarjetas/MasterCard.png")); // NOI18N
+        TarjetaIcono.setIcon(new javax.swing.ImageIcon("E:\\Projecto-Final-Cine\\Proyecto_final\\UI\\Tarjetas\\Advertencia.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addContainerGap(301, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(VolverBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(SiguienteBtn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 418, Short.MAX_VALUE)
+                        .addComponent(SiguienteBtn)
+                        .addGap(302, 302, 302))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TarjetaLabel)
                         .addGap(28, 28, 28)
-                        .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(TarjetaIcono)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                        .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(TarjetaIcono)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TarjetaIcono)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TarjetaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addContainerGap(210, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TarjetaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TarjetaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SiguienteBtn)
                     .addComponent(VolverBtn))
@@ -126,15 +127,20 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
 
     private void TarjetaIngresadaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TarjetaIngresadaKeyTyped
         ImageIcon imagen;
-        switch (fachada.verificarTarjeta(TarjetaIngresada.getText())) {
-            case 1:
-                imagen = new ImageIcon("/UI/Tarjetas/VISA.png");
-            case 2:
-                imagen = new ImageIcon("/UI/Tarjetas/MasterCard.png");
-            case 3:
-                imagen = new ImageIcon("/UI/Tarjetas/AmericanExpress.png");
-            default:
-                imagen = new ImageIcon("/UI/Tarjetas/Advertencia.png");
+        System.out.println("holas");
+        try {
+            switch (fachada.verificarTarjeta(TarjetaIngresada.getText())) {
+                case 1:
+                    imagen = new ImageIcon("/UI/Tarjetas/VISA.png");
+                case 2:
+                    imagen = new ImageIcon("/UI/Tarjetas/MasterCard.png");
+                case 3:
+                    imagen = new ImageIcon("/UI/Tarjetas/AmericanExpress.png");
+                default:
+                    imagen = new ImageIcon("/UI/Tarjetas/Advertencia.png");
+            }
+        } catch (Exception e){
+            ;
         }
     }//GEN-LAST:event_TarjetaIngresadaKeyTyped
 
