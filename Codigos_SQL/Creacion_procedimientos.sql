@@ -74,3 +74,33 @@ create procedure obtener_asientos (in id_funcion int)
 begin
 	select id, fila, numero, estado from asiento where funcion_ID = id_funcion;
 end //
+
+create procedure ocupar_asiento (in id_asiento int)
+begin
+	update asiento set estado = false where id = id_asiento;
+end //
+
+create procedure verificar_asiento (in id_asiento int)
+begin
+	select estado from asiento where id = id_asiento;
+end //
+
+create procedure eliminar_telefono (in nro_telefono varchar(15))
+begin
+	delete from telefono where telefono = nro_telefono;
+end //
+
+create procedure cancelar_compra (in id_compra int, explicacion text)
+begin
+	update compra set estado = false, motivo = explicacion where id = id_compra;
+end //
+
+create procedure nueva_compra (in ci int, total int, fecha_compra date, hora_compra varchar(10), metodo varchar(20))
+begin
+	insert into compra (cliente_CI, importe_total, fecha, hora, metodo_pago, estado) value (ci, total, fecha_compra, hora_compra, metodo, true);
+end //
+
+create procedure nueva_entrada (in precio int, id_asiento int, id_sala int, id_cine int, id_funcion int, id_compra int)
+begin
+	insert into entrada (precio_pagado, asiento_ID, sala_ID, cine_ID, funcion_ID, compra_ID) value (precio, id_asiento, id_sala, id_cine, id_funcion, id_compra);
+end //

@@ -81,7 +81,7 @@ create table compra(
     cliente_CI int,
     importe_total int,
     fecha date not null,
-    hora varchar(30) not null,
+    hora varchar(10) not null,
     metodo_pago varchar(20) not null,
     motivo text,
     estado boolean not null,
