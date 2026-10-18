@@ -3,6 +3,7 @@ use complejo_cines;
 create table cine(
 	id int auto_increment,
     calle varchar(30) not null,
+    ciudad varchar(30) not null,
     nombre varchar(30) not null,
     primary key (id)
 );
@@ -22,21 +23,12 @@ create table sala(
 	id int auto_increment,
     cine_ID int,
     numero int not null,
+    largo_asientos int not null,
+    ancho_asientos int not null,
     capacidad_maxima int not null,
     primary key (id, cine_ID),
+    unique (cine_ID, numero),
     constraint fk_sala_cine foreign key (cine_ID) references cine (id)
-);
-
-create table funcion(
-	id int auto_increment,
-    sala_ID int,
-    cine_ID int,
-    fecha date not null,
-    hora varchar(20) not null,
-    precio_base int not null,
-    primary key (id, sala_ID, cine_ID),
-    constraint fk_funcion_sala foreign key (sala_ID) references sala (id),
-	constraint fk_funcion_cine foreign key (cine_ID) references cine (id)
 );
 
 create table pelicula(
@@ -48,15 +40,31 @@ create table pelicula(
     primary key (id)
 );
 
+create table funcion(
+	id int auto_increment,
+    sala_ID int,
+    cine_ID int,
+    pelicula_ID int,
+    fecha date not null,
+    hora varchar(20) not null,
+    precio_base int not null,
+    primary key (id),
+    unique (sala_ID, pelicula_ID, fecha, hora),
+    constraint fk_funcion_sala foreign key (sala_ID, cine_ID) references sala (id, cine_ID),
+	constraint fk_funcion_pelicula foreign key (pelicula_ID) references pelicula (id)
+);
+
 create table asiento(
 	id int auto_increment,
     sala_ID int,
     cine_ID int,
-    fila varchar(1) not null,
+    funcion_ID int,
+    fila int not null,
     numero int not null,
-    primary key (id, sala_ID, cine_ID),
-    constraint fk_asiento_sala foreign key (sala_ID) references sala (id),
-	constraint fk_asiento_cine foreign key (cine_ID) references cine (id)
+    estado boolean not null,
+    primary key (id, sala_ID, cine_ID, funcion_ID),
+    unique (sala_ID, fila, numero),
+    constraint fk_asiento_sala foreign key (sala_ID, cine_ID) references sala (id, cine_ID)
 );
 
 create table cliente(
@@ -68,21 +76,10 @@ create table cliente(
     primary key (documento)   
 );
 
-create table proyecta(
-	pelicula_ID int,
-    sala_ID int,
-    cine_ID int,
-    funcion_ID int,
-    primary key (pelicula_ID, sala_ID, cine_ID, funcion_ID),
-	constraint fk_proyecta_sala foreign key (sala_ID) references sala (id),
-	constraint fk_proyecta_cine foreign key (cine_ID) references cine (id),
-	constraint fk_proyecta_pelicula foreign key (pelicula_ID) references pelicula (id),
-	constraint fk_proyecta_funcion foreign key (funcion_ID) references funcion (id)
-);
-
 create table compra(
 	id int auto_increment,
     cliente_CI int,
+    importe_total int,
     fecha date not null,
     hora varchar(30) not null,
     metodo_pago varchar(20) not null,
@@ -101,10 +98,7 @@ create table entrada(
     funcion_ID int,
     compra_ID int,
     primary key (id),
-	constraint fk_entrada_sala foreign key (sala_ID) references sala (id),
-	constraint fk_entrada_cine foreign key (cine_ID) references cine (id),
-	constraint fk_entrada_asiento foreign key (asiento_ID) references asiento (id),
-	constraint fk_entrada_funcion foreign key (funcion_ID) references funcion (id),
+	constraint fk_entrada_asiento foreign key (asiento_ID, sala_ID, cine_ID, funcion_ID) references asiento (id, sala_ID, cine_ID, funcion_ID),
 	constraint fk_entrada_compra foreign key (compra_ID) references compra (id)
 );
 
@@ -117,19 +111,7 @@ create table genero(
 
 create table telefono(
 	cliente_CI int,
-    telefono int,
-    primary key (cliente_CI, telefono),
+    telefono varchar(15),
+    primary key (telefono),
     constraint fk_telefono_cliente foreign key (cliente_CI) references cliente (documento)
-);
-
-create table aloja(
-	asiento_ID int,
-    sala_ID int,
-    cine_ID int,
-    funcion_ID int,
-    primary key (asiento_ID, sala_ID, cine_ID, funcion_ID),
-	constraint fk_aloja_sala foreign key (sala_ID) references sala (id),
-	constraint fk_aloja_cine foreign key (cine_ID) references cine (id),
-	constraint fk_aloja_asiento foreign key (asiento_ID) references asiento (id),
-	constraint fk_aloja_funcion foreign key (funcion_ID) references funcion (id)
 );

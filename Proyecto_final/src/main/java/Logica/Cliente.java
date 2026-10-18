@@ -1,5 +1,6 @@
 package Logica;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Cliente {
@@ -11,13 +12,13 @@ public class Cliente {
     private ArrayList <String> telefonos;
     private String contrasena;
 
-    public Cliente(int documento, String nombre, String apellido, String correo_electronico, String contrasena, ArrayList telefonos) {
-        this.compras = new ArrayList <>();;
+    public Cliente(int documento, String nombre, String apellido, String correo_electronico, String contrasena) {
+        this.compras = new ArrayList <>();
         this.documento = documento;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo_electronico = correo_electronico;
-        this.telefonos = telefonos;
+        this.telefonos = new ArrayList <>();
         this.contrasena = contrasena;
     }
 
@@ -60,6 +61,47 @@ public class Cliente {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
+    
+    public boolean cargarCompras(String datos, int id_compra)
+    {
+        String[] valores = null;
+        String[] resultado = null;
+        
+        valores = datos.split("/");
+        
+        System.out.println(datos);
+        
+        LocalDate fecha = LocalDate.parse(valores[0]);
+        
+        if (Boolean.valueOf(valores[5]))
+        {
+            Compra compra = new Compra(fecha, valores[1], valores[2], Boolean.valueOf(valores[4]), Integer.parseInt(valores[6]));
+            this.compras.add(compra);
+            
+            datos = "10;" + valores[6];
+            resultado = Fachada.getInstancia().getCs().conexion(datos);
+            
+            for (int i = 0; i < resultado.length; i ++)
+            {
+                this.buscarCompras(id_compra).anadirEntrada(resultado[i]);
+            }
+            return true;
+        }
+        else
+        {
+            Compra compra = new Compra(fecha, valores[1], valores[2], Boolean.valueOf(valores[4]), valores[3], Integer.parseInt(valores[6]));
+            this.compras.add(compra); 
+            
+            datos = "10;" + valores[6];
+            resultado = Fachada.getInstancia().getCs().conexion(datos);
+            
+            for (int i = 0; i < resultado.length; i ++)
+            {
+                this.buscarCompras(id_compra).anadirEntrada(resultado[i]);
+            }
+            return true;
+        }
+    }
         
     public Compra buscarCompras(int index)
     {
@@ -69,6 +111,11 @@ public class Cliente {
     public void eliminarCompra(int id)
     {
         compras.remove(id);
+    }
+    
+    public void agregarTelefono(String telefono)
+    {
+        telefonos.add(telefono);
     }
     
     public void eliminarTelefono(int id)

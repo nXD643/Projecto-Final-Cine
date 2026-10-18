@@ -1,16 +1,91 @@
 package Logica;
+
+import java.io.*;
+import java.net.*;
+
 public class Proyecto_final_server {
 
     public static void main(String[] args) {
+               
+        String resultado;
         
-        String registro = "1234567:Nana:mimi:jadhaida:4321";
+        ServerSocket mi_servicio = null;
+        String linea_recibida = null;
+        DataInputStream entrada;
+        PrintStream salida;
+        Socket socket_conectado = null;
+        try {
+            mi_servicio = new ServerSocket(2000);
+        }
+        catch (IOException excepcion) {
+            System.out.println(excepcion);
+        }
+        try {
+            while (true)
+            {
+                socket_conectado = mi_servicio.accept();
+                entrada = new DataInputStream(socket_conectado.getInputStream());
+                salida = new PrintStream(socket_conectado.getOutputStream());
+                while (true)
+                {
+                    linea_recibida = entrada.readLine();
+                    if (linea_recibida == null)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        resultado = interpretador(linea_recibida);
+                        
+                        System.out.println(resultado);
+
+                        salida.println(resultado);
+                    }
+                }
+            }
+            }
+        catch (IOException excepcion) {
+            System.out.println(excepcion);
+        }
+    }
+    public static String interpretador(String datos)
+    {        
+        String[] valores = datos.split(";");
+        String datos_recibidos = "";
         
-        ConexionDB.registro_cliente(registro);
-        
-        String datos = "1234567:4321";
-        
-        String[] a = ConexionDB.inicio_sesion(datos);
-        
-        System.out.println(a[0]);
+        switch (Integer.parseInt(valores[0]))
+        {
+            case 1:
+                datos_recibidos = ConexionDB.registro_cliente(valores[1]);
+                break;
+            case 2:
+                datos_recibidos = ConexionDB.inicio_sesion(valores[1]);
+                break;
+            case 3:
+                datos_recibidos = ConexionDB.compras_cliente(valores[1]);
+                break;
+            case 4:
+                datos_recibidos = ConexionDB.obtenerCines();
+                break;
+            case 5:
+                datos_recibidos = ConexionDB.obtenerSala(valores[1]);
+                break;
+            case 6:
+                datos_recibidos = ConexionDB.obtenerFunciones(valores[1]);
+                break;
+            case 7:
+                datos_recibidos = ConexionDB.obtenerPeliculas(valores[1]);
+                break;
+            case 8:
+                datos_recibidos = ConexionDB.obtenerGeneros(valores[1]);
+                break;
+            case 9:
+                datos_recibidos = ConexionDB.obtenerAsientos(valores[1]);
+                break; 
+            case 10:
+                datos_recibidos = ConexionDB.entradas_compra(valores[1]);
+                break;
+        }
+        return datos_recibidos;
     }
 }

@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="NdEOjZEL0Rzj4MhtuqwQ">
-    <mxGraphModel dx="637" dy="2919" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="444" dy="2743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -550,7 +550,7 @@
         <mxCell id="CRtlDFYSrzz9O4MDk9tw-17" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;direction=south;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="80" x="970" y="270" as="geometry" />
         </mxCell>
-        <mxCell id="CRtlDFYSrzz9O4MDk9tw-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Tiene" vertex="1">
+        <mxCell id="CRtlDFYSrzz9O4MDk9tw-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Asignado" vertex="1">
           <mxGeometry height="30" width="60" x="980" y="295" as="geometry" />
         </mxCell>
         <mxCell id="CRtlDFYSrzz9O4MDk9tw-20" edge="1" parent="1" source="CRtlDFYSrzz9O4MDk9tw-17" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.338;entryY=0.068;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startArrow=oval;startFill=1;" value="">
@@ -565,7 +565,7 @@
         <mxCell id="CRtlDFYSrzz9O4MDk9tw-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
           <mxGeometry height="30" width="60" x="850" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="CRtlDFYSrzz9O4MDk9tw-23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
+        <mxCell id="CRtlDFYSrzz9O4MDk9tw-23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="N" vertex="1">
           <mxGeometry height="30" width="60" x="1090" y="280" as="geometry" />
         </mxCell>
         <mxCell id="V4aABZ8JwwM5Q7P9nt5K-2" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;startArrow=oval;startFill=1;" value="">
@@ -622,6 +622,15 @@
         </mxCell>
         <mxCell id="s67xYzJIjdOc1Aq4L61X-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="N" vertex="1">
           <mxGeometry height="30" width="60" x="1110" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="6w8Wj6KtSQ8aZdTOpgrM-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 36px;&quot;&gt;Si se cancela solo la compra queda como esta, sino compra es una entidad&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="430" x="720" y="-20" as="geometry" />
+        </mxCell>
+        <mxCell id="rzR3zQXTRoY2osQUzAID-1" edge="1" parent="1" style="endArrow=oval;html=1;rounded=0;exitX=0.36;exitY=0.998;exitDx=0;exitDy=0;endFill=1;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1250.6000000000001" y="652.44" as="sourcePoint" />
+            <mxPoint x="1350" y="652.5" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>

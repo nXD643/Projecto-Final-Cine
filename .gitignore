@@ -1,2 +1,6 @@
 /Proyecto_final/target/
 /Proyecto_final_server/target/
+*.class
+Proyecto_final/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+Proyecto_final/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+Proyecto_final/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
