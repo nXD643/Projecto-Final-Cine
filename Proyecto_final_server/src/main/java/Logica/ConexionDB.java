@@ -260,7 +260,7 @@ public class ConexionDB {
         return false;
     }
 
-    public static boolean agregar_telefonos(String telefonos, String documento) {
+    public static String agregar_telefonos(String telefonos, String documento) {
         try {
             String sql = "call agregar_telefono(?, ?)";
             Connection connection = realizarConexion();
@@ -269,11 +269,11 @@ public class ConexionDB {
             ps.setString(2, telefonos);
             ResultSet rs = ps.executeQuery();
 
-            return true;
+            return "true";
         } catch (SQLException ex) {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return false;
+        return "false";
     }
 
     public static String obtener_telefonos(String documento) {
@@ -333,7 +333,7 @@ public class ConexionDB {
         return datos_obtenidos;
     }
     // queda por probar las funciones de abajo
-    public static boolean eliminarTelefono(String datos) {
+    public static String eliminarTelefono(String datos) {
         try {
             String[] valores = datos.split(":");
             String sql = "call eliminar_telefono(?)";
@@ -344,14 +344,14 @@ public class ConexionDB {
                 ResultSet rs = ps.executeQuery();
             }
 
-            return true;
+            return "true";
         } catch (SQLException ex) {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return false;
+        return "false";
     }
 
-    public static boolean ocuparAsiento(String datos) {
+    public static String ocuparAsiento(String datos) {
         try {
             Boolean verificacion;
             String[] valores = datos.split(":");
@@ -363,7 +363,7 @@ public class ConexionDB {
                 
                 if (!verificacion)
                 {
-                    return false;
+                    return "false";
                 }
                 
                 PreparedStatement ps = connection.prepareStatement(sql);
@@ -371,11 +371,11 @@ public class ConexionDB {
                 ResultSet rs = ps.executeQuery();
             }
 
-            return true;
+            return "true";
         } catch (SQLException ex) {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return false;
+        return "false";
     }
     public static boolean verificar_asiento(String valor)
     {

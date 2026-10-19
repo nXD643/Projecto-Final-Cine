@@ -438,6 +438,16 @@ public class Fachada {
         
         return true;
     }
+    public boolean ocupar_asiento(String asientos)
+    {
+        String datos = "11;" + asientos;
+        
+        String[] datos_obtenidos = null; 
+        
+        datos_obtenidos = cs.conexion(datos);
+        
+        return Boolean.parseBoolean(datos_obtenidos[0]);
+    }
     public Integer[] convertirInt (String[] texto)
     {
         Integer numero[] = new Integer[texto.length];

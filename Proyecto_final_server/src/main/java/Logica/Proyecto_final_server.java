@@ -52,6 +52,7 @@ public class Proyecto_final_server {
     {        
         String[] valores = datos.split(";");
         String datos_recibidos = "";
+        String[] telefonos = null;
         
         switch (Integer.parseInt(valores[0]))
         {
@@ -84,6 +85,13 @@ public class Proyecto_final_server {
                 break; 
             case 10:
                 datos_recibidos = ConexionDB.entradas_compra(valores[1]);
+                break;
+            case 11:
+                datos_recibidos = ConexionDB.ocuparAsiento(valores[1]);
+                break; 
+            case 12:
+                telefonos = valores[1].split(":");
+                datos_recibidos = ConexionDB.agregar_telefonos(telefonos[1], telefonos[0]);
                 break;
         }
         return datos_recibidos;

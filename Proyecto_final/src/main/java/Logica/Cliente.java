@@ -118,6 +118,28 @@ public class Cliente {
         telefonos.add(telefono);
     }
     
+    public boolean nuevoTelefono(int documentos, String telefonos)
+    {
+        String[] telefono = telefonos.split(":");
+        String datos;
+        String[] resultado = null;
+        
+        for (int i = 0; i < telefono.length; i++) {
+            
+                datos = "12;" + documento + ":" + telefono[i];
+                
+                resultado = Fachada.getInstancia().getCs().conexion(datos);
+                
+                if (!Boolean.parseBoolean(resultado[0]))
+                {
+                    return false;
+                }
+                this.telefonos.add(telefono[i]);
+        }
+        return true;
+    }
+    
+    
     public void eliminarTelefono(int id)
     {
         telefonos.remove(id);
