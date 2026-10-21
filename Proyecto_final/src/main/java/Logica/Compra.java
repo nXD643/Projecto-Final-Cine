@@ -81,9 +81,15 @@ public class Compra {
         this.lista.add(entrada);
     }
     
-    public boolean guardarEntrada(int precio, int id_sala, int id_funcion, int id_cine, int id_asiento, int id_compra)
+    public int guardarEntrada(int precio, int id_sala, int id_funcion, int id_cine, int id_asiento, int id_compra)
     {
         String[] resultado = null;
+        String asiento = "" + id_asiento;
+        
+        if (!Fachada.getInstancia().ocupar_asiento(asiento))
+        {
+            return 2;
+        }
         
         String datos = "16;" + precio + ":" + id_sala + ":" + id_funcion + ":" + id_cine + ":" + id_asiento + ":" + id_compra;
         
@@ -91,12 +97,12 @@ public class Compra {
                 
         if (!Boolean.parseBoolean(resultado[0]))
         {
-            return false;
+            return 0;
         }
         Entrada entrada = new Entrada(precio, id_sala, id_funcion, id_cine, id_asiento);
         
         this.lista.add(entrada);
         
-        return true;
+        return 1;
     }
 }
