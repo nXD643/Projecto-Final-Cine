@@ -63,7 +63,7 @@ create table asiento(
     numero int not null,
     estado boolean not null,
     primary key (id, sala_ID, cine_ID, funcion_ID),
-    unique (sala_ID, fila, numero),
+    unique (sala_ID, fila, numero, funcion_ID),
     constraint fk_asiento_sala foreign key (sala_ID, cine_ID) references sala (id, cine_ID)
 );
 
@@ -97,6 +97,7 @@ create table entrada(
     cine_ID int,
     funcion_ID int,
     compra_ID int,
+    unique(asiento_ID, sala_ID, cine_ID, funcion_ID),
     primary key (id),
 	constraint fk_entrada_asiento foreign key (asiento_ID, sala_ID, cine_ID, funcion_ID) references asiento (id, sala_ID, cine_ID, funcion_ID),
 	constraint fk_entrada_compra foreign key (compra_ID) references compra (id)

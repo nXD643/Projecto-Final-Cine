@@ -27,7 +27,7 @@ insert into genero (pelicula_ID, genero) values
 insert into funcion (sala_ID, cine_ID, pelicula_ID, fecha, hora, precio_base) values
 (1, 1, 1, "2024-04-10", "18:00", 320),
 (2, 1, 2, "2024-04-11", "19:30", 320),
-(3, 2, 3, "2024-04-12", "22:00", 400),
+(3, 2, 3, "2025-04-12", "22:00", 400),
 (1, 1, 1, "2024-04-10", "21:00", 380);
 
 insert into cliente (documento, nombre, apellido, correo_electronico, contrasena) values
@@ -40,14 +40,15 @@ insert into asiento (sala_ID, cine_ID, funcion_ID, fila, numero, estado) values
 (1, 1, 1, 1, 2, false),
 (2, 1, 2, 1, 1, false),
 (3, 2, 3, 1, 1, false),
-(2, 1, 2, 2, 1, false);
+(2, 1, 2, 2, 1, false),
+(1, 1, 1, 1, 3, true);
 
 insert into compra (cliente_CI, importe_total, fecha, hora, metodo_pago, estado) values
 (44123456, 320, "2024-04-10", "10:00", "Tarjeta", true),
 (44123456, 100, "2024-04-10", "9:00", "Tarjeta", false),
 (37654321, 200, "2024-04-11", "8:00", "Efectivo", true),
 (58376015, 344, "2024-04-12", "10:00", "Tarjeta", true),
-(58376015, 454, "2024-04-10", "12:00", "Tarjeta", true);
+(58376015, 454, "2026-04-10", "12:00", "Tarjeta", true);
 
 insert into entrada (precio_pagado, asiento_ID, sala_ID, cine_ID, funcion_ID, compra_ID) values
 (320, 1, 1, 1, 1, 1),

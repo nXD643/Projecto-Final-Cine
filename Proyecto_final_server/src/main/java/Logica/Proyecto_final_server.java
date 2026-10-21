@@ -93,6 +93,18 @@ public class Proyecto_final_server {
                 telefonos = valores[1].split(":");
                 datos_recibidos = ConexionDB.agregar_telefonos(telefonos[1], telefonos[0]);
                 break;
+            case 13:
+                datos_recibidos = ConexionDB.eliminarTelefono(valores[1]);
+                break;
+            case 14:
+                datos_recibidos = ConexionDB.anadirCompra(valores[1]);
+                break;
+            case 15:
+                datos_recibidos = ConexionDB.cancelarCompra(valores[1]);
+                break;
+            case 16:
+                datos_recibidos = ConexionDB.anadirEntrada(valores[1]);
+                break;
         }
         return datos_recibidos;
     }

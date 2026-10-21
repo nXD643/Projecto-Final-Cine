@@ -126,26 +126,6 @@ public class Fachada {
         return ahora.isAfter(funcion);
     }
     
-    public boolean cancelarEntrada(int idCompra, int idEntrada)
-    {
-        if (verificarCancelacion(idCompra, idEntrada))
-        {
-            this.cliente.buscarCompras(idCompra).eliminarEntrada(idEntrada);
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean cancelarCompra(int idCompra)
-    {
-        if (verificarCancelacion(idCompra, 0))
-        {
-            this.cliente.eliminarCompra(idCompra);
-            return true;
-        }
-        return false;
-    }
-    
     public boolean verificarCedula(int cedula)
     {
         int primero = cedula / 10000000;

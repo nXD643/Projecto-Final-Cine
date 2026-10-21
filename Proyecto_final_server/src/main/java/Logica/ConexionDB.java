@@ -202,9 +202,9 @@ public class ConexionDB {
         return datos_obtenidos;
     }
     // queda probar las dos funciones de abajo
-    public static boolean anadirCompra(String datos) {
+    public static String anadirCompra(String datos) {
         try {
-            String[] valores = datos.split(":");
+            String[] valores = datos.split("/");
             String sql = "call nueva_compra(?, ?, ?, ?, ?)";
             Connection connection = realizarConexion();
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -215,14 +215,14 @@ public class ConexionDB {
             ps.setString(5, valores[4]);
             ResultSet rs = ps.executeQuery();
 
-            return true;
+            return "true";
         } catch (SQLException ex) {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return false;
+        return "false";
     }
 
-    public static boolean anadirEntrada(String datos) {
+    public static String anadirEntrada(String datos) {
         try {
             String[] valores = datos.split(":");
             String sql = "call nueva_entrada(?, ?, ?, ?, ?, ?)";
@@ -236,14 +236,14 @@ public class ConexionDB {
             ps.setString(6, valores[5]);
             ResultSet rs = ps.executeQuery();
 
-            return true;
+            return "true";
         } catch (SQLException ex) {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return false;
+        return "false";
     }
 
-    public static boolean cancelarCompra(String datos) {
+    public static String cancelarCompra(String datos) {
         try {
             String[] valores = datos.split(":");
             String sql = "call cancelar_compra(?, ?)";
@@ -253,11 +253,11 @@ public class ConexionDB {
             ps.setString(2, valores[1]);
             ResultSet rs = ps.executeQuery();
 
-            return true;
+            return "true";
         } catch (SQLException ex) {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return false;
+        return "false";
     }
 
     public static String agregar_telefonos(String telefonos, String documento) {

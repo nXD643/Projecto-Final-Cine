@@ -35,11 +35,6 @@ begin
 	select fecha, id, precio_base, pelicula_ID, hora from funcion where sala_ID = idSala;
 end //
 
-create procedure cancelar_compra (in id_proporcionado int, texto text)
-begin
-	update compra set estado = false, motivo = texto where id = id_proporcionado;
-end //
-
 create procedure agregar_telefono (in ci int, nro_telefono varchar(15))
 begin
 	insert into telefono (cliente_CI, telefono) values (ci, nro_telefono);
@@ -90,7 +85,7 @@ begin
 	insert into compra (cliente_CI, importe_total, fecha, hora, metodo_pago, estado) value (ci, total, fecha_compra, hora_compra, metodo, true);
 end //
 
-create procedure nueva_entrada (in precio int, id_asiento int, id_sala int, id_cine int, id_funcion int, id_compra int)
+create procedure nueva_entrada (in precio int, id_sala int, id_funcion int, id_cine int, id_asiento int, id_compra int)
 begin
 	insert into entrada (precio_pagado, asiento_ID, sala_ID, cine_ID, funcion_ID, compra_ID) value (precio, id_asiento, id_sala, id_cine, id_funcion, id_compra);
 end //

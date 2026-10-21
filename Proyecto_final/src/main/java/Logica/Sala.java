@@ -28,6 +28,10 @@ public class Sala {
         return id;
     }
 
+    public ArrayList<Funcion> getFunciones() {
+        return funciones;
+    }
+
     public int getCapacidad_maxima() {
         return capacidad_maxima;
     }

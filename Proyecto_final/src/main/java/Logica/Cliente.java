@@ -73,17 +73,19 @@ public class Cliente {
         
         LocalDate fecha = LocalDate.parse(valores[0]);
         
-        if (Boolean.valueOf(valores[5]))
+        if (Boolean.valueOf(valores[4]))
         {
-            Compra compra = new Compra(fecha, valores[1], valores[2], Boolean.valueOf(valores[4]), Integer.parseInt(valores[6]));
+            Compra compra = new Compra(fecha, valores[1], valores[2], Boolean.valueOf(valores[4]), Integer.parseInt(valores[5]));
             this.compras.add(compra);
+            
+            this.compras.getLast().setId_db(Integer.parseInt(valores[6]));
             
             datos = "10;" + valores[6];
             resultado = Fachada.getInstancia().getCs().conexion(datos);
             
             for (int i = 0; i < resultado.length; i ++)
             {
-                this.buscarCompras(id_compra).anadirEntrada(resultado[i]);
+                this.buscarCompras(id_compra).cargarEntrada(resultado[i]);
             }
             return true;
         }
@@ -92,12 +94,14 @@ public class Cliente {
             Compra compra = new Compra(fecha, valores[1], valores[2], Boolean.valueOf(valores[4]), valores[3], Integer.parseInt(valores[6]));
             this.compras.add(compra); 
             
+            this.compras.getLast().setId_db(Integer.parseInt(valores[6]));
+            
             datos = "10;" + valores[6];
             resultado = Fachada.getInstancia().getCs().conexion(datos);
             
             for (int i = 0; i < resultado.length; i ++)
             {
-                this.buscarCompras(id_compra).anadirEntrada(resultado[i]);
+                this.buscarCompras(id_compra).cargarEntrada(resultado[i]);
             }
             return true;
         }
@@ -108,17 +112,12 @@ public class Cliente {
         return this.compras.get(index);
     }
     
-    public void eliminarCompra(int id)
-    {
-        compras.remove(id);
-    }
-    
     public void agregarTelefono(String telefono)
     {
         telefonos.add(telefono);
     }
     
-    public boolean nuevoTelefono(int documentos, String telefonos)
+    public boolean guardarTelefono(int documentos, String telefonos)
     {
         String[] telefono = telefonos.split(":");
         String datos;
@@ -140,8 +139,71 @@ public class Cliente {
     }
     
     
-    public void eliminarTelefono(int id)
+    public boolean eliminarTelefono(String telefono)
     {
-        telefonos.remove(id);
+        String datos = "13;" + telefono;
+        String[] resultado = null;
+        
+        resultado = Fachada.getInstancia().getCs().conexion(datos);
+        
+        if (!Boolean.parseBoolean(resultado[0]))
+        {
+            return false;
+        }
+        
+        this.telefonos.remove(telefono);
+        
+        return true;
+    }
+    
+    public boolean guardarCompras(int documento, LocalDate fecha, String hora, String metodo_pago, int importe_total)
+    {
+        String datos = "14;" + documento + "/" + importe_total + "/" + fecha + "/" + hora + "/" + metodo_pago;
+        String[] resultado = null;
+        
+        resultado = Fachada.getInstancia().getCs().conexion(datos);
+        
+        if (!Boolean.parseBoolean(resultado[0]))
+        {
+            return false;
+        }
+        
+        Compra compra = new Compra(fecha, hora, metodo_pago, true, importe_total);
+        
+        this.compras.add(compra);
+        
+        return true;
+    }
+    
+    public boolean cancelarCompra(int id_compra, String motivo)
+    {
+        int id = -1;
+        
+        for (int i = 0; i < this.compras.size(); i ++)
+        {
+            if (this.compras.get(i).getId_db() == id_compra)
+            {
+                id = i;
+            }
+        }
+        
+        if (id == -1)
+        {
+            return false;
+        }
+
+        String datos = "15;" + id_compra + ":" + motivo;
+        String[] resultado = null;
+
+        resultado = Fachada.getInstancia().getCs().conexion(datos);
+
+        if (!Boolean.parseBoolean(resultado[0]))
+        {
+            return false;
+        }
+
+        this.buscarCompras(id).setActivo(false);
+        
+        return false;
     }
 }

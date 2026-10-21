@@ -31,6 +31,10 @@ public class Cine {
         return id;
     }
 
+    public ArrayList<Sala> getSalas() {
+        return salas;
+    }
+    
     public String getNombre() {
         return nombre;
     }

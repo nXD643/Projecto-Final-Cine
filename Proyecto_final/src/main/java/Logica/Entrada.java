@@ -16,6 +16,15 @@ public class Entrada {
         this.id_cine = id_cine;
         this.id_asiento = id_asiento;
     }
+    
+    public Entrada(int precio, int id_sala, int id_funcion, int id_cine, int id_asiento) {
+        this.id = id;
+        this.precio = precio;
+        this.id_sala = id_sala;
+        this.id_funcion = id_funcion;
+        this.id_cine = id_cine;
+        this.id_asiento = id_asiento;
+    }
 
     public int getId() {
         return id;
