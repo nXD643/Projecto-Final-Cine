@@ -61,36 +61,20 @@ public class Fachada {
         }
         return true;
     }
-    public boolean registro(int documento, String nombre, String apellido, String correo_electronico, String contrasena, ArrayList<String> telefonos)
+    public boolean registro(int documento, String nombre, String apellido, String correo_electronico, String contrasena, String telefonos)
     {
         String datos;
         String[] resultado = null;
-        String telefonos_enviar = "";
         
         if (!verificarCedula(documento))
         {
             return false;
         }
         this.cliente = new Cliente(documento, nombre, apellido, correo_electronico, contrasena);
+
+        this.cliente.agregarTelefono(telefonos);
         
-        for (int i = 0; i < telefonos.size(); i ++)
-        {
-            this.cliente.agregarTelefono(telefonos.get(i));
-        }
-        
-        for (int i = 0; i < telefonos.size(); i ++)
-        {
-            if (i == (telefonos.size() - 1))
-            {
-                telefonos_enviar += telefonos.get(i);
-            }
-            else
-            {
-                telefonos_enviar += telefonos.get(i) + "/";
-            }
-        }
-        
-        datos = "1;" + documento + ":" + nombre + ":" + apellido + ":" + correo_electronico + ":" + contrasena + ":" + telefonos_enviar;
+        datos = "1;" + documento + ":" + nombre + ":" + apellido + ":" + correo_electronico + ":" + contrasena + ":" + telefonos;
         
         resultado = cs.conexion(datos);
         

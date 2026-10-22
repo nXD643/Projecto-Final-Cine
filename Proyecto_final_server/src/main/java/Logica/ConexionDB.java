@@ -46,10 +46,8 @@ public class ConexionDB {
             ps.setString(4, valores[3]);
             ps.setString(5, valores[4]);
             ps.executeUpdate();
-
-            for (int i = 0; i < telefono.length; i++) {
-                agregar_telefonos(telefono[i], valores[0]);
-            }
+            
+            agregar_telefonos(valores[5], valores[0]);
 
             return "true";
         } catch (SQLException ex) {

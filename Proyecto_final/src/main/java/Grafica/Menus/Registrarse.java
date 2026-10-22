@@ -6,6 +6,7 @@ package Grafica.Menus;
 
 import Grafica.Menus.ElegirCine;
 import Logica.Fachada;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -222,8 +223,15 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
 
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
         try { // El try and catch es por si el docummento es un numero no valido, puede devolver un error, pasa lo mismo si es null
-            boolean inicio = fachada.inicio_sesion(Integer.parseInt(DocumentoIngresado.getText()), ContrasenaIngresada.getText());
-            if (inicio == true) {
+            int documento = Integer.parseInt(DocumentoIngresado.getText());
+            String nombre = NombreIngresado.getText();
+            String apellido = ApellidoIngresado.getText();
+            String correoElectronico = CorreoIngresado.getText();
+            String contrasena = ContrasenaIngresada.getPassword().toString();
+            String telefono = TelefonoIngresado.getText();
+            
+            boolean registro = fachada.registro(documento, nombre, apellido, correoElectronico, contrasena, telefono);
+            if (registro == true) {
                 ElegirCine ventana = new ElegirCine();
                 ventana.setVisible(true);
                 setVisible(false);
@@ -231,7 +239,7 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
                 throw new Exception();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "No se ha podido iniciar sesion, verifique y pruebe de nuevo");
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido registrarse, verifique y pruebe de nuevo");
         }
     }//GEN-LAST:event_AceptarBtnActionPerformed
 
