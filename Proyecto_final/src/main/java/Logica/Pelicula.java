@@ -19,7 +19,7 @@ public class Pelicula {
         this.genero = genero;
         this.ano_estreno = ano_estreno;
     }
-
+    
     public String getDuracion() {
         return duracion;
     }

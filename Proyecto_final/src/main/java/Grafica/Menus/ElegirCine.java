@@ -25,15 +25,17 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
         initComponents();
         add_background();
         
-        if (fachada.anadir_cines()) {        
-            for (int numeroCine = fachada.getCines().cines.size()-1;numeroCine >= 0;numeroCine--) {
-                ElegirCine.addItem(fachada.getCines().cines.get(numeroCine).getNombre());
+        System.out.println("cine es igual a " + fachada.getCines().getCineSeleccionado());
+        if (fachada.getCines().getCineSeleccionado() == 0) {
+            fachada.anadir_cines();
+            System.out.println("cine es igual a 0");
             }
-    } else {
-            JOptionPane.showMessageDialog(rootPane, "No se han podido cargar los cines, intentelo de nuevo");
-            SiguienteBtn.disable();
+        
+        for (int numeroCine = fachada.getCines().cines.size() - 1; numeroCine >= 0; numeroCine--) {
+            ElegirCine.addItem(fachada.getCines().cines.get(numeroCine).getNombre());
         }
-}
+    }
+
         
     
     /**
@@ -95,15 +97,13 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
         String cineElegido = ElegirCine.getSelectedItem().toString();
         
-        for (int i = 0; i < fachada.getCines().getSize(); i ++)
-        {
+        for (int i = 0; i < fachada.getCines().getSize(); i ++) {
             if (fachada.getCines().buscarCine(i).getNombre().equals(cineElegido))
             {
                 fachada.getCines().setCineSeleccionado(i);
+                System.out.println("El cine elegido es: " + fachada.getCines().getCineSeleccionado());
             }
-        }    
-        
-        System.out.println(fachada.getCines().getCineSeleccionado());
+        }
         
         fachada.anadir_salas();
         

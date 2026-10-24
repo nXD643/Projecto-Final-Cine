@@ -5,7 +5,9 @@
 package Grafica.Menus;
 import Grafica.Menus.ElegirFuncion;
 import Grafica.Menus.MetodoDePago;
+import Logica.Cine;
 import Logica.Fachada;
+import Logica.Pelicula;
 
 
 /**
@@ -25,6 +27,8 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         initComponents();
         add_background();
         
+        Cine cineElegido = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
+        //Pelicula peliculaElegida = cineElegido.buscarSala(12);
         
         //ArrayList asientos = fachada.getCines().getCineSeleccionado();
 

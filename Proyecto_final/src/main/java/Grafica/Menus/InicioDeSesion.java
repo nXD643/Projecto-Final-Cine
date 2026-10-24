@@ -132,8 +132,8 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
     private void DocumentoIngresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DocumentoIngresadoKeyTyped
         String documento = DocumentoIngresado.getText();
 
-        if (documento.length() >= 8) {
-            DocumentoIngresado.setText(documento.substring(0, 7));
+        if (documento.length() > 8) {
+            DocumentoIngresado.setText(documento.substring(0, 8));
             JOptionPane.showMessageDialog(rootPane, "El documento no puede tener mas de 8 caracteres");
         }
     }//GEN-LAST:event_DocumentoIngresadoKeyTyped

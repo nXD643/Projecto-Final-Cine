@@ -10,6 +10,7 @@ import Grafica.Menus.ElegirPelicula;
 import Logica.Cine;
 import Logica.Funcion;
 import Logica.Fachada;
+import Logica.Pelicula;
 
 /**
  *
@@ -30,19 +31,9 @@ public class ElegirFuncion extends Grafica.PanelUI.DefaultConf {
         add_background();
 
         int numCineSeleccionado = fachada.getCines().getCineSeleccionado();
-            
-        // Validamos si el cine existe antes de usarlo
+        
         if (numCineSeleccionado != 0) {
             Cine cineSeleccionado = fachada.getCines().buscarCine(numCineSeleccionado);
-            int cantidad_funciones = cineSeleccionado.ListaPeliculas().size();
-            for (int i = 0; i < cantidad_funciones; i++) {
-                Funcion funcion = (Funcion) cineSeleccionado.ListaPeliculas().get(i);
-                String hora = funcion.getHora();
-                String fecha = funcion.getFecha().toString();
-
-                FuncionUI funcionUI = new FuncionUI(this, hora, fecha);
-                FuncionesPanel.add(funcionUI);
-            }
         } else {
             System.out.println("Error: no hay ningun cine seleccionado.");
         }
