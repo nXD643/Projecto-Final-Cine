@@ -24,6 +24,9 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         initConf();
         initComponents();
         add_background();
+        
+        
+        //ArrayList asientos = fachada.getCines().getCineSeleccionado();
 
     }
 
@@ -56,7 +59,7 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         );
         AsientosLayout.setVerticalGroup(
             AsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 258, Short.MAX_VALUE)
+            .addGap(0, 494, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -66,7 +69,7 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(VolverBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 647, Short.MAX_VALUE)
                 .addComponent(ConfirmarBtn)
                 .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()

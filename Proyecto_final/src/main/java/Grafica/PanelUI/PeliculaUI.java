@@ -6,6 +6,7 @@ package Grafica.PanelUI;
 
 import Grafica.Menus.ElegirFuncion;
 import Grafica.Menus.ElegirPelicula;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -18,8 +19,24 @@ public class PeliculaUI extends javax.swing.JPanel {
     /**
      * Creates new form Pelicula
      */
-    public PeliculaUI(ElegirPelicula siguienteVentana) {
+    public PeliculaUI(ElegirPelicula siguienteVentana,String peliculaNombre,ArrayList<String> peliculaGenero,String peliculaEstreno,String peliculaDuracion,String peliculaClasificacion) {
         initComponents();
+        
+        NombrePeli.setText(peliculaNombre);
+        EstrenoPeli.setText(peliculaEstreno);
+        DuracionPeli.setText(peliculaDuracion);
+        ClasificacionPeli.setText(peliculaClasificacion);
+        
+        String totalGeneros = "";
+        for (int i = 0; i < peliculaGenero.size(); i++) {
+            totalGeneros = totalGeneros;
+            if (i == 1) {
+                totalGeneros = peliculaGenero.get(i);
+            } else {
+                totalGeneros = totalGeneros + ", " + peliculaGenero.get(i);
+            }
+        }
+        GeneroPeli.setText(totalGeneros);
         
         this.siguienteVentana = siguienteVentana;
     }
@@ -45,6 +62,8 @@ public class PeliculaUI extends javax.swing.JPanel {
         jLabel2.setText("Nombre: Hola");
 
         setBackground(new java.awt.Color(51, 51, 51));
+        setMaximumSize(new java.awt.Dimension(1182, 270));
+        setMinimumSize(new java.awt.Dimension(1182, 270));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1182, 163));
 

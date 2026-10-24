@@ -51,10 +51,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace pref="210" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="TarjetaIngresada" alignment="3" min="-2" pref="143" max="-2" attributes="0"/>
-                  <Component id="TarjetaLabel" alignment="3" min="-2" pref="136" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="TarjetaIcono" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="TarjetaIngresada" alignment="3" min="-2" pref="143" max="-2" attributes="0"/>
+                      <Component id="TarjetaLabel" alignment="3" min="-2" pref="136" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="210" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

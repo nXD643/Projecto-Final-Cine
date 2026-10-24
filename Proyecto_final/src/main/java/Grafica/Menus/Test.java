@@ -17,7 +17,6 @@ public class Test extends Grafica.PanelUI.DefaultConf {
      */
     public Test() {
         FlatDarkLaf.setup();
-
         initConf();
         initComponents();
     }

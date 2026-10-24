@@ -8,8 +8,6 @@ import Grafica.PanelUI.PeliculaUI;
 import Logica.Fachada;
 import Logica.Cine;
 import Logica.Pelicula;
-import com.formdev.flatlaf.FlatDarkLaf;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -31,23 +29,26 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
         add_background();
         
         try { // el try and catch es porque el cine en caso de que no exista o no se defina correctamente, ademas puede dar varios errores diferentes
-            ArrayList<Pelicula> peliculas = new ArrayList<>();
             
-            // System.out.println(cineActual.ListaPeliculas());
-            // provicional hasta que hagamos la base de datos y carguemos los cines desde el server
-            for (int i = 0; i < 2; i++) {
-                LocalDate date = LocalDate.of(2020, 1, 8);
-                ArrayList<String> genero = new ArrayList();
-                genero.add("Terror");
-                Pelicula pelicula = new Pelicula("3 hs", "+17", "Spiderman", 19201, date, genero);
-                peliculas.add(pelicula);
-            }
+            int cineActualId = fachada.getCines().getCineSeleccionado();
+            Cine cineActual = fachada.getCines().buscarCine(cineActualId);
+            
+            ArrayList<Pelicula> peliculas = new ArrayList<>();
+            peliculas = cineActual.ListaPeliculas();
             
             //   extraer las peliculas de la parte logica
             int cantidad_funciones = peliculas.size();
+            System.out.println(cantidad_funciones);
             for (int i = 0; i < cantidad_funciones; i++) {
                 Pelicula peliculaActual = peliculas.get(i);
-                PeliculaUI pelicula = new PeliculaUI(this);
+                
+                String peliculaActualTitulo = peliculaActual.getTitulo();
+                ArrayList<String> peliculaActualGenero = peliculaActual.getGeneros();
+                String peliculaActualEstreno = peliculaActual.getAno_estreno().toString();
+                String peliculaActualDuracion = peliculaActual.getDuracion();
+                String peliculaActualClasificacion = peliculaActual.getClasificacion_edad();
+                
+                PeliculaUI pelicula = new PeliculaUI(this,peliculaActualTitulo,peliculaActualGenero,peliculaActualEstreno,peliculaActualDuracion,peliculaActualClasificacion);
                 PeliculasPanel.add(pelicula);
             }
         } catch (IndexOutOfBoundsException e) { 

@@ -23,7 +23,6 @@ public class DefaultLabel extends JLabel {
         switch (letraTamanio) {
             case 1:
                 fuente = "Verdana";
-                fuenteTipo = Font.ITALIC;
                 fuenteTamanio = 12;
                 break;
             case 2:
