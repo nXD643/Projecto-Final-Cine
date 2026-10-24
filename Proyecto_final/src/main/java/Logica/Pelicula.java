@@ -39,4 +39,8 @@ public class Pelicula {
     public LocalDate getAno_estreno() {
         return ano_estreno;
     }
+
+    public int getId() {
+        return id;
+    }
 }

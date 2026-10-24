@@ -29,4 +29,9 @@ public class ListaCines {
     public void setCineSeleccionado(int cineSeleccionado) {
         this.cineSeleccionado = cineSeleccionado;
     }
+    
+    public int getSize()
+    {
+        return this.cines.size();
+    }
 }

@@ -60,4 +60,9 @@ public class Cine {
     {
         this.peliculas.add(pelicula);
     }
+    
+    public Pelicula obtenerPeliculas(int id)
+    {
+        return peliculas.get(id);
+    }
 }

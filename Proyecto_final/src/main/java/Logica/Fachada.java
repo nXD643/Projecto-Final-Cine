@@ -280,19 +280,18 @@ public class Fachada {
             valores = resultado[i].split(":");
             
             this.cines.cargarCine(valores[1], valores[2], Integer.parseInt(valores[0]), valores[3]);
-            
-            anadir_salas(Integer.parseInt(valores[0]));
         }
         
         return true;
     }
-    public boolean anadir_peliculas (int id_pelicula, int id_cine)
+    public boolean anadir_peliculas (int id_pelicula)
     {
         String datos = "7;" + id_pelicula;
         String[] resultado = null;
         String[] valores = null;
         ArrayList<String> generos = null;
         LocalDate anio_estreno;
+        int id_cine = this.cines.getCineSeleccionado();
         
         resultado = cs.conexion(datos);
         
@@ -304,9 +303,26 @@ public class Fachada {
 
             anio_estreno = LocalDate.parse(valores[4]);
             
-            Pelicula pelicula = new Pelicula(valores[0], valores[1], valores[2], Integer.parseInt(valores[3]), anio_estreno, generos);
+            System.out.println(this.cines.buscarCine(id_cine).ListaPeliculas().size());
             
-            this.cines.buscarCine(id_cine - 1).cargarPelicula(pelicula);
+            if (this.cines.buscarCine(id_cine).ListaPeliculas().size() != 0)
+            {
+                for (int j = 0; j < this.cines.buscarCine(id_cine).ListaPeliculas().size(); j ++)
+                {
+                    Pelicula pelicula = new Pelicula(valores[0], valores[1], valores[2], Integer.parseInt(valores[3]), anio_estreno, generos);
+                    
+                    if (!this.cines.buscarCine(id_cine).obtenerPeliculas(j).getTitulo().equals(pelicula.getTitulo()))
+                    {
+                        this.cines.buscarCine(id_cine).cargarPelicula(pelicula);
+                    }
+                }
+            }
+            else
+            {
+                Pelicula pelicula = new Pelicula(valores[0], valores[1], valores[2], Integer.parseInt(valores[3]), anio_estreno, generos);
+
+                this.cines.buscarCine(id_cine).cargarPelicula(pelicula);
+            }
         }
         
         return true;
@@ -328,12 +344,14 @@ public class Fachada {
         }
         return generos;
     }
-    public boolean anadir_salas (int id_cine)
+    public boolean anadir_salas ()
     {
-        String datos = "5;" + id_cine;
         String[] resultado = null;
         String[] valores = null;
-        Integer[] valores_sala = null;
+        Integer[] valores_sala = null;  
+        int id_cine = this.cines.getCineSeleccionado();
+        
+        String datos = "5;" + this.cines.buscarCine(id_cine).getId();
         
         resultado = cs.conexion(datos);
 
@@ -343,19 +361,20 @@ public class Fachada {
 
             valores_sala = convertirInt(valores);
 
-            this.cines.buscarCine(id_cine - 1).cargarSala(valores_sala[1], valores_sala[2], valores_sala[3], valores_sala[4], valores_sala[5]);
+            this.cines.buscarCine(id_cine).cargarSala(valores_sala[1], valores_sala[2], valores_sala[3], valores_sala[4], valores_sala[5]);
 
-            anadir_funciones(valores_sala[1], id_cine);
+            anadir_funciones(valores_sala[2], i);
         }
         
         return true;
     }
-    public boolean anadir_funciones(int id_sala, int id_cine)
+    public boolean anadir_funciones(int id_sala, int index)
     {
         String datos;
         String[] resultado = null;
         String[] valores = null;
         LocalDate fecha;
+        int id_cine = this.cines.getCineSeleccionado();
         
         datos = "6;" + id_sala;
                 
@@ -369,20 +388,21 @@ public class Fachada {
             
             fecha = LocalDate.parse(valores[0]);
             
-            this.cines.buscarCine(id_cine - 1).buscarSala(id_sala - 1).cargarFuncion(fecha, Integer.parseInt(valores[1]), Integer.parseInt(valores[2]), Integer.parseInt(valores[3]), valores[4]);
+            this.cines.buscarCine(id_cine).buscarSala(index).cargarFuncion(fecha, Integer.parseInt(valores[1]), Integer.parseInt(valores[2]), Integer.parseInt(valores[3]), valores[4]);
             
-            anadir_peliculas(Integer.parseInt(valores[3]), id_cine);
+            anadir_peliculas(Integer.parseInt(valores[3]));
             
-            anadir_asientos(i, id_cine, id_sala);
+            anadir_asientos(valores[1], i, id_sala, index);
         }
         
         return true;
     }
-    public boolean anadir_asientos(int id_funcion, int id_cine, int id_sala)
+    public boolean anadir_asientos(String id_funcion, int index_funcion, int id_sala, int index_sala)
     {
         String datos;
         String[] resultado = null;
         String[] valores = null;
+        int id_cine = this.cines.getCineSeleccionado();
         
         datos = "9;" + id_funcion;
         
@@ -396,7 +416,7 @@ public class Fachada {
             {
                 valores = resultado[i].split(":");
 
-                this.cines.buscarCine(id_cine - 1).buscarSala(id_sala - 1).buscarFuncion(id_funcion).cargarAsiento(Integer.parseInt(valores[0]), Integer.parseInt(valores[1]), Integer.parseInt(valores[2]), Boolean.getBoolean(valores[3]));
+                this.cines.buscarCine(id_cine).buscarSala(index_sala).buscarFuncion(index_funcion).cargarAsiento(Integer.parseInt(valores[0]), Integer.parseInt(valores[1]), Integer.parseInt(valores[2]), Boolean.getBoolean(valores[3]));
             }
         }
         
