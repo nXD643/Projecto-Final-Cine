@@ -51,13 +51,21 @@ public class Fachada {
             this.cliente.agregarTelefono(telefonos[i]);
         }
         
-        datos = "3;" + documento;
-        
-        resultado = cs.conexion(datos);
-        
-        for (int i = 0; i < resultado.length; i ++)
+        try
         {
-            this.cliente.cargarCompras(resultado[i], i);
+            datos = "3;" + documento;
+
+            resultado = cs.conexion(datos);
+
+            for (int i = 0; i < resultado.length; i ++)
+            {
+                this.cliente.cargarCompras(resultado[i], i);
+            }
+            return true;
+        }
+        catch (Exception e)
+        {
+            System.out.println("No tiene compras");
         }
         return true;
     }
