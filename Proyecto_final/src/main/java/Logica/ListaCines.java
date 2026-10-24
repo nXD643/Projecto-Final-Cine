@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class ListaCines {
     public ArrayList <Cine> cines;
     private int cineSeleccionado;
+    private int peliculaSeleccionada;
     
     public ListaCines() {
         this.cines = new ArrayList <>();
@@ -33,5 +34,13 @@ public class ListaCines {
     public int getSize()
     {
         return this.cines.size();
+    }
+    
+    public int getPeliculaSeleccionada() {
+        return peliculaSeleccionada;
+    }
+
+    public void setPeliculaSeleccionada(int peliculaSeleccionada) {
+        this.peliculaSeleccionada = peliculaSeleccionada;
     }
 }
