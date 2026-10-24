@@ -39,7 +39,7 @@ public class PeliculaUI extends javax.swing.JPanel {
         NombrePeli.setText(peliculaNombre);
         EstrenoPeli.setText(peliculaEstreno);
         DuracionPeli.setText(peliculaDuracion);
-        ClasificacionPeli.setText(peliculaClasificacion);
+        ClasificacionPeli.setText("Clasificacion de edad: " + peliculaClasificacion);
         
         String totalGeneros = "";
         for (int i = 0; i < peliculaGenero.size(); i++) {

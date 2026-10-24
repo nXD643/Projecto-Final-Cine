@@ -32,11 +32,14 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         Sala salaSeleccionada = cineElegido.buscarSala(fachada.getCines().getSalaSeleccionada());
         
         Asiento[][] asientos = salaSeleccionada.buscarFuncion(fachada.getCines().getFuncionSeleccionada()).getAsientos();
-        for (int x = 0;x > salaSeleccionada.getLargo(); x++) {
-            for (int y = 0;y > salaSeleccionada.getAncho(); y++) {
-                salaSeleccionada.buscarFuncion(fachada.getCines().getFuncionSeleccionada()).getAsientos();
+        System.out.println(asientos.length);
+        for (int x = 0;x < salaSeleccionada.getLargo(); x++) {
+            for (int y = 0;y < salaSeleccionada.getAncho(); y++) {
                 if (asientos[x][y] != null) {
+                    System.out.println(asientos[x][y].getId());
+                    System.out.println("holas");
                     AsientoUI asientoUi = new AsientoUI(asientos[x][y]);
+                    Asientos.add(asientoUi);
                 }
             }
         }
@@ -67,34 +70,33 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         Asientos.setLayout(AsientosLayout);
         AsientosLayout.setHorizontalGroup(
             AsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
+            .addGap(0, 803, Short.MAX_VALUE)
         );
         AsientosLayout.setVerticalGroup(
             AsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 452, Short.MAX_VALUE)
+            .addGap(0, 378, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(VolverBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 647, Short.MAX_VALUE)
-                .addComponent(ConfirmarBtn)
-                .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Asientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Asientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(VolverBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 647, Short.MAX_VALUE)
+                        .addComponent(ConfirmarBtn)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(116, Short.MAX_VALUE)
                 .addComponent(Asientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConfirmarBtn)
                     .addComponent(VolverBtn))

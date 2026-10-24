@@ -6,6 +6,7 @@ package Grafica.PanelUI;
 
 import Grafica.Menus.ElegirAsientos;
 import Grafica.Menus.ElegirFuncion;
+import Logica.Fachada;
 
 /**
  *
@@ -13,12 +14,19 @@ import Grafica.Menus.ElegirFuncion;
  */
 public class FuncionUI extends javax.swing.JPanel {
     private ElegirFuncion elegirfuncion;
+    int salaID;
+    int funcionID;
 
     /**
      * Creates new form Funcion
      */
-    public FuncionUI(ElegirFuncion elegirfuncion,String fecha, String hora) {
+    private Fachada fachada = Fachada.getInstancia();
+    
+    public FuncionUI(ElegirFuncion elegirfuncion,String fecha, String hora, int salaID, int funcionID) {
         initComponents();
+        
+        this.salaID = salaID;
+        this.funcionID = funcionID;
         this.elegirfuncion = elegirfuncion;
         FuncionLabel.setText("Hora: " + hora + ", Fecha: " + fecha);
     }
@@ -63,6 +71,9 @@ public class FuncionUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        fachada.getCines().setFuncionSeleccionada(funcionID);                                      
+        fachada.getCines().setSalaSeleccionada(salaID);
+        
         ElegirAsientos ventana = new ElegirAsientos();
         ventana.setVisible(true);
         elegirfuncion.setVisible(false);
