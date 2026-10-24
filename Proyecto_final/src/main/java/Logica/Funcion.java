@@ -53,6 +53,10 @@ public class Funcion {
         }
         return null;
     }
+
+    public Asiento[][] getAsientos() {
+        return asientos;
+    }
     
     public void cargarAsiento(int id, int fila, int numero, boolean estado)
     {

@@ -5,10 +5,11 @@
 package Grafica.Menus;
 import Grafica.Menus.ElegirFuncion;
 import Grafica.Menus.MetodoDePago;
+import Grafica.PanelUI.AsientoUI;
+import Logica.Asiento;
 import Logica.Cine;
 import Logica.Fachada;
-import Logica.Pelicula;
-
+import Logica.Sala;
 
 /**
  *
@@ -28,9 +29,17 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         add_background();
         
         Cine cineElegido = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
-        //Pelicula peliculaElegida = cineElegido.buscarSala(12);
-        //ArrayList asientos = fachada.getCines().getCineSeleccionado();
-
+        Sala salaSeleccionada = cineElegido.buscarSala(fachada.getCines().getSalaSeleccionada());
+        
+        Asiento[][] asientos = salaSeleccionada.buscarFuncion(fachada.getCines().getFuncionSeleccionada()).getAsientos();
+        for (int x = 0;x > salaSeleccionada.getLargo(); x++) {
+            for (int y = 0;y > salaSeleccionada.getAncho(); y++) {
+                salaSeleccionada.buscarFuncion(fachada.getCines().getFuncionSeleccionada()).getAsientos();
+                if (asientos[x][y] != null) {
+                    AsientoUI asientoUi = new AsientoUI(asientos[x][y]);
+                }
+            }
+        }
     }
 
     /**
@@ -58,11 +67,11 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         Asientos.setLayout(AsientosLayout);
         AsientosLayout.setHorizontalGroup(
             AsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 714, Short.MAX_VALUE)
         );
         AsientosLayout.setVerticalGroup(
             AsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+            .addGap(0, 452, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -76,16 +85,16 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
                 .addComponent(ConfirmarBtn)
                 .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Asientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Asientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Asientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addComponent(Asientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConfirmarBtn)
                     .addComponent(VolverBtn))

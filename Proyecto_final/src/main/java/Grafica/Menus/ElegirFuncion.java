@@ -32,19 +32,20 @@ public class ElegirFuncion extends Grafica.PanelUI.DefaultConf {
 
         int numCineSeleccionado = fachada.getCines().getCineSeleccionado();
 
-        if (numCineSeleccionado != 0) {
+        if (numCineSeleccionado != -1) {
             ArrayList<Sala> salaSeleccionada = fachada.getCines().buscarCine(numCineSeleccionado).getSalas();
             for (int i = 0; i < salaSeleccionada.size(); i++) {
                 Sala salaActual = salaSeleccionada.get(i);
-                for (int z = 0; i < salaActual.getFunciones().size(); i++) {
-                    Funcion funcionActual = salaActual.getFunciones().get(i);
-                    if (funcionActual.getIdPelicula() == cine.getPeliculaSeleccionada) { // solo falta obtener la pelicula
+                for (int z = 0; z < salaActual.getFunciones().size(); z++) {
+                    Funcion funcionActual = salaActual.getFunciones().get(z);
+                    System.out.println(funcionActual.getIdPelicula() + " : " + fachada.getCines().getPeliculaSeleccionada());
+                    if (funcionActual.getIdPelicula() == fachada.getCines().getPeliculaSeleccionada()) {
                         FuncionUI funcion = new FuncionUI(this,funcionActual.getFecha().toString(),funcionActual.getHora().toString());
                         FuncionesPanel.add(funcion);
                     }
                 }
             }
-        }else {
+        } else {
             System.out.println("Error: no hay ningun cine seleccionado.");
         }
     }

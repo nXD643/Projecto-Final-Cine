@@ -25,14 +25,14 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
         initComponents();
         add_background();
         
+        
         System.out.println("cine es igual a " + fachada.getCines().getCineSeleccionado());
-        if (fachada.getCines().getCineSeleccionado() == 0) {
+        if (fachada.getCines().getCineSeleccionado() == -1) {
             fachada.anadir_cines();
-            System.out.println("cine es igual a 0");
             }
         
-        for (int numeroCine = fachada.getCines().cines.size() - 1; numeroCine >= 0; numeroCine--) {
-            ElegirCine.addItem(fachada.getCines().cines.get(numeroCine).getNombre());
+        for (int i = 0; i < fachada.getCines().getSize(); i ++) { 
+            ElegirCine.addItem(fachada.getCines().cines.get(i).getNombre());
         }
     }
 

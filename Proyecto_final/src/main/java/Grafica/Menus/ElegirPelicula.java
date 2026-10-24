@@ -29,7 +29,7 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
         add_background();
         
         try { // el try and catch es porque el cine en caso de que no exista o no se defina correctamente, ademas puede dar varios errores diferentes
-            
+             
             int cineActualId = fachada.getCines().getCineSeleccionado();
             Cine cineActual = fachada.getCines().buscarCine(cineActualId);
             
@@ -38,17 +38,10 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
             
             //   extraer las peliculas de la parte logica
             int cantidad_funciones = peliculas.size();
-            System.out.println(cantidad_funciones);
             for (int i = 0; i < cantidad_funciones; i++) {
                 Pelicula peliculaActual = peliculas.get(i);
                 
-                String peliculaActualTitulo = peliculaActual.getTitulo();
-                ArrayList<String> peliculaActualGenero = peliculaActual.getGeneros();
-                String peliculaActualEstreno = peliculaActual.getAno_estreno().toString();
-                String peliculaActualDuracion = peliculaActual.getDuracion();
-                String peliculaActualClasificacion = peliculaActual.getClasificacion_edad();
-                
-                PeliculaUI pelicula = new PeliculaUI(this,peliculaActualTitulo,peliculaActualGenero,peliculaActualEstreno,peliculaActualDuracion,peliculaActualClasificacion);
+                PeliculaUI pelicula = new PeliculaUI(this,peliculaActual);
                 PeliculasPanel.add(pelicula);
             }
         } catch (IndexOutOfBoundsException e) { 

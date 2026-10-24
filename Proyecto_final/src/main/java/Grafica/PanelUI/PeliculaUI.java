@@ -6,8 +6,10 @@ package Grafica.PanelUI;
 
 import Grafica.Menus.ElegirFuncion;
 import Grafica.Menus.ElegirPelicula;
+import Logica.Cine;
+import Logica.Fachada;
+import Logica.Pelicula;
 import java.util.ArrayList;
-import javax.swing.JFrame;
 
 /**
  *
@@ -19,8 +21,20 @@ public class PeliculaUI extends javax.swing.JPanel {
     /**
      * Creates new form Pelicula
      */
-    public PeliculaUI(ElegirPelicula siguienteVentana,String peliculaNombre,ArrayList<String> peliculaGenero,String peliculaEstreno,String peliculaDuracion,String peliculaClasificacion) {
+    
+    private Pelicula peliculaElegida;
+    
+    Fachada fachada = Fachada.getInstancia();
+    
+    public PeliculaUI(ElegirPelicula siguienteVentana,Pelicula pelicula) {
         initComponents();
+        
+        peliculaElegida = pelicula;
+        String peliculaNombre = peliculaElegida.getTitulo();
+        ArrayList<String> peliculaGenero = peliculaElegida.getGeneros();
+        String peliculaEstreno = peliculaElegida.getAno_estreno().toString();
+        String peliculaDuracion = peliculaElegida.getDuracion();
+        String peliculaClasificacion = peliculaElegida.getClasificacion_edad();
         
         NombrePeli.setText(peliculaNombre);
         EstrenoPeli.setText(peliculaEstreno);
@@ -128,6 +142,8 @@ public class PeliculaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PeliculaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeliculaBtnActionPerformed
+        fachada.getCines().setPeliculaSeleccionada(peliculaElegida.getId());
+        
         ElegirFuncion ventana = new ElegirFuncion();
         ventana.setVisible(true);
         siguienteVentana.setVisible(false);

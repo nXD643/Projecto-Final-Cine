@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 public class ListaCines {
     public ArrayList <Cine> cines;
-    private int cineSeleccionado;
+    private int cineSeleccionado = -1;
     private int peliculaSeleccionada;
+    private int salaSeleccionada;
+    private int funcionSeleccionada;
     
     public ListaCines() {
         this.cines = new ArrayList <>();
@@ -42,5 +44,21 @@ public class ListaCines {
 
     public void setPeliculaSeleccionada(int peliculaSeleccionada) {
         this.peliculaSeleccionada = peliculaSeleccionada;
+    }
+    
+    public int getSalaSeleccionada() {
+        return salaSeleccionada;
+    }
+
+    public void setSalaSeleccionada(int salaSeleccionada) {
+        this.salaSeleccionada = salaSeleccionada;
+    }
+
+    public int getFuncionSeleccionada() {
+        return funcionSeleccionada;
+    }
+
+    public void setFuncionSeleccionada(int funcionSeleccionada) {
+        this.funcionSeleccionada = funcionSeleccionada;
     }
 }

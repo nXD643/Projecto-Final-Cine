@@ -47,4 +47,12 @@ public class Sala {
         
         this.funciones.add(funcion);
     }
+
+    public int getLargo() {
+        return largo;
+    }
+
+    public int getAncho() {
+        return ancho;
+    }
 }

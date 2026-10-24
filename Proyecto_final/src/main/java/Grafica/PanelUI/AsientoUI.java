@@ -4,18 +4,21 @@
  */
 package Grafica.PanelUI;
 
+import Logica.Asiento;
+
 /**
  *
  * @author nacho
  */
-public class Asiento extends javax.swing.JFrame {
+public class AsientoUI extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Asiento.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AsientoUI.class.getName());
 
     /**
      * Creates new form Asiento
      */
-    public Asiento() {
+    public AsientoUI(Asiento asiento) {
+        this.move(asiento.getFila(), asiento.getNumero());
         initComponents();
     }
 
@@ -40,7 +43,10 @@ public class Asiento extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,7 +82,7 @@ public class Asiento extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Asiento().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new AsientoUI(null).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
