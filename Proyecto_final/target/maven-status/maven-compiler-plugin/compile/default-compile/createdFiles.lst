@@ -1,0 +1,15 @@
+Logica\Compra.class
+Logica\Entrada.class
+Grafica\PanelUI\DefaultConf.class
+Logica\Asiento.class
+Logica\Pelicula.class
+Logica\ListaCines.class
+Grafica\Menus\ElegirCine.class
+Logica\ConexionServer.class
+Logica\Sala.class
+Logica\Funcion.class
+Logica\Fachada.class
+Logica\Cliente.class
+Grafica\Menus\ElegirAsientos.class
+Grafica\PanelUI\MenuUI.class
+Logica\Cine.class

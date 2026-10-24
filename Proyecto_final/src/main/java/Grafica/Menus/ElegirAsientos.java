@@ -29,7 +29,6 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         
         Cine cineElegido = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado());
         //Pelicula peliculaElegida = cineElegido.buscarSala(12);
-        
         //ArrayList asientos = fachada.getCines().getCineSeleccionado();
 
     }
