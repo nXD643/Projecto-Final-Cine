@@ -24,45 +24,43 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="202" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="ContrasenaLabel" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="TelefonoLabel" min="-2" pref="132" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="TelefonoIngresado" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="UsuarioLabel" pref="132" max="32767" attributes="0"/>
-                          <Component id="DocumentoLabel" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="NombreIngresado" max="32767" attributes="0"/>
-                          <Component id="DocumentoIngresado" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="ApellidoLabel" max="32767" attributes="0"/>
-                          <Component id="CorreoLabel" min="-2" pref="132" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ApellidoIngresado" alignment="0" max="32767" attributes="0"/>
-                          <Component id="CorreoIngresado" alignment="0" max="32767" attributes="0"/>
-                          <Component id="ContrasenaIngresada" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="AceptarBtn" pref="362" max="32767" attributes="0"/>
-                  <Component id="LabelInicio1" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="203" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="RegistrarseBtn1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="ContrasenaLabel" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="TelefonoLabel" min="-2" pref="132" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="TelefonoIngresado" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="UsuarioLabel" pref="132" max="32767" attributes="0"/>
+                              <Component id="DocumentoLabel" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="NombreIngresado" max="32767" attributes="0"/>
+                              <Component id="DocumentoIngresado" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="ApellidoLabel" max="32767" attributes="0"/>
+                              <Component id="CorreoLabel" min="-2" pref="132" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ApellidoIngresado" alignment="0" max="32767" attributes="0"/>
+                              <Component id="CorreoIngresado" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ContrasenaIngresada" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="AceptarBtn" pref="362" max="32767" attributes="0"/>
+                      <Component id="LabelInicio1" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="RegistrarseBtn1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>

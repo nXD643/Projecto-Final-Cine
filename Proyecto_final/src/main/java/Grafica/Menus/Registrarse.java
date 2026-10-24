@@ -227,7 +227,7 @@ public class Registrarse extends Grafica.PanelUI.DefaultConf {
             String nombre = NombreIngresado.getText();
             String apellido = ApellidoIngresado.getText();
             String correoElectronico = CorreoIngresado.getText();
-            String contrasena = ContrasenaIngresada.getPassword().toString();
+            String contrasena = String.copyValueOf(ContrasenaIngresada.getPassword());
             String telefono = TelefonoIngresado.getText();
             
             boolean registro = fachada.registro(documento, nombre, apellido, correoElectronico, contrasena, telefono);

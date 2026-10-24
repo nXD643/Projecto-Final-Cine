@@ -143,7 +143,9 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
     private void AceptarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarBtnActionPerformed
         try { // El try and catch es por si el docummento es un numero no valido, puede devolver un error, pasa lo mismo si es null
             int documento = Integer.parseInt(DocumentoIngresado.getText());
-            String contrasena = ContrasenaIngresada.getPassword().toString();
+            String contrasena = String.copyValueOf(ContrasenaIngresada.getPassword());
+            
+            System.out.println(contrasena);
             
             boolean inicio = fachada.inicio_sesion(documento, contrasena);
             if (inicio == true) {

@@ -32,6 +32,7 @@ insert into funcion (sala_ID, cine_ID, pelicula_ID, fecha, hora, precio_base) va
 
 insert into cliente (documento, nombre, apellido, correo_electronico, contrasena) values
 (44123456, "Paula", "Nuñez", "xxxxx@mail.com", "1234"),
+(87639112, "Pepe", "Pepi", "123456@mail.com", "adada"),
 (37654321, "Ramiro", "Techera", "aaaaaaa@mail.com", "8942"),
 (58376015, "Sofía", "Larrosa", "bbbbbbbb@mail.com", "2931sofia");
 

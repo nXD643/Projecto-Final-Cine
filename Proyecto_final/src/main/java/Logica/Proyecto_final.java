@@ -14,7 +14,7 @@ public class Proyecto_final {
         Presentacion ventana = new Presentacion();
         ventana.setVisible(true);   
         
-        fachada.anadir_cines();
+        //fachada.anadir_cines();
         
         //fachada.inicio_sesion(58376015, "2931sofia");
         
