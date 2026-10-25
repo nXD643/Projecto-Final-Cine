@@ -26,10 +26,9 @@ public class PeliculaUI extends javax.swing.JPanel {
     
     private Pelicula peliculaElegida;
     
-    private int peliculaId = 0;
     Fachada fachada = Fachada.getInstancia();
     
-    public PeliculaUI(ElegirPelicula siguienteVentana,Pelicula pelicula,int peliculaId) {
+    public PeliculaUI(ElegirPelicula siguienteVentana,Pelicula pelicula) {
         initComponents();
         
         peliculaElegida = pelicula;
@@ -145,8 +144,15 @@ public class PeliculaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PeliculaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeliculaBtnActionPerformed
-        fachada.getCines().setPeliculaSeleccionada(peliculaId);
-        
+        for (int i = 0; i < fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado()).ListaPeliculas().size();i++) {
+            System.out.println("peliculas");
+            if (fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado()).ListaPeliculas().get(i).equals(peliculaElegida)) {
+                fachada.getCines().setPeliculaSeleccionada(i);
+                System.out.println(fachada.getCines().getPeliculaSeleccionada());
+                Pelicula peliculaElegida = fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado()).ListaPeliculas().get(i);
+                System.out.println(peliculaElegida.getTitulo());
+            }
+        }
         ElegirFuncion ventana = new ElegirFuncion();
         ventana.setVisible(true);
         siguienteVentana.setVisible(false);

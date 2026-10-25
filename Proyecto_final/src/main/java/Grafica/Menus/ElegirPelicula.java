@@ -40,7 +40,7 @@ public class ElegirPelicula extends Grafica.PanelUI.DefaultConf {
             int cantidad_funciones = peliculas.size();
             for (int i = 0; i < cantidad_funciones; i++) {
                 Pelicula peliculaActual = peliculas.get(i);
-                PeliculaUI pelicula = new PeliculaUI(this,peliculaActual,i);
+                PeliculaUI pelicula = new PeliculaUI(this,peliculaActual);
                 PeliculasPanel.add(pelicula);
             }
         } catch (IndexOutOfBoundsException e) { 

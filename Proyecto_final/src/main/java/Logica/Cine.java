@@ -45,7 +45,7 @@ public class Cine {
         return this.salas.get(id);
     }
     
-    public ArrayList ListaPeliculas()
+    public ArrayList<Pelicula> ListaPeliculas()
     {
         return this.peliculas;
     }

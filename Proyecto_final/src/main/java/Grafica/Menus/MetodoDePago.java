@@ -33,7 +33,9 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
         Cine cineElegido = fachada.getCines().buscarCine((fachada.getCines().getCineSeleccionado()));
         Cine.setText("Cine: " + cineElegido.getNombre());
         
-        Pelicula peliculaElegida = cineElegido.obtenerPeliculas(fachada.getCines().getPeliculaSeleccionada());
+        
+        System.out.println(cineElegido.obtenerPeliculas(fachada.getCines().getPeliculaSeleccionada()).getTitulo());
+        Pelicula peliculaElegida = cineElegido.obtenerPeliculas(fachada.getCines().getPeliculaSeleccionada()); 
         Pelicula.setText("Pelicula: " + peliculaElegida.getTitulo());
         
         Sala salaElegida = cineElegido.buscarSala(fachada.getCines().getSalaSeleccionada());

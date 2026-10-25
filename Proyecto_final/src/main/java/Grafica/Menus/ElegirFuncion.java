@@ -38,6 +38,7 @@ public class ElegirFuncion extends Grafica.PanelUI.DefaultConf {
                 Sala salaActual = salaSeleccionada.get(i);
                 for (int z = 0; z < salaActual.getFunciones().size(); z++) {
                     Funcion funcionActual = salaActual.getFunciones().get(z);
+                     System.out.println(fachada.getCines().getPeliculaSeleccionada());
                     if (funcionActual.getIdPelicula() == fachada.getCines().getPeliculaSeleccionada()) {
                         FuncionUI funcion = new FuncionUI(this,funcionActual.getFecha().toString(),funcionActual.getHora().toString(),i,z);
                         FuncionesPanel.add(funcion);
