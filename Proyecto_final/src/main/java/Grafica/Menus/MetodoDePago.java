@@ -211,6 +211,7 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
                 idAsientos += fachada.getCines().getAsientosSeleccionados().get(i).getId();
             }
 
+            
             if (fachada.ocupar_asiento(idAsientos)) {
                 fachada.getCliente().guardarCompras(fachada.getCliente().getDocumento(), fechaActual, horaActual, "Tarjeta", importeTotal);
                 
