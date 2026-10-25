@@ -23,7 +23,7 @@ public class ConexionDB {
     public static Connection realizarConexion() {
         String url = "jdbc:mysql://localhost:3306/complejo_cines";
         String usuario = "root";
-        String clave = "1234";
+        String clave = "";
         Connection conexion = null;
         try {
             conexion = DriverManager.getConnection(url, usuario, clave);
@@ -201,6 +201,8 @@ public class ConexionDB {
     }
     // queda probar las dos funciones de abajo
     public static String anadirCompra(String datos) {
+        String datos_obtenidos = "";
+        
         try {
             String[] valores = datos.split("/");
             String sql = "call nueva_compra(?, ?, ?, ?, ?)";
@@ -213,11 +215,14 @@ public class ConexionDB {
             ps.setString(5, valores[4]);
             ResultSet rs = ps.executeQuery();
 
-            return "true";
+            while (rs.next()) {
+                datos_obtenidos += rs.getInt("id") + ";";
+            }
+            
         } catch (SQLException ex) {
             System.out.println("Error con la sentencia MYSQL");
         }
-        return "false";
+        return datos_obtenidos;
     }
 
     public static String anadirEntrada(String datos) {

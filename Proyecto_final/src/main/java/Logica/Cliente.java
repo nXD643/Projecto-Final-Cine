@@ -129,7 +129,7 @@ public class Cliente {
                 
                 resultado = Fachada.getInstancia().getCs().conexion(datos);
                 
-                if (!Boolean.parseBoolean(resultado[0]))
+                if (!Boolean.valueOf(resultado[0]))
                 {
                     return false;
                 }
@@ -163,7 +163,7 @@ public class Cliente {
         
         resultado = Fachada.getInstancia().getCs().conexion(datos);
         
-        if (!Boolean.parseBoolean(resultado[0]))
+        if (resultado[0].equals(""))
         {
             return false;
         }
@@ -171,6 +171,8 @@ public class Cliente {
         Compra compra = new Compra(fecha, hora, metodo_pago, true, importe_total);
         
         this.compras.add(compra);
+        
+        this.compras.getLast().setId_db(Integer.parseInt(resultado[0]));
         
         return true;
     }

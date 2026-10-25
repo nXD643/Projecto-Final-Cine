@@ -83,6 +83,7 @@ end //
 create procedure nueva_compra (in ci int, total int, fecha_compra date, hora_compra varchar(10), metodo varchar(20))
 begin
 	insert into compra (cliente_CI, importe_total, fecha, hora, metodo_pago, estado) value (ci, total, fecha_compra, hora_compra, metodo, true);
+    select id from compra where cliente_CI = ci and importe_total = total and fecha = fecha_compra and hora = hora_compra and metodo_pago = metodo and estado = true;
 end //
 
 create procedure nueva_entrada (in precio int, id_sala int, id_funcion int, id_cine int, id_asiento int, id_compra int)
