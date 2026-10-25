@@ -208,10 +208,17 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
 
             String idAsientos = "";
             for (int i = 0; i < fachada.getCines().getAsientosSeleccionados().size(); i++) {
-                idAsientos += fachada.getCines().getAsientosSeleccionados().get(i).getId();
+                if(i == 0)
+                {
+                    idAsientos += (fachada.getCines().getAsientosSeleccionados().get(i).getId() + 1);
+                }
+                else
+                {
+                    idAsientos += ":" + (fachada.getCines().getAsientosSeleccionados().get(i).getId() + 1);
+                }
             }
 
-            
+            System.out.println(idAsientos);
             if (fachada.ocupar_asiento(idAsientos)) {
                 fachada.getCliente().guardarCompras(fachada.getCliente().getDocumento(), fechaActual, horaActual, "Tarjeta", importeTotal);
                 

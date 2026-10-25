@@ -368,7 +368,9 @@ public class ConexionDB {
                 {
                     return "false";
                 }
-                
+            }
+            
+            for (int i = 0; i < valores.length; i++) {
                 PreparedStatement ps = connection.prepareStatement(sql);
                 ps.setString(1, valores[i]);
                 ResultSet rs = ps.executeQuery();
