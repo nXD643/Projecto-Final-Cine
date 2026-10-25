@@ -205,7 +205,7 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
             int funcionActualId = fachada.getCines().getFuncionSeleccionada();
             int asientosNum = fachada.getCines().getAsientosSeleccionados().size();
             int importeTotal = fachada.getCines().buscarCine(cineActualId).buscarSala(salaActualId).buscarFuncion(funcionActualId).getPrecio_base() * asientosNum;
-
+            
             fachada.getCliente().guardarCompras(fachada.getCliente().getDocumento(), fechaActual, horaActual, "Tarjeta", importeTotal);
             
             PagoRealizado ventana = new PagoRealizado();
