@@ -10,6 +10,8 @@ import Logica.Fachada;
 import Logica.Funcion;
 import Logica.Pelicula;
 import Logica.Sala;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -192,25 +194,25 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
-        switch (fachada.verificarTarjeta(TarjetaIngresada.getText())) {
-            case 1: // Visa
+        
+        System.out.println(fachada.verificarTarjeta(TarjetaIngresada.getText()));
+        if (fachada.verificarTarjeta(TarjetaIngresada.getText()) > 0) {
+            LocalDate fechaActual = LocalDate.now();
+            String horaActual = LocalTime.now().toString();
+            horaActual = horaActual.substring(0,5);
+            int cineActualId = fachada.getCines().getCineSeleccionado();
+            int salaActualId = fachada.getCines().getSalaSeleccionada();
+            int funcionActualId = fachada.getCines().getFuncionSeleccionada();
+            int asientosNum = fachada.getCines().getAsientosSeleccionados().size();
+            int importeTotal = fachada.getCines().buscarCine(cineActualId).buscarSala(salaActualId).buscarFuncion(funcionActualId).getPrecio_base() * asientosNum;
+
+            fachada.getCliente().guardarCompras(fachada.getCliente().getDocumento(), fechaActual, horaActual, "Tarjeta", importeTotal);
+            
             PagoRealizado ventana = new PagoRealizado();
             ventana.setVisible(true);
             setVisible(false);
-            break;
-            case 2: // Mastercard
-                PagoRealizado ventana1 = new PagoRealizado();
-                ventana1.setVisible(true);
-                setVisible(false);
-                break;
-            case 3: // American Express            
-                PagoRealizado ventana2 = new PagoRealizado();
-                ventana2.setVisible(true);
-                setVisible(false);  
-                break;
-            default:
-                JOptionPane.showMessageDialog(rootPane, "La tarjeta es incorrecta, no puedes poner espacios");
-                break;
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "La tarjeta es incorrecta, no puedes poner espacios");
         }
     }//GEN-LAST:event_SiguienteBtnActionPerformed
 
