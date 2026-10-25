@@ -85,7 +85,7 @@ public class PagoRealizado extends Grafica.PanelUI.DefaultConf {
     }//GEN-LAST:event_SalirBtnActionPerformed
 
     private void VolverMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverMenuBtnActionPerformed
-        ElegirPelicula ventana = new ElegirPelicula();
+        ElegirCine ventana = new ElegirCine();
         ventana.setVisible(true);
         setVisible(false);
         // TODO add your handling code here:

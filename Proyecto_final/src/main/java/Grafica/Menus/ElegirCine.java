@@ -21,18 +21,21 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
      * Creates new form ElegirCine
      */
     public ElegirCine() {
+        if (fachada.getCines().cines.size() > 0) {
+            fachada.getCines().cines.clear();
+            fachada.anadir_cines();
+        }
+        
         fachada.setEstaIniciado(true);
         
         initConf();
         initComponents();
         add_background();
         
-        
         System.out.println("cine es igual a " + fachada.getCines().getCineSeleccionado());
         if (fachada.getCines().getCineSeleccionado() == -1) {
                 fachada.anadir_cines();
             }
-        
         
         for (int i = 0; i < fachada.getCines().getSize(); i ++) { 
             ElegirCine.addItem(fachada.getCines().cines.get(i).getNombre());

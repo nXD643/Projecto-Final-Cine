@@ -56,6 +56,10 @@ public class Compra {
     public String getHora() {
         return hora;
     }
+
+    public boolean isActivo() {
+        return activo;
+    }
     
     public void setActivo(boolean activo) {
         this.activo = activo;
@@ -104,5 +108,9 @@ public class Compra {
         this.lista.add(entrada);
         
         return 1;
+    }
+
+    public ArrayList<Entrada> getLista() {
+        return lista;
     }
 }

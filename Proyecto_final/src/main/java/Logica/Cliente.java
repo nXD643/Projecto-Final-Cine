@@ -208,4 +208,8 @@ public class Cliente {
         
         return false;
     }
+
+    public ArrayList<Compra> getCompras() {
+        return compras;
+    }
 }

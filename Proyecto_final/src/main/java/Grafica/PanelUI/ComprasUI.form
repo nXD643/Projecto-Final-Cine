@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="IdDeLaCompra" max="32767" attributes="0"/>
+                  <Component id="FechaYHoraLabel1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="MetodoDePago" alignment="0" pref="161" max="32767" attributes="0"/>
+                  <Component id="ImporteTotal" max="32767" attributes="0"/>
+                  <Component id="CantidadDeAsientos" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <Component id="CancelarCompra" min="-2" pref="167" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="CancelarCompra" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="IdDeLaCompra" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="FechaYHoraLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="MetodoDePago" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="ImporteTotal" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="CantidadDeAsientos" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="CancelarCompra">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn(1)"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="IdDeLaCompra">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID de la compra: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="MetodoDePago">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Metodo de pago: Tarjeta"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="FechaYHoraLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fecha y hora: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ImporteTotal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Importe total: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="CantidadDeAsientos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cantidad de asientos: "/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

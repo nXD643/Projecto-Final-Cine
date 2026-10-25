@@ -32,7 +32,6 @@ public class AsientoUI extends JToggleButton {
         }
         setBounds(asiento.getNumero() * 150, asiento.getFila() * 150, 128, 128);
     }
-
     private void AsientoUIActionPerformed(java.awt.event.ActionEvent evt) {
         if (asiento.isEstado()){
             if (seleccionado) {
