@@ -5,7 +5,6 @@ Logica\Pelicula.class
 Logica\ListaCines.class
 Grafica\PanelUI\DefaultComboBox.class
 Logica\ConexionServer.class
-Grafica\PanelUI\AsientoUI$1.class
 Logica\Fachada.class
 Logica\Cliente.class
 Logica\Proyecto_final.class

@@ -37,7 +37,7 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
             for (int y = 0;y < salaSeleccionada.getAncho(); y++) {
                 if (asientos[x][y] != null) {
                     System.out.println(asientos[x][y].getId());
-                    System.out.println("holas");
+                    System.out.println(asientos[x][y].isEstado());
                     AsientoUI asientoUi = new AsientoUI(asientos[x][y]);
                     Asientos.add(asientoUi);
                 }
@@ -74,7 +74,7 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         );
         AsientosLayout.setVerticalGroup(
             AsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 378, Short.MAX_VALUE)
+            .addGap(0, 456, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -94,7 +94,7 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(Asientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

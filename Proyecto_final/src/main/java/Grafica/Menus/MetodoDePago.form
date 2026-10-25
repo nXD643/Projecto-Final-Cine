@@ -33,30 +33,27 @@
                       <Component id="VolverBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="418" max="32767" attributes="0"/>
                       <Component id="SiguienteBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="302" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="TarjetaLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="TarjetaIngresada" min="-2" pref="398" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Component id="TarjetaIcono" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="300" max="32767" attributes="0"/>
+                      <Component id="TarjetaIcono" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="302" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="210" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TarjetaIcono" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="TarjetaIngresada" alignment="3" min="-2" pref="143" max="-2" attributes="0"/>
-                      <Component id="TarjetaLabel" alignment="3" min="-2" pref="136" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace pref="211" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="TarjetaIcono" alignment="0" pref="143" max="32767" attributes="0"/>
+                  <Component id="TarjetaIngresada" alignment="1" max="32767" attributes="0"/>
+                  <Component id="TarjetaLabel" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="210" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
