@@ -301,37 +301,38 @@ public class Fachada {
         ArrayList<String> generos = null;
         LocalDate anio_estreno;
         int id_cine = this.cines.getCineSeleccionado();
+        Boolean repetida = false;
         
         resultado = cs.conexion(datos);
         
-        for (int i = 0; i < resultado.length; i ++)
-        {
-            valores = resultado[i].split(":");
-            
-            generos = obtener_generos(Integer.parseInt(valores[3]));
+        valores = resultado[0].split(":");
 
-            anio_estreno = LocalDate.parse(valores[4]);
-            
-            System.out.println(this.cines.buscarCine(id_cine).ListaPeliculas().size());
-            
-            if (this.cines.buscarCine(id_cine).ListaPeliculas().size() != 0)
+        generos = obtener_generos(Integer.parseInt(valores[3]));
+
+        anio_estreno = LocalDate.parse(valores[4]);
+
+        System.out.println(this.cines.buscarCine(id_cine).ListaPeliculas().size());
+        
+        Pelicula pelicula = new Pelicula(valores[0], valores[1], valores[2], Integer.parseInt(valores[3]), anio_estreno, generos);
+
+        if (this.cines.buscarCine(id_cine).ListaPeliculas().size() != 0)
+        {
+            for (int i = 0; i < this.cines.buscarCine(id_cine).ListaPeliculas().size(); i ++)
             {
-                for (int j = 0; j < this.cines.buscarCine(id_cine).ListaPeliculas().size(); j ++)
+                if (this.cines.buscarCine(id_cine).obtenerPeliculas(i).getTitulo().equals(pelicula.getTitulo()))
                 {
-                    Pelicula pelicula = new Pelicula(valores[0], valores[1], valores[2], Integer.parseInt(valores[3]), anio_estreno, generos);
-                    
-                    if (!this.cines.buscarCine(id_cine).obtenerPeliculas(j).getTitulo().equals(pelicula.getTitulo()))
-                    {
-                        this.cines.buscarCine(id_cine).cargarPelicula(pelicula);
-                    }
+                    repetida = true;
                 }
             }
-            else
-            {
-                Pelicula pelicula = new Pelicula(valores[0], valores[1], valores[2], Integer.parseInt(valores[3]), anio_estreno, generos);
-
-                this.cines.buscarCine(id_cine).cargarPelicula(pelicula);
-            }
+        }
+        else
+        {
+            this.cines.buscarCine(id_cine).cargarPelicula(pelicula);
+            repetida = true;
+        }
+        if (!repetida)
+        {
+            this.cines.buscarCine(id_cine).cargarPelicula(pelicula);
         }
         
         return true;
@@ -425,7 +426,7 @@ public class Fachada {
             {
                 valores = resultado[i].split(":");
 
-                this.cines.buscarCine(id_cine).buscarSala(index_sala).buscarFuncion(index_funcion).cargarAsiento(Integer.parseInt(valores[0]), Integer.parseInt(valores[1]), Integer.parseInt(valores[2]), Boolean.getBoolean(valores[3]));
+                this.cines.buscarCine(id_cine).buscarSala(index_sala).buscarFuncion(index_funcion).cargarAsiento(Integer.parseInt(valores[0]), Integer.parseInt(valores[1]), Integer.parseInt(valores[2]), Boolean.valueOf(valores[3]));
             }
         }
         
@@ -439,7 +440,7 @@ public class Fachada {
         
         datos_obtenidos = cs.conexion(datos);
         
-        return Boolean.parseBoolean(datos_obtenidos[0]);
+        return Boolean.valueOf(datos_obtenidos[0]);
     }
     public Integer[] convertirInt (String[] texto)
     {
