@@ -240,7 +240,7 @@ public class Fachada {
         
         for (int i = 0; i < largo; i ++)
         {
-            if ((i % 2) == 0)
+            if (((largo - 1) - i) % 2 != 0)
             {
                 digito = tarjeta / (long) (Math.pow(10, ((largo - 1) - i)));
                 digito = digito % 10;

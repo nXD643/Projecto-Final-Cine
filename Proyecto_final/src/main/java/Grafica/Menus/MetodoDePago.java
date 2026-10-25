@@ -4,8 +4,14 @@
  */
 package Grafica.Menus;
 
+import Logica.Asiento;
+import Logica.Cine;
 import Logica.Fachada;
+import Logica.Funcion;
+import Logica.Pelicula;
+import Logica.Sala;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +29,32 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
         initConf();
         initComponents();
         add_background();
+        
+        Cine cineElegido = fachada.getCines().buscarCine((fachada.getCines().getCineSeleccionado()));
+        Cine.setText("Cine: " + cineElegido.getNombre());
+        
+        Pelicula peliculaElegida = cineElegido.obtenerPeliculas(fachada.getCines().getPeliculaSeleccionada());
+        Pelicula.setText("Pelicula: " + peliculaElegida.getTitulo());
+        
+        Sala salaElegida = cineElegido.buscarSala(fachada.getCines().getSalaSeleccionada());
+        Sala.setText("Sala: " + salaElegida.getNumero());
+        
+        Funcion funcionElegida = salaElegida.buscarFuncion(fachada.getCines().getFuncionSeleccionada());
+        String funcionFecha = salaElegida.buscarFuncion(fachada.getCines().getFuncionSeleccionada()).getFecha().toString();
+        String funcionHora = salaElegida.buscarFuncion(fachada.getCines().getFuncionSeleccionada()).getHora();
+        Funcion.setText("Dia de la funcion: " + funcionFecha + " Hora " + funcionHora);
+        
+        String asientosElegidos = "";
+        int numAsiento;
+        int numFila;
+        
+        
+        for (int i = 0; i < fachada.getCines().getAsientosSeleccionados().size(); i++) {
+            numAsiento = fachada.getCines().getAsientosSeleccionados().get(i).getNumero()+1;
+            numFila = fachada.getCines().getAsientosSeleccionados().get(i).getFila()+1;
+            asientosElegidos = asientosElegidos + "Numero " + numAsiento + " Fila " + numFila + " ";
+        }
+       Asientos.setText("Asientos: " + asientosElegidos);
     }
 
     /**
@@ -39,6 +71,13 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
         TarjetaIngresada = new Grafica.PanelUI.DefaultTextField();
         TarjetaLabel = new Grafica.PanelUI.DefaultLabel(3);
         TarjetaIcono = new javax.swing.JLabel();
+        jLabel1 = new Grafica.PanelUI.DefaultLabel(3);
+        jPanel1 = new javax.swing.JPanel();
+        Sala = new javax.swing.JLabel();
+        Pelicula = new javax.swing.JLabel();
+        Funcion = new javax.swing.JLabel();
+        Asientos = new javax.swing.JLabel();
+        Cine = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1920, 1080));
@@ -62,34 +101,85 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
 
         TarjetaIcono.setIcon(new javax.swing.ImageIcon("E:\\Projecto-Final-Cine\\Proyecto_final\\UI\\Tarjetas\\Advertencia.png")); // NOI18N
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Recibo");
+
+        Sala.setText("Sala:");
+
+        Pelicula.setText("Pelicula: ");
+
+        Funcion.setText("Funcion: ");
+
+        Asientos.setText("Asientos:");
+
+        Cine.setText("Cine: ");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Asientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Sala, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Funcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Pelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Cine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(Cine)
+                .addGap(18, 18, 18)
+                .addComponent(Pelicula)
+                .addGap(18, 18, 18)
+                .addComponent(Funcion)
+                .addGap(18, 18, 18)
+                .addComponent(Sala)
+                .addGap(18, 18, 18)
+                .addComponent(Asientos)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(300, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
                         .addComponent(VolverBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 418, Short.MAX_VALUE)
-                        .addComponent(SiguienteBtn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SiguienteBtn)
+                        .addGap(20, 20, 20))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TarjetaLabel)
                         .addGap(28, 28, 28)
                         .addComponent(TarjetaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
-                        .addComponent(TarjetaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(TarjetaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 62, Short.MAX_VALUE)))
                 .addContainerGap(302, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(211, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TarjetaIcono, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                    .addComponent(TarjetaIngresada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TarjetaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                    .addComponent(TarjetaIcono, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                    .addComponent(TarjetaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TarjetaIngresada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SiguienteBtn)
                     .addComponent(VolverBtn))
@@ -102,14 +192,23 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
         switch (fachada.verificarTarjeta(TarjetaIngresada.getText())) {
             case 1: // Visa
-                
-                
-            case 2: // Mastercard
-                
-            case 3: // American Express            
             PagoRealizado ventana = new PagoRealizado();
             ventana.setVisible(true);
             setVisible(false);
+            break;
+            case 2: // Mastercard
+                PagoRealizado ventana1 = new PagoRealizado();
+                ventana1.setVisible(true);
+                setVisible(false);
+                break;
+            case 3: // American Express            
+                PagoRealizado ventana2 = new PagoRealizado();
+                ventana2.setVisible(true);
+                setVisible(false);  
+                break;
+            default:
+                JOptionPane.showMessageDialog(rootPane, "La tarjeta es incorrecta, no puedes poner espacios");
+                break;
         }
     }//GEN-LAST:event_SiguienteBtnActionPerformed
 
@@ -125,22 +224,31 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
     }//GEN-LAST:event_TarjetaIngresadaActionPerformed
 
     private void TarjetaIngresadaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TarjetaIngresadaKeyTyped
-        ImageIcon imagen;
-        System.out.println("holas");
+        ImageIcon imagen = new ImageIcon("UI/Tarjetas/Advertencia.png");
+        System.out.println(TarjetaIngresada.getText());
         try {
             switch (fachada.verificarTarjeta(TarjetaIngresada.getText())) {
                 case 1:
-                    imagen = new ImageIcon("/UI/Tarjetas/VISA.png");
+                    imagen = new ImageIcon("UI/Tarjetas/VISA.png");
+                    System.out.println("VISA");
+                    break;
                 case 2:
-                    imagen = new ImageIcon("/UI/Tarjetas/MasterCard.png");
+                    imagen = new ImageIcon("UI/Tarjetas/MasterCard.png");
+                    System.out.println("MasterCard");
+                    break;
                 case 3:
-                    imagen = new ImageIcon("/UI/Tarjetas/AmericanExpress.png");
+                    imagen = new ImageIcon("UI/Tarjetas/AmericanExpress.png");
+                    System.out.println("American Express");
+                    break;
                 default:
-                    imagen = new ImageIcon("/UI/Tarjetas/Advertencia.png");
+                    imagen = new ImageIcon("UI/Tarjetas/Advertencia.png");
+                    System.out.println("Da advertencia");
+                    break;
             }
-        } catch (Exception e){
-            ;
+        } catch (Exception e) {
+            System.out.println("Da error");
         }
+        TarjetaIcono.setIcon(imagen);
     }//GEN-LAST:event_TarjetaIngresadaKeyTyped
 
     /**
@@ -169,10 +277,17 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Asientos;
+    private javax.swing.JLabel Cine;
+    private javax.swing.JLabel Funcion;
+    private javax.swing.JLabel Pelicula;
+    private javax.swing.JLabel Sala;
     private javax.swing.JButton SiguienteBtn;
     private javax.swing.JLabel TarjetaIcono;
     private javax.swing.JTextField TarjetaIngresada;
     private javax.swing.JLabel TarjetaLabel;
     private javax.swing.JButton VolverBtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

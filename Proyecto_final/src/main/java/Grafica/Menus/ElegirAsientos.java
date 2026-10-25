@@ -10,6 +10,8 @@ import Logica.Asiento;
 import Logica.Cine;
 import Logica.Fachada;
 import Logica.Sala;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,7 +21,8 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
     
     private Fachada fachada = Fachada.getInstancia();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ElegirAsientos.class.getName());
-
+    private ArrayList<AsientoUI> todosLosAsientos = new ArrayList();
+    
     /**
      * Creates new form ElegirAsientos
      */
@@ -40,6 +43,7 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
                     System.out.println(asientos[x][y].isEstado());
                     AsientoUI asientoUi = new AsientoUI(asientos[x][y]);
                     Asientos.add(asientoUi);
+                    todosLosAsientos.add(asientoUi);
                 }
             }
         }
@@ -107,12 +111,26 @@ public class ElegirAsientos extends Grafica.PanelUI.DefaultConf {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarBtnActionPerformed
-        MetodoDePago ventana = new MetodoDePago();
-        ventana.setVisible(true);
-        setVisible(false);
+        ArrayList<Asiento> asientosSeleccionados = new ArrayList();
+        System.out.println("Cantidad de asientos: " + todosLosAsientos.size());
+        for (int i = 0; i < todosLosAsientos.size(); i++) {
+            if (todosLosAsientos.get(i).isSeleccionado()) {
+                asientosSeleccionados.add(todosLosAsientos.get(i).getAsiento());
+                System.out.println("Se ha agregado el asiento: " + todosLosAsientos.get(i).getAsiento().getId());
+            }
+        }
+        if (asientosSeleccionados.size() > 0) {
+            fachada.getCines().setAsientosSeleccionados(asientosSeleccionados);
+            MetodoDePago ventana = new MetodoDePago();
+            ventana.setVisible(true);
+            setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Debe de reservar al menos un asiento");
+        }
     }//GEN-LAST:event_ConfirmarBtnActionPerformed
 
     private void VolverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBtnActionPerformed
+        fachada.getCines().getAsientosSeleccionados().clear();
         ElegirFuncion ventana = new ElegirFuncion();
         ventana.setVisible(true);
         setVisible(false);

@@ -18,15 +18,18 @@ import java.util.ArrayList;
 public class PeliculaUI extends javax.swing.JPanel {
     private ElegirPelicula siguienteVentana;
     
+    
+    
     /**
      * Creates new form Pelicula
      */
     
     private Pelicula peliculaElegida;
     
+    private int peliculaId = 0;
     Fachada fachada = Fachada.getInstancia();
     
-    public PeliculaUI(ElegirPelicula siguienteVentana,Pelicula pelicula) {
+    public PeliculaUI(ElegirPelicula siguienteVentana,Pelicula pelicula,int peliculaId) {
         initComponents();
         
         peliculaElegida = pelicula;
@@ -142,7 +145,7 @@ public class PeliculaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PeliculaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeliculaBtnActionPerformed
-        fachada.getCines().setPeliculaSeleccionada(peliculaElegida.getId());
+        fachada.getCines().setPeliculaSeleccionada(peliculaId);
         
         ElegirFuncion ventana = new ElegirFuncion();
         ventana.setVisible(true);

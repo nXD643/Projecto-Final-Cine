@@ -66,8 +66,8 @@ public class ListaCines {
     public ArrayList<Asiento> getAsientosSeleccionados() {
         return asientosSeleccionados;
     }
-    
-    public void anadirAsientoSeleccionado(Asiento asiento) {
-        this.asientosSeleccionados.add(asiento);
+
+    public void setAsientosSeleccionados(ArrayList<Asiento> asientosSeleccionados) {
+        this.asientosSeleccionados = asientosSeleccionados;
     }
 }

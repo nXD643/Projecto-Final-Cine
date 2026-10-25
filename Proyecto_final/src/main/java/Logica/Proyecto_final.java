@@ -12,8 +12,7 @@ public class Proyecto_final {
         
         FlatDarkLaf.setup();
         Presentacion ventana = new Presentacion();
-        ventana.setVisible(true);   
-
+        ventana.setVisible(true);
         //fachada.anadir_cines();
         
         //fachada.inicio_sesion(58376015, "2931sofia");

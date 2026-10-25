@@ -10,7 +10,6 @@ public class Asiento {
         this.fila = fila;
         this.numero = numero;
         this.estado = estado;
-        System.out.println("El estado es: " + estado);
     }
 
     public int getId() {

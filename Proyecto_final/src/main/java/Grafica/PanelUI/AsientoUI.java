@@ -12,12 +12,17 @@ import javax.swing.JToggleButton;
  *
  * @author nacho
  */
-public class AsientoUI extends JToggleButton{
+public class AsientoUI extends JToggleButton {
 
+    boolean seleccionado = false;
+    Asiento asiento;
+    
     public AsientoUI(Asiento asiento) {
-        System.out.println(asiento.isEstado());
+        this.asiento = asiento;
+        this.addActionListener(e -> AsientoUIActionPerformed(e));
+        
         if (asiento.isEstado()) {
-            ImageIcon icono = new ImageIcon("UI/AsientoVerde.png");
+            ImageIcon icono = new ImageIcon("UI/AsientoGris.png");
             System.out.println(icono.toString());
             this.setIcon(icono);
         } else {
@@ -26,5 +31,30 @@ public class AsientoUI extends JToggleButton{
             this.setIcon(icono);
         }
         setBounds(asiento.getNumero() * 150, asiento.getFila() * 150, 128, 128);
+    }
+
+    private void AsientoUIActionPerformed(java.awt.event.ActionEvent evt) {
+        if (asiento.isEstado()){
+            if (seleccionado) {
+                seleccionado = false;
+                ImageIcon icono = new ImageIcon("UI/AsientoGris.png");
+                this.setIcon(icono);
+            } else{
+                seleccionado = true;
+                ImageIcon icono = new ImageIcon("UI/AsientoVerde.png");
+                this.setIcon(icono);
+            }
+        }
+    }
+
+    public boolean isSeleccionado() {
+        return seleccionado;
+    }
+
+    public void setSeleccionado(boolean seleccionado) {
+        this.seleccionado = seleccionado;
+    }
+    public Asiento getAsiento() {
+        return asiento;
     }
 }
