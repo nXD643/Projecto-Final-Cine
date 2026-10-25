@@ -2,7 +2,7 @@ use complejo_cines;
 
 create table cine(
 	id int auto_increment,
-    calle varchar(30) not null,
+    calle varchar(100) not null,
     ciudad varchar(30) not null,
     nombre varchar(30) not null,
     primary key (id)

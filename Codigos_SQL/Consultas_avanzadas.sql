@@ -24,4 +24,15 @@ on com.id = e.compra_ID
 group by (cli.documento)
 order by (count(e.id)) desc;
 
-select * from cliente;
+
+-- ¿Que cine tiene más asientos disponibles?
+select c.nombre as Nombre, count(a.id) as Asientos_disponibles
+from cine c join sala s
+on c.id = s.cine_ID
+join funcion f
+on s.id = f.sala_ID
+join asiento a
+on f.id = a.funcion_ID
+where a.estado = true
+group by c.id
+order by count(a.id) desc;
