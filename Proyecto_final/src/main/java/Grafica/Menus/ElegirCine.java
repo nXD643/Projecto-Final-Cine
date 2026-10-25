@@ -21,6 +21,8 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
      * Creates new form ElegirCine
      */
     public ElegirCine() {
+        fachada.setEstaIniciado(true);
+        
         initConf();
         initComponents();
         add_background();
@@ -28,8 +30,9 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
         
         System.out.println("cine es igual a " + fachada.getCines().getCineSeleccionado());
         if (fachada.getCines().getCineSeleccionado() == -1) {
-            fachada.anadir_cines();
+                fachada.anadir_cines();
             }
+        
         
         for (int i = 0; i < fachada.getCines().getSize(); i ++) { 
             ElegirCine.addItem(fachada.getCines().cines.get(i).getNombre());
@@ -48,7 +51,7 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
     private void initComponents() {
 
         InicioLabel = new Grafica.PanelUI.DefaultLabel(2);
-        ElegirCine = new javax.swing.JComboBox<>();
+        ElegirCine = new Grafica.PanelUI.DefaultComboBox();
         SiguienteBtn = new Grafica.PanelUI.DefaultBtn(3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,7 +74,7 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 148, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ElegirCine, 0, 86, Short.MAX_VALUE)
+                    .addComponent(ElegirCine, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(SiguienteBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(148, Short.MAX_VALUE))
         );
@@ -105,7 +108,10 @@ public class ElegirCine extends Grafica.PanelUI.DefaultConf {
             }
         }
         
-        fachada.anadir_salas();
+        if (!fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado()).isYaCargado()) {
+            fachada.anadir_salas();
+            fachada.getCines().buscarCine(fachada.getCines().getCineSeleccionado()).setYaCargado(true);
+        }
         
         ElegirPelicula ventana = new ElegirPelicula();
         ventana.setVisible(true);

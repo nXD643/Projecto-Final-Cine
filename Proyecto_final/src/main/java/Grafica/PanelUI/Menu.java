@@ -4,17 +4,41 @@
  */
 package Grafica.PanelUI;
 
+import Logica.Fachada;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author nacho
  */
 public class Menu extends javax.swing.JPanel {
 
+    private Fachada fachada = Fachada.getInstancia();
     /**
      * Creates new form Configuracion
      */
     public Menu() {
         initComponents();
+}
+    public void setMenu() {
+        setOpaque(false);
+        JLabel icono = new JLabel();
+        ImageIcon imagenFondo = new ImageIcon("UI/PanelMenu.png");
+        icono.setIcon(imagenFondo);
+        icono.setBounds(0,0,1620,780);
+        add(icono);
+        
+        updateTelefono();
+    }
+    
+    public void updateTelefono() {
+        Telefonos.setText("");
+        String telefonosTotal = "";
+        for (int i = 0; i < fachada.getCliente().getTelefonos().size();i++) {
+            telefonosTotal += "<br>" + fachada.getCliente().getTelefonos().get(i);
+        }
+        Telefonos.setText("<html><body>" + Telefonos.getText() + "<br>" + telefonosTotal + "</body></html>");
     }
 
     /**
@@ -26,21 +50,112 @@ public class Menu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(204, 255, 0));
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel2 = new Grafica.PanelUI.DefaultLabel(2);
+        jButton2 = new Grafica.PanelUI.DefaultBtn(1);
+        jButton3 = new Grafica.PanelUI.DefaultBtn(1);
+        TelefonoTextField = new Grafica.PanelUI.DefaultTextField();
+        jLabel3 = new Grafica.PanelUI.DefaultLabel(2);
+        jScrollPane2 = new Grafica.PanelUI.DefaultScrollPanel();
+        Telefonos = new Grafica.PanelUI.DefaultLabel(2);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Telefonos");
+
+        jButton2.setText("Cancelar Compras");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+
+        jButton3.setText("Añadir Telefono");
+        jButton3.addActionListener(this::jButton3ActionPerformed);
+
+        TelefonoTextField.addActionListener(this::TelefonoTextFieldActionPerformed);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Compras");
+
+        Telefonos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Telefonos.setToolTipText("");
+        Telefonos.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jScrollPane2.setViewportView(Telefonos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(TelefonoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TelefonoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (!TelefonoTextField.getText().isEmpty()) {
+            fachada.getCliente().guardarTelefono(fachada.getCliente().getDocumento(), TelefonoTextField.getText());
+            updateTelefono();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void TelefonoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TelefonoTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TelefonoTextField;
+    private javax.swing.JLabel Telefonos;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

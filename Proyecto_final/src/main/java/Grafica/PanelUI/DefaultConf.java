@@ -4,6 +4,7 @@
  */
 package Grafica.PanelUI;
 
+import Logica.Fachada;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -17,7 +18,11 @@ public class DefaultConf extends JFrame {
 
     private MenuUI menuBtn = new MenuUI();
     private JLabel fondoLabel = new JLabel();
+    private JLabel fondoDifuminado = new JLabel();
     private JLabel barraDeProgreso = new JLabel();
+    private boolean estadoMenu = false;
+    private Menu menuVentana = new Menu();
+    private Fachada fachada = Fachada.getInstancia();
 
     public DefaultConf() {
     }
@@ -34,15 +39,25 @@ public class DefaultConf extends JFrame {
     
     public void initConf() {
         // configuracion del propio jframe
+        
         Color colorBackground = new Color(0,1,7);
         getContentPane().setBackground(colorBackground);
         
         int progress = 0; // temporal, despues esto va a estar en el constructor y va a marcar el progreso
+        
+        if (fachada.isEstaIniciado()) {
+            menuVentana.setMenu();
+            // agregar el menu
+            add(menuVentana);
+            menuVentana.setBounds(150, 150, 1620, 780);
+            menuVentana.setVisible(false);
+            // boton del menu
+            menuBtn.setBounds(1760, 10, 128, 128);
+            menuBtn.setVisible(true);
+            menuBtn.addActionListener(e -> menuBtnActionPerformed(e));
 
-        // agregar el menu
-        add(menuBtn);
-        menuBtn.setBounds(1760, 10, 128, 128);
-        menuBtn.setVisible(true);
+            add(menuBtn);
+        }
 
         // la barra de progreso
         ImageIcon BarraDeProgreso;
@@ -57,6 +72,18 @@ public class DefaultConf extends JFrame {
             add(barraDeProgreso);
             barraDeProgreso.setIcon(BarraDeProgreso);
             barraDeProgreso.setBounds(624, 900, 672, 87);
+        }
+    }
+    
+    private void menuBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        if (!estadoMenu) {
+            menuVentana.setVisible(true);
+            estadoMenu = true;
+            fondoDifuminado.setVisible(true);
+    } else {
+            menuVentana.setVisible(false);
+            estadoMenu = false;
+            fondoDifuminado.setVisible(false);
         }
     }
 }

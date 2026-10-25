@@ -46,6 +46,5 @@ public class DefaultBtn extends JButton {
         
         this.putClientProperty("JButton.buttonType", "roundRect"); 
         this.putClientProperty("JComponent.outline", colorBtnFont);
-        this.putClientProperty("FlatClientProperties.STYLE", "borderWidth: 100; arc: 20");
     }
 }

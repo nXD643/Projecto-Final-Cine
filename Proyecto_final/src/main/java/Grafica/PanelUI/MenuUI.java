@@ -12,10 +12,6 @@ public class MenuUI extends JButton {
         this.setPreferredSize(dimensionBtn);
         ImageIcon imagenFondo = new ImageIcon("UI/Menu.png");
         setIcon(imagenFondo);
-        setBorderPainted(false);
-        setContentAreaFilled(false);
-        setFocusPainted(false);
-        setOpaque(false);
     }
     
    private void MenuUIBtnActionPerformed(java.awt.event.ActionEvent evt) {                                             

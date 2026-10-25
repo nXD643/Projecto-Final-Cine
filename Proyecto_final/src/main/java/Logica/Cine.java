@@ -9,6 +9,7 @@ public class Cine {
     private String nombre;
     private ArrayList <Sala> salas;
     private ArrayList <Pelicula> peliculas;
+    private boolean yaCargado = false;
 
     public Cine(String calle, String ciudad, int id, String nombre) {
         this.calle = calle;
@@ -64,5 +65,13 @@ public class Cine {
     public Pelicula obtenerPeliculas(int id)
     {
         return peliculas.get(id);
+    }
+
+    public boolean isYaCargado() {
+        return yaCargado;
+    }
+
+    public void setYaCargado(boolean yaCargado) {
+        this.yaCargado = yaCargado;
     }
 }

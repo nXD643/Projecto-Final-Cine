@@ -9,6 +9,7 @@ public class Fachada {
     private Cliente cliente;
     private ListaCines cines;
     private ConexionServer cs;
+    private boolean estaIniciado = false;
 
     private Fachada() {
         this.cines = new ListaCines();
@@ -449,4 +450,13 @@ public class Fachada {
         }
         return numero;
     }
+
+    public boolean isEstaIniciado() {
+        return estaIniciado;
+    }
+
+    public void setEstaIniciado(boolean estaIniciado) {
+        this.estaIniciado = estaIniciado;
+    }
+    
 }
