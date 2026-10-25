@@ -8,6 +8,7 @@ public class ListaCines {
     private int peliculaSeleccionada;
     private int salaSeleccionada;
     private int funcionSeleccionada;
+    private ArrayList <Asiento> asientosSeleccionados = new ArrayList <> ();
     
     public ListaCines() {
         this.cines = new ArrayList <>();
@@ -60,5 +61,13 @@ public class ListaCines {
 
     public void setFuncionSeleccionada(int funcionSeleccionada) {
         this.funcionSeleccionada = funcionSeleccionada;
+    }
+
+    public ArrayList<Asiento> getAsientosSeleccionados() {
+        return asientosSeleccionados;
+    }
+    
+    public void anadirAsientoSeleccionado(Asiento asiento) {
+        this.asientosSeleccionados.add(asiento);
     }
 }
