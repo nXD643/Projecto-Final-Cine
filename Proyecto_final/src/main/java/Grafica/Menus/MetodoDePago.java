@@ -205,6 +205,10 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
             int funcionActualId = fachada.getCines().getFuncionSeleccionada();
             int asientosNum = fachada.getCines().getAsientosSeleccionados().size();
             int importeTotal = fachada.getCines().buscarCine(cineActualId).buscarSala(salaActualId).buscarFuncion(funcionActualId).getPrecio_base() * asientosNum;
+            int precioBase = fachada.getCines().buscarCine(cineActualId).buscarSala(salaActualId).buscarFuncion(funcionActualId).getPrecio_base();
+            int idDbSala = fachada.getCines().buscarCine(cineActualId).buscarSala(salaActualId).getId();
+            int idDbFuncion =fachada.getCines().buscarCine(cineActualId).buscarSala(salaActualId).buscarFuncion(funcionActualId).getId();
+            int idDbCine =fachada.getCines().buscarCine(cineActualId).getId();
 
             String idAsientos = "";
             for (int i = 0; i < fachada.getCines().getAsientosSeleccionados().size(); i++) {
@@ -219,8 +223,18 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
             }
 
             System.out.println(idAsientos);
+            
+            int idCompra;
+            
             if (fachada.ocupar_asiento(idAsientos)) {
-                fachada.getCliente().guardarCompras(fachada.getCliente().getDocumento(), fechaActual, horaActual, "Tarjeta", importeTotal);
+                
+                idCompra = fachada.getCliente().guardarCompras(fachada.getCliente().getDocumento(), fechaActual, horaActual, "Tarjeta", importeTotal);
+                
+                for (int i = 0; i < fachada.getCines().getAsientosSeleccionados().size(); i ++)
+                {
+                    System.out.println("alalallala: " + fachada.getCines().getAsientosSeleccionados().get(i).getId());
+                    fachada.getCliente().getCompras().getLast().guardarEntrada(precioBase, idDbSala, idDbFuncion, idDbCine, (fachada.getCines().getAsientosSeleccionados().get(i).getId() + 1), idCompra);
+                }
                 
                 PagoRealizado ventana = new PagoRealizado();
                 ventana.setVisible(true);

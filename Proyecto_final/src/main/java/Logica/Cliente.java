@@ -156,7 +156,7 @@ public class Cliente {
         return true;
     }
     
-    public boolean guardarCompras(int documento, LocalDate fecha, String hora, String metodo_pago, int importe_total)
+    public int guardarCompras(int documento, LocalDate fecha, String hora, String metodo_pago, int importe_total)
     {
         String datos = "14;" + documento + "/" + importe_total + "/" + fecha + "/" + hora + "/" + metodo_pago;
         String[] resultado = null;
@@ -165,7 +165,7 @@ public class Cliente {
         
         if (resultado[0].equals(""))
         {
-            return false;
+            return 0;
         }
         
         Compra compra = new Compra(fecha, hora, metodo_pago, true, importe_total);
@@ -174,7 +174,7 @@ public class Cliente {
         
         this.compras.getLast().setId_db(Integer.parseInt(resultado[0]));
         
-        return true;
+        return Integer.parseInt(resultado[0]);
     }
     
     public boolean cancelarCompra(int id_compra, String motivo)

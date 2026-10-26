@@ -90,16 +90,11 @@ public class Compra {
         String[] resultado = null;
         String asiento = "" + id_asiento;
         
-        if (!Fachada.getInstancia().ocupar_asiento(asiento))
-        {
-            return 2;
-        }
-        
         String datos = "16;" + precio + ":" + id_sala + ":" + id_funcion + ":" + id_cine + ":" + id_asiento + ":" + id_compra;
         
         resultado = Fachada.getInstancia().getCs().conexion(datos);
                 
-        if (!Boolean.parseBoolean(resultado[0]))
+        if (!Boolean.valueOf(resultado[0]))
         {
             return 0;
         }
