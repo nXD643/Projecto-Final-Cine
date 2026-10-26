@@ -9,6 +9,7 @@ import Logica.Fachada;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -57,7 +58,7 @@ public class Menu extends javax.swing.JPanel {
             Compra compraActual = fachada.getCliente().buscarCompras(i);
             System.out.println("El estado de la compra es " + compraActual.isActivo());
             ComprasUI compraUi = new ComprasUI(compraActual,this);
-            if (compraActual.isActivo()) {
+            if (compraActual.isActivo() & fachada.verificarCancelacion(compraActual.getFecha_funcion())) {
                 ComprasActivas.add(compraUi,this);
             } else {
                 ComprasCanceladas.add(compraUi,this);
@@ -178,9 +179,19 @@ public class Menu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (!TelefonoTextField.getText().isEmpty()) {
-            fachada.getCliente().guardarTelefono(fachada.getCliente().getDocumento(), TelefonoTextField.getText());
-            updateTelefono();
+        
+        if (!TelefonoTextField.getText().isEmpty()) 
+        {
+            Boolean guardo = fachada.getCliente().guardarTelefono(fachada.getCliente().getDocumento(), TelefonoTextField.getText());
+            
+            if (guardo)
+            {
+                updateTelefono();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "El telefono ingresado ya ha sido registrado anteriormente");
+            }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -194,7 +205,25 @@ public class Menu extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // sdfjnsdfjsdnsdfkljnsdfjklnsdfjkln
-        updateTelefono();
+        
+        Boolean cambio = false;
+        
+        for (int i = 0; i < fachada.getCliente().getTelefonos().size(); i ++)
+        {
+            if (fachada.getCliente().getTelefonos().get(i).equals(EliminarTelefonoField.getText()))
+            {
+                cambio = fachada.getCliente().eliminarTelefono(EliminarTelefonoField.getText());
+                
+                if(cambio)
+                {
+                    updateTelefono();
+                }
+            }
+        }
+        if(!cambio)
+        {
+            JOptionPane.showMessageDialog(this, "El telefono ingresado no existe");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

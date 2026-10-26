@@ -13,7 +13,6 @@ public class Proyecto_final {
         FlatDarkLaf.setup();
         Presentacion ventana = new Presentacion();
         ventana.setVisible(true);
-        //fachada.anadir_cines();
         
         //fachada.inicio_sesion(58376015, "2931sofia");
         
@@ -30,5 +29,7 @@ public class Proyecto_final {
         //System.out.println(fachada.getCliente().buscarCompras(0).guardarEntrada(1000, 1, 1, 1, 6, 5));
         
         //System.out.println(fachada.ocupar_asiento("6"));
+        
+        //LocalDateTime funcion = LocalDateTime.parse("2027-04-12T17:00");
     }
 }

@@ -105,6 +105,12 @@ public class Proyecto_final_server {
             case 16:
                 datos_recibidos = ConexionDB.anadirEntrada(valores[1]);
                 break;
+            case 17:
+                datos_recibidos = ConexionDB.cancelarAsiento(valores[1]);
+                break;
+            case 18:
+                datos_recibidos = ConexionDB.obtenerFechaFuncion(valores[1]);
+                break;
         }
         return datos_recibidos;
     }

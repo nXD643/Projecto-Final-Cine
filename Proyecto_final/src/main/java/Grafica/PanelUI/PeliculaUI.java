@@ -46,7 +46,7 @@ public class PeliculaUI extends javax.swing.JPanel {
         String totalGeneros = "";
         for (int i = 0; i < peliculaGenero.size(); i++) {
             totalGeneros = totalGeneros;
-            if (i == 1) {
+            if (i == 0) {
                 totalGeneros = peliculaGenero.get(i);
             } else {
                 totalGeneros = totalGeneros + ", " + peliculaGenero.get(i);

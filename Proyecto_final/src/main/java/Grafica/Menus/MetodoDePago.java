@@ -54,9 +54,9 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
         
         
         for (int i = 0; i < fachada.getCines().getAsientosSeleccionados().size(); i++) {
-            numAsiento = fachada.getCines().getAsientosSeleccionados().get(i).getNumero()+1;
-            numFila = fachada.getCines().getAsientosSeleccionados().get(i).getFila()+1;
-            asientosElegidos = asientosElegidos + "Numero " + numAsiento + " Fila " + numFila + " ";
+            numAsiento = fachada.getCines().getAsientosSeleccionados().get(i).getNumero();
+            numFila = fachada.getCines().getAsientosSeleccionados().get(i).getFila();
+            asientosElegidos = asientosElegidos + "Fila: " + numFila + " Numero: " + numAsiento + ". ";
         }
        Asientos.setText("Asientos: " + asientosElegidos);
     }
@@ -214,11 +214,11 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
             for (int i = 0; i < fachada.getCines().getAsientosSeleccionados().size(); i++) {
                 if(i == 0)
                 {
-                    idAsientos += (fachada.getCines().getAsientosSeleccionados().get(i).getId() + 1);
+                    idAsientos += (fachada.getCines().getAsientosSeleccionados().get(i).getId());
                 }
                 else
                 {
-                    idAsientos += ":" + (fachada.getCines().getAsientosSeleccionados().get(i).getId() + 1);
+                    idAsientos += ":" + (fachada.getCines().getAsientosSeleccionados().get(i).getId());
                 }
             }
 
@@ -233,8 +233,10 @@ public class MetodoDePago extends Grafica.PanelUI.DefaultConf {
                 for (int i = 0; i < fachada.getCines().getAsientosSeleccionados().size(); i ++)
                 {
                     System.out.println("alalallala: " + fachada.getCines().getAsientosSeleccionados().get(i).getId());
-                    fachada.getCliente().getCompras().getLast().guardarEntrada(precioBase, idDbSala, idDbFuncion, idDbCine, (fachada.getCines().getAsientosSeleccionados().get(i).getId() + 1), idCompra);
+                    fachada.getCliente().getCompras().getLast().guardarEntrada(precioBase, idDbSala, idDbFuncion, idDbCine, (fachada.getCines().getAsientosSeleccionados().get(i).getId()), idCompra);
                 }
+                
+                fachada.getCliente().getCompras().getLast().asignarFechaFuncion();
                 
                 PagoRealizado ventana = new PagoRealizado();
                 ventana.setVisible(true);

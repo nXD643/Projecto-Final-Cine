@@ -102,21 +102,13 @@ public class Fachada {
         return cs;
     }
     
-    public boolean verificarCancelacion(int idCompra, int idEntrada)
+    public boolean verificarCancelacion(String fecha_hora)
     {        
-        int idCine = this.cliente.buscarCompras(idCompra).buscarEntradas(idEntrada).getId_cine();
-        int idSala = this.cliente.buscarCompras(idCompra).buscarEntradas(idEntrada).getId_sala();
-        int idFuncion = this.cliente.buscarCompras(idCompra).buscarEntradas(idEntrada).getId_funcion();
-        
-        LocalDate fecha = this.cines.buscarCine(idCine).buscarSala(idSala).buscarFuncion(idFuncion).getFecha();
-        String hora = this.cines.buscarCine(idCine).buscarSala(idSala).buscarFuncion(idFuncion).getHora();
-        
-        String fecha_hora = fecha.toString() + hora;
         LocalDateTime funcion = LocalDateTime.parse(fecha_hora);
         
         LocalDateTime ahora = LocalDateTime.now();
         
-        return ahora.isAfter(funcion);
+        return ahora.isBefore(funcion);
     }
     
     public boolean verificarCedula(int cedula)
@@ -460,4 +452,14 @@ public class Fachada {
         this.estaIniciado = estaIniciado;
     }
     
+    public boolean cancelarAsiento(int idAsiento)
+    {
+        String datos = "17;" + idAsiento;
+        
+        String[] datos_obtenidos = null; 
+        
+        datos_obtenidos = cs.conexion(datos);
+        
+        return Boolean.valueOf(datos_obtenidos[0]);
+    }
 }

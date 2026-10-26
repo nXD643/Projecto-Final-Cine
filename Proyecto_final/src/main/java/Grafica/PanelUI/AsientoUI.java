@@ -30,7 +30,7 @@ public class AsientoUI extends JToggleButton {
             System.out.println(icono.toString());
             this.setIcon(icono);
         }
-        setBounds(asiento.getNumero() * 150, asiento.getFila() * 150, 128, 128);
+        setBounds((asiento.getNumero() - 1) * 150, (asiento.getFila() - 1) * 150, 128, 128);
     }
     private void AsientoUIActionPerformed(java.awt.event.ActionEvent evt) {
         if (asiento.isEstado()){

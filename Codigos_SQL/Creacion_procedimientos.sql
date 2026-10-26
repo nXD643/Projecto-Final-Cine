@@ -80,6 +80,11 @@ begin
 	update compra set estado = false, motivo = explicacion where id = id_compra;
 end //
 
+create procedure cancelar_asiento (in id_asiento int)
+begin
+    update asiento set estado = true where id = id_asiento;
+end //
+
 create procedure nueva_compra (in ci int, total int, fecha_compra date, hora_compra varchar(10), metodo varchar(20))
 begin
 	insert into compra (cliente_CI, importe_total, fecha, hora, metodo_pago, estado) value (ci, total, fecha_compra, hora_compra, metodo, true);
@@ -89,4 +94,9 @@ end //
 create procedure nueva_entrada (in precio int, id_sala int, id_funcion int, id_cine int, id_asiento int, id_compra int)
 begin
 	insert into entrada (precio_pagado, asiento_ID, sala_ID, cine_ID, funcion_ID, compra_ID) value (precio, id_asiento, id_sala, id_cine, id_funcion, id_compra);
+end //
+
+create procedure fecha_funciones (in idCompra int)
+begin
+	select f.fecha, f.hora from entrada e join funcion f on e.funcion_ID = f.id where e.compra_ID = idCompra limit 1;
 end //

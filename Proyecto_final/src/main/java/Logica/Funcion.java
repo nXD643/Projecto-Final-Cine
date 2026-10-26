@@ -60,8 +60,8 @@ public class Funcion {
     
     public void cargarAsiento(int id, int fila, int numero, boolean estado)
     {
-        Asiento asiento = new Asiento(id - 1, fila - 1, numero, estado);
+        Asiento asiento = new Asiento(id, fila, numero, estado);
         
-        this.asientos[fila][numero] = asiento;
+        this.asientos[fila - 1][numero - 1] = asiento;
     }
 }

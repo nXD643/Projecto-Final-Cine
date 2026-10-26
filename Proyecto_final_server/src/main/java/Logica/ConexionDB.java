@@ -23,7 +23,7 @@ public class ConexionDB {
     public static Connection realizarConexion() {
         String url = "jdbc:mysql://localhost:3306/complejo_cines";
         String usuario = "root";
-        String clave = "1234";
+        String clave = "";
         Connection conexion = null;
         try {
             conexion = DriverManager.getConnection(url, usuario, clave);
@@ -403,5 +403,40 @@ public class ConexionDB {
             System.out.println("Error con la sentencia MYSQL");
         }
         return false;
+    }
+    
+    public static String cancelarAsiento(String datos) {
+        try {
+            String[] valores = datos.split(":");
+            String sql = "call cancelar_asiento(?)";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, valores[0]);
+            ResultSet rs = ps.executeQuery();
+
+            return "true";
+        } catch (SQLException ex) {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return "false";
+    }
+    
+    public static String obtenerFechaFuncion(String pelicula_ID) {
+        String datos_obtenidos = "";
+
+        try {
+            String sql = "call fecha_funciones(?)";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, pelicula_ID);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                datos_obtenidos += rs.getString("f.fecha") + "T" + rs.getString("f.hora");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return datos_obtenidos;
     }
 }

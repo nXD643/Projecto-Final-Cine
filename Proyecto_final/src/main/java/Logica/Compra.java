@@ -12,6 +12,8 @@ public class Compra {
     private String motivo;
     private int importe_total;
     private int id_db;
+    private int id;
+    private String fecha_funcion;
 
     public Compra(LocalDate fecha, String hora, String metodo_pago, boolean activo, int importe_total) {
         this.lista = new ArrayList <>();
@@ -107,5 +109,33 @@ public class Compra {
 
     public ArrayList<Entrada> getLista() {
         return lista;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFecha_funcion() {
+        return fecha_funcion;
+    }
+
+    public void setFecha_funcion(String fecha_funcion) {
+        this.fecha_funcion = fecha_funcion;
+    }
+    
+    public void asignarFechaFuncion()
+    {
+        String datos;
+        String[] resultado = null;
+        
+        datos = "18;" + this.getId_db();
+        
+        resultado = Fachada.getInstancia().getCs().conexion(datos);
+        
+        this.setFecha_funcion(resultado[0]);
     }
 }

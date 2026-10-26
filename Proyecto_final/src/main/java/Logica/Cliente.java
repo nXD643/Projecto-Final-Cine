@@ -79,6 +79,7 @@ public class Cliente {
             this.compras.add(compra);
             
             this.compras.getLast().setId_db(Integer.parseInt(valores[6]));
+            compra.setId(this.compras.size() - 1);
             
             datos = "10;" + valores[6];
             resultado = Fachada.getInstancia().getCs().conexion(datos);
@@ -87,6 +88,13 @@ public class Cliente {
             {
                 this.buscarCompras(id_compra).cargarEntrada(resultado[i]);
             }
+            
+            datos = "18;" + this.compras.getLast().getId_db();
+        
+            resultado = Fachada.getInstancia().getCs().conexion(datos);
+
+            this.compras.getLast().setFecha_funcion(resultado[0]);
+            
             return true;
         }
         else
@@ -95,6 +103,7 @@ public class Cliente {
             this.compras.add(compra); 
             
             this.compras.getLast().setId_db(Integer.parseInt(valores[6]));
+            compra.setId(this.compras.size() - 1);
             
             datos = "10;" + valores[6];
             resultado = Fachada.getInstancia().getCs().conexion(datos);
@@ -103,6 +112,13 @@ public class Cliente {
             {
                 this.buscarCompras(id_compra).cargarEntrada(resultado[i]);
             }
+            
+            datos = "18;" + this.compras.getLast().getId_db();
+        
+            resultado = Fachada.getInstancia().getCs().conexion(datos);
+
+            this.compras.getLast().setFecha_funcion(resultado[0]);
+
             return true;
         }
     }
@@ -171,6 +187,8 @@ public class Cliente {
         Compra compra = new Compra(fecha, hora, metodo_pago, true, importe_total);
         
         this.compras.add(compra);
+        
+        compra.setId(this.compras.size() - 1);
         
         this.compras.getLast().setId_db(Integer.parseInt(resultado[0]));
         

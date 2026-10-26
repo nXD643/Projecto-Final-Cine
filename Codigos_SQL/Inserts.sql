@@ -38,11 +38,11 @@ insert into genero (pelicula_ID, genero) values
 
 insert into funcion (sala_ID, cine_ID, pelicula_ID, fecha, hora, precio_base) values
 (1, 1, 1, "2024-04-10", "18:00", 320),
-(2, 1, 5, "2024-04-10", "21:00", 380),
+(2, 1, 5, "2027-04-10", "21:00", 380),
 (3, 1, 1, "2024-04-10", "21:00", 320),
 (4, 2, 2, "2024-04-11", "19:30", 320),
 (5, 2, 3, "2024-04-13", "19:00", 420),
-(6, 3, 4, "2024-04-12", "17:00", 400),
+(6, 3, 4, "2027-04-12", "17:00", 400),
 (7, 3, 2, "2024-04-11", "19:30", 320),
 (8, 4, 3, "2024-04-13", "19:00", 420),
 (9, 4, 5, "2024-04-11", "13:00", 420),
@@ -57,12 +57,12 @@ insert into cliente (documento, nombre, apellido, correo_electronico, contrasena
 
 insert into asiento (sala_ID, cine_ID, funcion_ID, fila, numero, estado) values
 (1, 1, 1, 1, 1, false),
-(1, 1, 1, 1, 2, true),
+(1, 1, 1, 1, 2, false),
 (1, 1, 1, 2, 2, true),
-(2, 1, 2, 1, 1, false),
-(2, 1, 2, 1, 2, true),
+(2, 1, 2, 1, 1, true),
+(2, 1, 2, 1, 2, false),
 (2, 1, 2, 2, 2, false),
-(3, 1, 3, 1, 1, false),
+(3, 1, 3, 1, 1, true),
 (3, 1, 3, 1, 3, true),
 (3, 1, 3, 1, 2, false),
 (4, 2, 4, 1, 1, true),
@@ -95,9 +95,9 @@ insert into compra (cliente_CI, importe_total, fecha, hora, metodo_pago, estado)
 
 insert into entrada (precio_pagado, asiento_ID, sala_ID, cine_ID, funcion_ID, compra_ID) values
 (320, 1, 1, 1, 1, 1),
-(320, 4, 2, 1, 2, 1),
-(320, 6, 2, 1, 2, 2),
-(400, 7, 3, 1, 3, 2),
+(320, 2, 1, 1, 1, 1),
+(320, 5, 2, 1, 2, 2),
+(400, 6, 2, 1, 2, 2),
 (320, 9, 3, 1, 3, 3),
 (320, 11, 4, 2, 4, 4),
 (320, 14, 5, 2, 5, 5),

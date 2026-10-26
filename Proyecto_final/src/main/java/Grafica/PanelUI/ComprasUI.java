@@ -26,7 +26,7 @@ public class ComprasUI extends javax.swing.JPanel {
         
         this.menu = menu;
         
-        CancelarCompra.setEnabled(compra.isActivo());
+        CancelarCompra.setEnabled(compra.isActivo() & Fachada.getInstancia().verificarCancelacion(compra.getFecha_funcion()));
         IdDeLaCompra.setText("Id de la compra: " + compra.getId_db());
         FechaYHoraLabel1.setText("Fecha " + compra.getFecha() + " hora " + compra.getHora());
         ImporteTotal.setText("Importe total: " + compra.getImporte_total());
@@ -113,7 +113,15 @@ public class ComprasUI extends javax.swing.JPanel {
     }//GEN-LAST:event_CancelarCompraActionPerformed
 
     public void cancelarCompra(String motivo) {
-        Fachada.getInstancia().getCliente().cancelarCompra(compras, motivo);
+        
+        if (Fachada.getInstancia().getCliente().cancelarCompra(compras, motivo))
+        {
+            for (int i = 0; i < compras.getLista().size(); i ++)
+            {
+                Fachada.getInstancia().cancelarAsiento(compras.getLista().get(i).getId_asiento());
+            }
+        }
+        
         menu.actualizarCompra();
     }
     

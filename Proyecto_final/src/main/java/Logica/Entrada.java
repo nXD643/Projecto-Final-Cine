@@ -45,4 +45,8 @@ public class Entrada {
     public int getId_cine() {
         return id_cine;
     }    
+
+    public int getId_asiento() {
+        return id_asiento;
+    }
 }
