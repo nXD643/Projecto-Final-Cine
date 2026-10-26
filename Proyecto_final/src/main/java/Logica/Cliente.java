@@ -177,24 +177,11 @@ public class Cliente {
         return Integer.parseInt(resultado[0]);
     }
     
-    public boolean cancelarCompra(int id_compra, String motivo)
+    public boolean cancelarCompra(Compra compra, String motivo)
     {
         int id = -1;
-        
-        for (int i = 0; i < this.compras.size(); i ++)
-        {
-            if (this.compras.get(i).getId_db() == id_compra)
-            {
-                id = i;
-            }
-        }
-        
-        if (id == -1)
-        {
-            return false;
-        }
 
-        String datos = "15;" + id_compra + ":" + motivo;
+        String datos = "15;" + compra.getId_db() + ":" + motivo;
         String[] resultado = null;
 
         resultado = Fachada.getInstancia().getCs().conexion(datos);
@@ -204,9 +191,9 @@ public class Cliente {
             return false;
         }
 
-        this.buscarCompras(id).setActivo(false);
+        compra.setActivo(false);
         
-        return false;
+        return true;
     }
 
     public ArrayList<Compra> getCompras() {

@@ -5,6 +5,7 @@
 package Grafica.PanelUI;
 
 import Logica.Compra;
+import Logica.Fachada;
 
 /**
  *
@@ -15,6 +16,9 @@ public class ComprasUI extends javax.swing.JPanel {
     /**
      * Creates new form ComprasUI
      */
+    
+    Compra compras;
+    
     public ComprasUI(Compra compra) {
         initComponents();
         CancelarCompra.setEnabled(compra.isActivo());
@@ -23,6 +27,7 @@ public class ComprasUI extends javax.swing.JPanel {
         ImporteTotal.setText("Importe total: " + compra.getImporte_total());
         CantidadDeAsientos.setText("Cantidad de asientos: " + compra.getLista().size());
         
+        compras = compra;
     }
 
     /**
@@ -42,6 +47,11 @@ public class ComprasUI extends javax.swing.JPanel {
         CantidadDeAsientos = new javax.swing.JLabel();
 
         CancelarCompra.setText("Cancelar");
+        CancelarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarCompraActionPerformed(evt);
+            }
+        });
 
         IdDeLaCompra.setText("ID de la compra: ");
 
@@ -88,6 +98,12 @@ public class ComprasUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarCompraActionPerformed
+        // TODO add your handling code here:
+        
+        Fachada.getInstancia().getCliente().cancelarCompra(compras, "Porque siiiiiii");
+    }//GEN-LAST:event_CancelarCompraActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
