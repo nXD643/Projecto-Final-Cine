@@ -6,7 +6,6 @@ package Grafica.Menus;
 
 import Grafica.PanelUI.FuncionUI;
 import Grafica.Menus.ElegirPelicula;
-import Logica.Cine;
 import Logica.Funcion;
 import Logica.Fachada;
 import Logica.Sala;

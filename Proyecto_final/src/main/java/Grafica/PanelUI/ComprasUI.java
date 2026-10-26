@@ -7,6 +7,7 @@ package Grafica.PanelUI;
 import Logica.Compra;
 import Logica.Fachada;
 
+
 /**
  *
  * @author nacho
@@ -18,12 +19,16 @@ public class ComprasUI extends javax.swing.JPanel {
      */
     
     Compra compras;
+    Menu menu;
     
-    public ComprasUI(Compra compra) {
+    public ComprasUI(Compra compra,Menu menu) {
         initComponents();
+        
+        this.menu = menu;
+        
         CancelarCompra.setEnabled(compra.isActivo());
         IdDeLaCompra.setText("Id de la compra: " + compra.getId_db());
-        MetodoDePago.setText("Fecha " + compra.getFecha() + " hora " + compra.getHora());
+        FechaYHoraLabel1.setText("Fecha " + compra.getFecha() + " hora " + compra.getHora());
         ImporteTotal.setText("Importe total: " + compra.getImporte_total());
         CantidadDeAsientos.setText("Cantidad de asientos: " + compra.getLista().size());
         
@@ -98,14 +103,20 @@ public class ComprasUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     private void CancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarCompraActionPerformed
         // TODO add your handling code here:
-        
-        Fachada.getInstancia().getCliente().cancelarCompra(compras, "Porque siiiiiii");
+        CancelarCompraPopup compraCancelada = new CancelarCompraPopup(this);
+        compraCancelada.setVisible(true);
+        compraCancelada.setBounds(0, 0, 1252, 765);
     }//GEN-LAST:event_CancelarCompraActionPerformed
 
-
+    public void cancelarCompra(String motivo) {
+        Fachada.getInstancia().getCliente().cancelarCompra(compras, motivo);
+        menu.actualizarCompra();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelarCompra;
     private javax.swing.JLabel CantidadDeAsientos;

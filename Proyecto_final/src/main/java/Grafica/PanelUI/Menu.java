@@ -7,7 +7,9 @@ package Grafica.PanelUI;
 import Logica.Compra;
 import Logica.Fachada;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -23,24 +25,12 @@ public class Menu extends javax.swing.JPanel {
         initComponents();
 }
     public void setMenu() {
-        for (int i = 0; i < fachada.getCliente().getCompras().size(); i++) {
-            Compra compraActual = fachada.getCliente().buscarCompras(i);
-            System.out.println("El estado de la compra es " + compraActual.isActivo());
-            ComprasUI compraUi = new ComprasUI(compraActual);
-            if (compraActual.isActivo()) {
-                ComprasActivas.add(compraUi);
-            } else {
-                ComprasCanceladas.add(compraUi);
-            }
-        }
-        
-        setOpaque(false);
+        actualizarCompra();
         JLabel icono = new JLabel();
         ImageIcon imagenFondo = new ImageIcon("UI/PanelMenu.png");
         icono.setIcon(imagenFondo);
-        icono.setBounds(0,0,1620,780);
+        icono.setBounds(0,0,this.getWidth(),this.getHeight());
         add(icono);
-        
         updateTelefono();
     }
     
@@ -53,6 +43,28 @@ public class Menu extends javax.swing.JPanel {
         Telefonos.setText("<html><body>" + Telefonos.getText() + "<br>" + telefonosTotal + "</body></html>");
     }
 
+    public void actualizarCompra(){ 
+        ComprasActivas.removeAll();
+        ComprasActivas.revalidate();
+        ComprasActivas.repaint();
+        
+        ComprasCanceladas.removeAll();
+        ComprasCanceladas.revalidate();
+        ComprasCanceladas.repaint();
+        
+        for (int i = 0; i < fachada.getCliente().getCompras().size(); i++) {
+            System.out.println(i);
+            Compra compraActual = fachada.getCliente().buscarCompras(i);
+            System.out.println("El estado de la compra es " + compraActual.isActivo());
+            ComprasUI compraUi = new ComprasUI(compraActual,this);
+            if (compraActual.isActivo()) {
+                ComprasActivas.add(compraUi,this);
+            } else {
+                ComprasCanceladas.add(compraUi,this);
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,8 +85,8 @@ public class Menu extends javax.swing.JPanel {
         ComprasCanceladas = new javax.swing.JPanel();
         ComprasActivasPanel = new javax.swing.JScrollPane();
         ComprasActivas = new javax.swing.JPanel();
-
-        setBackground(new java.awt.Color(255, 255, 255));
+        EliminarTelefonoField = new Grafica.PanelUI.DefaultTextField();
+        jButton4 = new Grafica.PanelUI.DefaultBtn(1);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Telefonos");
@@ -99,31 +111,41 @@ public class Menu extends javax.swing.JPanel {
         ComprasActivas.setLayout(new javax.swing.BoxLayout(ComprasActivas, javax.swing.BoxLayout.Y_AXIS));
         ComprasActivasPanel.setViewportView(ComprasActivas);
 
+        EliminarTelefonoField.addActionListener(this::EliminarTelefonoFieldActionPerformed);
+
+        jButton4.setText("EliminarTelefono");
+        jButton4.addActionListener(this::jButton4ActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(TelefonoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)))
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(EliminarTelefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TelefonoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(43, 43, 43)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 63, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 60, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(ComprasCanceladasPanel)
-                            .addComponent(ComprasActivasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ComprasCanceladasPanel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ComprasActivasPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
@@ -131,12 +153,16 @@ public class Menu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TelefonoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(91, 91, 91)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EliminarTelefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(70, Short.MAX_VALUE)
@@ -162,15 +188,26 @@ public class Menu extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_TelefonoTextFieldActionPerformed
 
+    private void EliminarTelefonoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarTelefonoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarTelefonoFieldActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // sdfjnsdfjsdnsdfkljnsdfjklnsdfjkln
+        updateTelefono();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ComprasActivas;
     private javax.swing.JScrollPane ComprasActivasPanel;
     private javax.swing.JPanel ComprasCanceladas;
     private javax.swing.JScrollPane ComprasCanceladasPanel;
+    private javax.swing.JTextField EliminarTelefonoField;
     private javax.swing.JTextField TelefonoTextField;
     private javax.swing.JLabel Telefonos;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

@@ -6,7 +6,6 @@ package Grafica.Menus;
 
 import Grafica.Menus.ElegirCine;
 import Logica.Fachada;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
