@@ -36,3 +36,12 @@ on f.id = a.funcion_ID
 where a.estado = true
 group by c.id
 order by count(a.id) desc;
+
+-- ¿Que cine tiene la compra mas cara por ranking? 
+SELECT c.nombre,MAX(co.importe_total)
+FROM cine c JOIN entrada e
+ON c.id = e.cine_ID
+JOIN compra co
+ON co.id = e.compra_ID
+GROUP BY c.id
+ORDER BY MAX(co.importe_total) DESC;
