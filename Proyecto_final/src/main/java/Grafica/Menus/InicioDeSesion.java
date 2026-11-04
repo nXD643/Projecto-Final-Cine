@@ -44,6 +44,7 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
         LabelInicio1 = new Grafica.PanelUI.DefaultLabel(3);
         RegistrarseBtn1 = new Grafica.PanelUI.DefaultBtn(1);
         ContrasenaIngresada = new Grafica.PanelUI.DefaultPasswordField();
+        CheckEmpleado = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,7 +69,7 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
         LabelInicio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelInicio1.setText("Iniciar Sesion");
 
-        RegistrarseBtn1.setText("Ya tengo cuenta, prefiero iniciar sesion");
+        RegistrarseBtn1.setText("No tengo cuenta, prefiero registrarme");
         RegistrarseBtn1.addActionListener(this::RegistrarseBtn1ActionPerformed);
 
         ContrasenaIngresada.addActionListener(this::ContrasenaIngresadaActionPerformed);
@@ -78,26 +79,32 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
             }
         });
 
+        CheckEmpleado.setText("Soy empleado");
+        CheckEmpleado.addActionListener(this::CheckEmpleadoActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(323, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(UsuarioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                                .addComponent(DocumentoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(30, 30, 30)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(DocumentoIngresado)
-                                .addComponent(ContrasenaIngresada)))
-                        .addComponent(AceptarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-                        .addComponent(LabelInicio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(RegistrarseBtn1))
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(UsuarioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                            .addComponent(DocumentoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DocumentoIngresado)
+                            .addComponent(ContrasenaIngresada)))
+                    .addComponent(AceptarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                    .addComponent(LabelInicio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CheckEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(397, Short.MAX_VALUE)
+                .addComponent(RegistrarseBtn1)
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,9 +122,11 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(ContrasenaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addComponent(CheckEmpleado)
+                .addGap(33, 33, 33)
                 .addComponent(RegistrarseBtn1)
-                .addGap(39, 39, 39)
+                .addGap(42, 42, 42)
                 .addComponent(AceptarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
@@ -142,13 +151,20 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
         try { // El try and catch es por si el docummento es un numero no valido, puede devolver un error, pasa lo mismo si es null
             int documento = Integer.parseInt(DocumentoIngresado.getText());
             String contrasena = String.copyValueOf(ContrasenaIngresada.getPassword());
-            
+
             boolean inicio = fachada.inicio_sesion(documento, contrasena);
             System.out.println(inicio);
             if (inicio == true) {
-                ElegirCine ventana = new ElegirCine();
-                ventana.setVisible(true);
-                setVisible(false);
+                if (CheckEmpleado.isSelected()) {
+                    OperacionesEmpleados ventanaOperacion = new OperacionesEmpleados();
+                    ventanaOperacion.setVisible(true);
+                    setVisible(false);
+                } else {
+                    ElegirCine ventana = new ElegirCine();
+                    ventana.setVisible(true);
+                    setVisible(false);
+                }
+
             } else {
                 System.out.println("error desconocido, o inicio no valido");
                 throw new Exception();
@@ -178,6 +194,10 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
         // TODO add your handling code here:
     }//GEN-LAST:event_ContrasenaIngresadaActionPerformed
 
+    private void CheckEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CheckEmpleadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,6 +225,7 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AceptarBtn;
+    private javax.swing.JCheckBox CheckEmpleado;
     private javax.swing.JPasswordField ContrasenaIngresada;
     private javax.swing.JTextField DocumentoIngresado;
     private javax.swing.JLabel DocumentoLabel;
