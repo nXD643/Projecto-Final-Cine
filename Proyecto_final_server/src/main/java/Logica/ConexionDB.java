@@ -439,4 +439,100 @@ public class ConexionDB {
         }
         return datos_obtenidos;
     }
+    
+    public static String nuevaFuncion(String datos) {
+        String datos_obtenidos = "";
+
+        try {
+            String[] valores = datos.split("/");
+            String sql = "call nueva_funcion(?, ?, ?, ?, ?, ?)";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, valores[0]);
+            ps.setString(2, valores[1]);
+            ps.setString(3, valores[2]);
+            ps.setString(4, valores[3]);
+            ps.setString(5, valores[4]);
+            ps.setString(6, valores[5]);
+            
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                datos_obtenidos += rs.getInt("id") + ";";
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return datos_obtenidos;
+    }
+    
+    public static String nuevaPelicula(String datos) {
+        String datos_obtenidos = "";
+
+        try {
+            String[] valores = datos.split("/");
+            String sql = "call nueva_pelicula(?, ?, ?, ?)";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, valores[0]);
+            ps.setString(2, valores[1]);
+            ps.setString(3, valores[2]);
+            ps.setString(4, valores[3]);
+            
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                datos_obtenidos += rs.getInt("id") + ";";
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return datos_obtenidos;
+    }
+    
+    public static String asignarGenero(String datos) {
+        String datos_obtenidos = "";
+
+        try {
+            String[] valores = datos.split(":");
+            String sql = "call asignar_genero(?, ?)";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, valores[0]);
+            ps.setString(2, valores[1]);
+            
+            ResultSet rs = ps.executeQuery();
+
+            return "true";
+            
+        } catch (SQLException ex) {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return "false";
+    }
+    
+    public static String nuevoAsiento(String datos) {
+        String datos_obtenidos = "";
+
+        try {
+            String[] valores = datos.split("/");
+            String sql = "call nuevo_asiento(?, ?, ?, ?, ?)";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, valores[0]);
+            ps.setString(2, valores[1]);
+            ps.setString(3, valores[2]);
+            ps.setString(4, valores[3]);
+            ps.setString(5, valores[4]);
+            
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                datos_obtenidos += rs.getInt("id") + ";";
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return datos_obtenidos;
+    }
 }

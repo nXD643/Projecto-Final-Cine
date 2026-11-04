@@ -26,6 +26,7 @@ order by (count(e.id)) desc;
 
 
 -- ¿Que cine tiene más asientos disponibles?
+-- Nahuel Lopez
 select c.nombre as Nombre, count(a.id) as Asientos_disponibles
 from cine c join sala s
 on c.id = s.cine_ID
@@ -38,6 +39,7 @@ group by c.id
 order by count(a.id) desc;
 
 -- ¿Que cine tiene la compra mas cara por ranking? 
+-- Juan Ignacio Souza
 SELECT c.nombre,MAX(co.importe_total)
 FROM cine c JOIN entrada e
 ON c.id = e.cine_ID

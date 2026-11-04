@@ -9,13 +9,14 @@ create table cine(
 );
 
 create table empleado(
-	id int auto_increment,
+	documento int,
     cine_ID int not null,
     cargo enum("acomodador", "cajero") not null,
     nombre varchar(30) not null,
     apellido varchar(30) not null,
     fecha_ingreso date not null,
-    primary key (id),
+    contrasena varchar(30) not null,
+    primary key (documento),
     constraint fk_empleado_cine foreign key (cine_ID) references cine (id)
 );
 

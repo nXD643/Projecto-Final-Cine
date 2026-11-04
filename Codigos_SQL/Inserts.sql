@@ -6,10 +6,10 @@ insert into cine (calle, ciudad, nombre) values
 ("José Ellauri 350", "Montevideo", "Punta Carretas"),
 ("Av. Italia 5775", "Montevideo", "Portones");
 
-insert into empleado (cine_ID, cargo, nombre, apellido, fecha_ingreso) values
-(1, "cajero", "Marcos", "Díaz", "2021-05-01"),
-(1, "acomodador", "Natalia", "Cruz", "2022-08-15"),
-(2, "cajero", "Óscar", "Peña", "2020-03-10");
+insert into empleado (documento, cine_ID, cargo, nombre, apellido, fecha_ingreso) values
+(58376015, 1, "cajero", "Marcos", "Díaz", "2021-05-01"),
+(11111111, 3, "acomodador", "Natalia", "Cruz", "2022-08-15"),
+(22222222, 2, "cajero", "Óscar", "Peña", "2020-03-10");
 
 insert into sala (cine_ID, numero, largo_asientos, ancho_asientos, capacidad_maxima) values
 (1, 1, 13, 10, 70),

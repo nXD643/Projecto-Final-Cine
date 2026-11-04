@@ -111,6 +111,15 @@ public class Proyecto_final_server {
             case 18:
                 datos_recibidos = ConexionDB.obtenerFechaFuncion(valores[1]);
                 break;
+            case 19:
+                datos_recibidos = ConexionDB.nuevaFuncion(valores[1]);
+                break;
+            case 20:
+                datos_recibidos = ConexionDB.nuevaPelicula(valores[1]);
+                break;
+            case 21:
+                datos_recibidos = ConexionDB.asignarGenero(valores[1]);
+                break;
         }
         return datos_recibidos;
     }

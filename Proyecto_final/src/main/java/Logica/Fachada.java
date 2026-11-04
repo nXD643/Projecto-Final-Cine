@@ -10,6 +10,7 @@ public class Fachada {
     private ListaCines cines;
     private ConexionServer cs;
     private boolean estaIniciado = false;
+    private Empleado empleado;
 
     private Fachada() {
         this.cines = new ListaCines();
@@ -461,5 +462,9 @@ public class Fachada {
         datos_obtenidos = cs.conexion(datos);
         
         return Boolean.valueOf(datos_obtenidos[0]);
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
     }
 }

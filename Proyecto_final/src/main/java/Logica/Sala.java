@@ -55,4 +55,14 @@ public class Sala {
     public int getAncho() {
         return ancho;
     }
+    
+    public void agregarFuncion(int sala, int cine, int pelicula, LocalDate dia, String hora, int precio)
+    {
+        String datos = "19;" + sala + "/" + cine + "/" + pelicula + "/" + dia + "/" + hora + "/" + precio;
+        String[] datos_obtenidos = null;
+        
+        datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
+        
+        this.cargarFuncion(dia, Integer.parseInt(datos_obtenidos[0]), precio, pelicula, hora);
+    }
 }

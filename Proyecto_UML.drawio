@@ -1,20 +1,20 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="mzhYkJdk3vkJbHoi9Pf5">
-    <mxGraphModel dx="1973" dy="2605" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1349" dy="1556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="R9-R-gguczUJIA4L5V2e-46" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Fachada" vertex="1">
-          <mxGeometry height="270" width="230" x="80" y="-161" as="geometry" />
+          <mxGeometry height="294" width="230" x="80" y="-161" as="geometry" />
         </mxCell>
-        <mxCell id="R9-R-gguczUJIA4L5V2e-47" parent="R9-R-gguczUJIA4L5V2e-46" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ instancia: Fachada&lt;div&gt;+ cliente: Cliente&lt;/div&gt;&lt;div&gt;+ cines: ListaCines&lt;/div&gt;&lt;div&gt;+ cs: ConexionServer&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="230" y="26" as="geometry" />
+        <mxCell id="R9-R-gguczUJIA4L5V2e-47" parent="R9-R-gguczUJIA4L5V2e-46" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ instancia: Fachada&lt;div&gt;+ cliente: Cliente&lt;/div&gt;&lt;div&gt;+ cines: ListaCines&lt;/div&gt;&lt;div&gt;+ cs: ConexionServer&lt;/div&gt;&lt;div&gt;+ estaIniciado = false&lt;/div&gt;" vertex="1">
+          <mxGeometry height="84" width="230" y="26" as="geometry" />
         </mxCell>
         <mxCell id="R9-R-gguczUJIA4L5V2e-48" parent="R9-R-gguczUJIA4L5V2e-46" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="230" y="86" as="geometry" />
+          <mxGeometry height="8" width="230" y="110" as="geometry" />
         </mxCell>
         <mxCell id="R9-R-gguczUJIA4L5V2e-49" parent="R9-R-gguczUJIA4L5V2e-46" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ getInstancia(): Fachada&lt;div&gt;+ inicio_sesion(int, String): Boolean&lt;/div&gt;&lt;div&gt;+ registro(int, String, String, String): void&lt;/div&gt;&lt;div&gt;+ getCliente(): Cliente&lt;/div&gt;&lt;div&gt;+ getCines(): ListaCines&lt;/div&gt;&lt;div&gt;+ verificarCancelacion(int, int): boolean&lt;/div&gt;&lt;div&gt;+ cancelarEntrada(int, int): boolean&lt;/div&gt;&lt;div&gt;+ cancelarCompra(int): boolean&lt;/div&gt;&lt;div&gt;+ verificarCedula(int): boolean&lt;/div&gt;&lt;div&gt;+ verificarTarjeta(String): int&lt;/div&gt;&lt;div&gt;+ checksum(int, long): boolean&lt;/div&gt;" vertex="1">
-          <mxGeometry height="176" width="230" y="94" as="geometry" />
+          <mxGeometry height="176" width="230" y="118" as="geometry" />
         </mxCell>
         <mxCell id="R9-R-gguczUJIA4L5V2e-50" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="ListaCines" vertex="1">
           <mxGeometry height="154" width="250" x="295" y="130" as="geometry" />

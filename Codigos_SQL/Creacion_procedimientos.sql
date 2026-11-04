@@ -100,3 +100,26 @@ create procedure fecha_funciones (in idCompra int)
 begin
 	select f.fecha, f.hora from entrada e join funcion f on e.funcion_ID = f.id where e.compra_ID = idCompra limit 1;
 end //
+
+create procedure nueva_funcion (in sala int, cine int, pelicula int, dia date, horario varchar(20), precio int)
+begin
+	insert into funcion (sala_ID, cine_ID, pelicula_ID, fecha, hora, precio_base) value (sala, cine, pelicula, dia, horario, precio);
+    select id from funcion where sala_ID = sala and cine_ID = cine and pelicula_ID = pelicula and fecha = dia and hora = horario and precio_base = precio;
+end //
+
+create procedure nueva_pelicula (in nombre varchar(30), anio date, duracion_pelicula varchar(20), clasificacion varchar(10))
+begin
+	insert into pelicula (titulo, anio_estreno, duracion, clasificacion_por_edad) values (nombre, anio, duracion_pelicula, clasificacion);
+    select id from pelicula where titulo = nombre and anio_estreno = anio and duracion = duracion_pelicula and clasificacion_por_edad = clasificacion;
+end //
+
+create procedure asignar_genero (in id_pelicula int, genero_pelicula varchar(20))
+begin
+	insert into genero (pelicula_ID, genero) values (id_pelicula, genero_pelicula);
+end //
+
+create procedure nuevo_asiento (in id_funcion int, id_sala int, id_cine int, x int, y int)
+begin
+	insert into asiento (sala_ID, cine_ID, funcion_ID, fila, numero, estado) values (id_sala, id_cine, id_funcion, y, x, true);
+    select id from pelicula where sala_ID = id_sala and cine_ID = id_cine and funcion_ID = id_funcion and fila = y and numero = x and estado = true;
+end //

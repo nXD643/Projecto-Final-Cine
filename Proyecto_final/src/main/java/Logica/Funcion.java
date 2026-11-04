@@ -64,4 +64,19 @@ public class Funcion {
         
         this.asientos[fila - 1][numero - 1] = asiento;
     }
+    
+    public void nuevoAsiento(int sala, int cine, int x, int y)
+    {
+        String datos = "21;" + this.id + ":" + sala + ":" + cine + ":" + x + ":" + y;
+        String[] datos_obtenidos = null;
+        int id;
+        
+        datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
+        
+        id = Integer.parseInt(datos_obtenidos[0]);
+        
+        Asiento asiento = new Asiento(id, y, x, true);
+        
+        this.asientos[y][x] =  asiento;
+    }
 }

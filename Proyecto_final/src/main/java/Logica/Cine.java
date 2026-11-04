@@ -1,5 +1,6 @@
 package Logica;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Cine {
@@ -73,5 +74,25 @@ public class Cine {
 
     public void setYaCargado(boolean yaCargado) {
         this.yaCargado = yaCargado;
+    }
+    
+    public void agregarPelicula(String titulo, LocalDate estreno, String duracion, String clasificacion, ArrayList<String> generos)
+    {
+        String datos = "20;" + titulo + "/" + estreno + "/" + duracion + "/" + clasificacion;
+        String[] datos_obtenidos = null;
+        int id;
+        
+        datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
+        
+        id = Integer.parseInt(datos_obtenidos[0]);
+        
+        for (int i = 0; i < generos.size(); i ++)
+        {
+            datos = "21;" + id + ":" + generos.get(i);
+        
+            datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
+        }
+        
+        Pelicula pelicula = new Pelicula(duracion, clasificacion, titulo, id, estreno, generos);
     }
 }
