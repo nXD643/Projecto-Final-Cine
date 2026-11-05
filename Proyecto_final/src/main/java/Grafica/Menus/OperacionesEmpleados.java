@@ -57,6 +57,11 @@ public class OperacionesEmpleados extends Grafica.PanelUI.DefaultConf {
         });
 
         jButton1.setText("Volver al menu principal");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,16 +94,29 @@ public class OperacionesEmpleados extends Grafica.PanelUI.DefaultConf {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AniadirPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AniadirPeliculaActionPerformed
+        AnadirPelicula ventanaPeli = new AnadirPelicula();
+        ventanaPeli.setVisible(true);
+        setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_AniadirPeliculaActionPerformed
 
     private void AniadirFuncionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AniadirFuncionActionPerformed
-        // TODO add your handling code here:
+        AnadirFuncion ventanaFuncion = new AnadirFuncion();
+        ventanaFuncion.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_AniadirFuncionActionPerformed
 
     private void AniadirAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AniadirAsientoActionPerformed
-        // TODO add your handling code here:
+        AnadirAsiento ventanaAsiento = new AnadirAsiento();
+        ventanaAsiento.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_AniadirAsientoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Presentacion ventanaPresentacion = new Presentacion();
+        ventanaPresentacion.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
