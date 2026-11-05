@@ -120,6 +120,9 @@ public class Proyecto_final_server {
             case 21:
                 datos_recibidos = ConexionDB.asignarGenero(valores[1]);
                 break;
+            case 22:
+                datos_recibidos = ConexionDB.inicio_sesion_emplado(valores[1]);
+                break;
         }
         return datos_recibidos;
     }

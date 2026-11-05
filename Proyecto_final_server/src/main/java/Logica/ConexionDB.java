@@ -535,4 +535,25 @@ public class ConexionDB {
         }
         return datos_obtenidos;
     }
+    
+    public static String inicio_sesion_emplado(String datos) {
+        String datos_obtenidos = "";
+
+        try {
+            String[] valores = datos.split(":");
+            String sql = "call inicio_sesion_empleado(?, ?)";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, valores[0]);
+            ps.setString(2, valores[1]);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                datos_obtenidos += rs.getString("nombre") + ":" + rs.getString("apellido") + ":" + rs.getInt("cine_ID");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return datos_obtenidos;
+    }
 }

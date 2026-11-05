@@ -11,7 +11,7 @@ create table cine(
 create table empleado(
 	documento int,
     cine_ID int not null,
-    cargo enum("acomodador", "cajero") not null,
+    cargo enum("acomodador", "cajero", "administrador") not null,
     nombre varchar(30) not null,
     apellido varchar(30) not null,
     fecha_ingreso date not null,

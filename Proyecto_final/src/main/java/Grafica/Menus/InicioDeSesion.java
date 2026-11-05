@@ -151,8 +151,16 @@ public class InicioDeSesion extends Grafica.PanelUI.DefaultConf {
         try { // El try and catch es por si el docummento es un numero no valido, puede devolver un error, pasa lo mismo si es null
             int documento = Integer.parseInt(DocumentoIngresado.getText());
             String contrasena = String.copyValueOf(ContrasenaIngresada.getPassword());
-
-            boolean inicio = fachada.inicio_sesion(documento, contrasena);
+            boolean inicio;
+            
+            if (CheckEmpleado.isSelected()) {
+                inicio = fachada.inicio_sesion(documento, contrasena, 2);
+            }
+            else
+            {
+                inicio = fachada.inicio_sesion(documento, contrasena, 1);
+            }
+            
             System.out.println(inicio);
             if (inicio == true) {
                 if (CheckEmpleado.isSelected()) {

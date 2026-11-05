@@ -25,51 +25,79 @@ public class Fachada {
         }
         return instancia;
     }
-    public boolean inicio_sesion(int documento, String contrasena)
+    public boolean inicio_sesion(int documento, String contrasena, int operacion)
     { 
         String datos;
         String[] resultado = null;
         String[] valores = null;
-        String[] telefonos;
-        
-        if (!verificarCedula(documento))
+        if (operacion == 1)
         {
-            return false;
-        }
-        datos = "2;" + documento + ":" + contrasena;
-        
-        resultado = cs.conexion(datos);
-        
-        System.out.println(resultado[0]);
-        
-        valores = resultado[0].split(":");
-        
-        this.cliente = new Cliente(documento, valores[0], valores[1], valores[2], contrasena);
-        
-        telefonos = valores[3].split("/");
-        
-        for (int i = 0; i < telefonos.length; i ++)
-        {
-            this.cliente.agregarTelefono(telefonos[i]);
-        }
-        
-        try
-        {
-            datos = "3;" + documento;
+            String[] telefonos;
+
+            if (!verificarCedula(documento))
+            {
+                return false;
+            }
+            datos = "2;" + documento + ":" + contrasena;
 
             resultado = cs.conexion(datos);
 
-            for (int i = 0; i < resultado.length; i ++)
+            System.out.println(resultado[0]);
+
+            valores = resultado[0].split(":");
+
+            this.cliente = new Cliente(documento, valores[0], valores[1], valores[2], contrasena);
+
+            telefonos = valores[3].split("/");
+
+            for (int i = 0; i < telefonos.length; i ++)
             {
-                this.cliente.cargarCompras(resultado[i], i);
+                this.cliente.agregarTelefono(telefonos[i]);
+            }
+
+            try
+            {
+                datos = "3;" + documento;
+
+                resultado = cs.conexion(datos);
+
+                for (int i = 0; i < resultado.length; i ++)
+                {
+                    this.cliente.cargarCompras(resultado[i], i);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("No tiene compras");
             }
             return true;
         }
-        catch (Exception e)
+        else
         {
-            System.out.println("No tiene compras");
+            try
+            {
+                if (!verificarCedula(documento))
+                {
+                    return false;
+                }
+                datos = "22;" + documento + ":" + contrasena;
+
+                resultado = cs.conexion(datos);
+
+                System.out.println(resultado[0]);
+
+                valores = resultado[0].split(":");
+
+                this.empleado = new Empleado(documento, valores[0], valores[1], contrasena, Integer.parseInt(valores[2]));
+                
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
-        return true;
     }
     public boolean registro(int documento, String nombre, String apellido, String correo_electronico, String contrasena, String telefonos)
     {
