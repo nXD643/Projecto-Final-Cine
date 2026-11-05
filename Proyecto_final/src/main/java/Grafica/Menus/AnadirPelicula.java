@@ -172,7 +172,7 @@ public class AnadirPelicula extends Grafica.PanelUI.DefaultConf {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(rootPane, "Se han agregado los asientos correctamente");
+        JOptionPane.showMessageDialog(rootPane, "Se ha agregado la pelicula correctamente");
         OperacionesEmpleados ventana = new OperacionesEmpleados();
         ventana.setVisible(true);
         setVisible(false);

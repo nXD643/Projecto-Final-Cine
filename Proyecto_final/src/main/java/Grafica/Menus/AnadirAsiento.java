@@ -157,7 +157,7 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(rootPane, "Se han agregado los asientos correctamente");
+        JOptionPane.showMessageDialog(rootPane, "Se ha el asiento la pelicula correctamente");
         OperacionesEmpleados ventana = new OperacionesEmpleados();
         ventana.setVisible(true);
         setVisible(false);
