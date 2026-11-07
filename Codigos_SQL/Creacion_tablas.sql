@@ -38,6 +38,7 @@ create table pelicula(
     anio_estreno date,
     duracion varchar(20),
     clasificacion_por_edad varchar(10) not null,
+    unique(titulo, anio_estreno, duracion, clasificacion_por_edad),
     primary key (id)
 );
 

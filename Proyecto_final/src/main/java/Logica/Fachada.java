@@ -91,6 +91,18 @@ public class Fachada {
 
                 this.empleado = new Empleado(documento, valores[0], valores[1], contrasena, Integer.parseInt(valores[2]));
                 
+                anadir_cines();
+                
+                for (int i = 0; i < this.cines.getSize(); i ++)
+                {
+                    if (this.cines.buscarCine(i).getId() == this.empleado.getIdCine())
+                    {
+                        this.cines.setCineSeleccionado(i);
+                    }
+                }
+                
+                anadir_salas();
+                
                 return true;
             }
             catch (Exception e)

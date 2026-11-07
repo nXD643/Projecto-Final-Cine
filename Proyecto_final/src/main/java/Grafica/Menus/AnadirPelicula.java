@@ -4,6 +4,9 @@
  */
 package Grafica.Menus;
 
+import Logica.Fachada;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -172,10 +175,31 @@ public class AnadirPelicula extends Grafica.PanelUI.DefaultConf {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(rootPane, "Se ha agregado la pelicula correctamente");
-        OperacionesEmpleados ventana = new OperacionesEmpleados();
-        ventana.setVisible(true);
-        setVisible(false);
+        // Hay que restringir los tamaños de los datos, asegurarse que se pase el formato fecha, se debe permitir agregar multiples generos
+        
+        int cine_id = Fachada.getInstancia().getCines().getCineSeleccionado();
+        String titulo = NombreTextField.getText();
+        LocalDate fecha = LocalDate.parse(AnioEstrenoTextField.getText());
+        String duracion = DuracionTextField.getText();
+        String clasificacion = ClasificacionTextField.getText();
+        ArrayList<String> generos = new ArrayList<>();
+        Boolean agregado;
+
+        generos.add(GeneroTextField.getText());
+        
+        agregado = Fachada.getInstancia().getCines().buscarCine(cine_id).agregarPelicula(titulo, fecha, duracion, clasificacion, generos);
+        
+        if (agregado)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Se ha agregado la pelicula correctamente");
+            OperacionesEmpleados ventana = new OperacionesEmpleados();
+            ventana.setVisible(true);
+            setVisible(false);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido agregar la pelicula");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

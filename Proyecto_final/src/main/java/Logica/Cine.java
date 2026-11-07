@@ -76,15 +76,18 @@ public class Cine {
         this.yaCargado = yaCargado;
     }
     
-    public void agregarPelicula(String titulo, LocalDate estreno, String duracion, String clasificacion, ArrayList<String> generos)
+    public boolean agregarPelicula(String titulo, LocalDate estreno, String duracion, String clasificacion, ArrayList<String> generos)
     {
         String datos = "20;" + titulo + "/" + estreno + "/" + duracion + "/" + clasificacion;
         String[] datos_obtenidos = null;
+        String[] valores = null;
         int id;
         
         datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
         
-        id = Integer.parseInt(datos_obtenidos[0]);
+        valores = datos_obtenidos[0].split(":");
+        
+        id = Integer.parseInt(valores[0]);
         
         for (int i = 0; i < generos.size(); i ++)
         {
@@ -93,6 +96,6 @@ public class Cine {
             datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
         }
         
-        Pelicula pelicula = new Pelicula(duracion, clasificacion, titulo, id, estreno, generos);
+        return Boolean.valueOf(valores[1]);
     }
 }
