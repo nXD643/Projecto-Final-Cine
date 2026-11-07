@@ -4,6 +4,7 @@
  */
 package Grafica.Menus;
 
+import Logica.Fachada;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,6 +13,10 @@ import javax.swing.JOptionPane;
  */
 public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
 
+    Fachada fachada = Fachada.getInstancia();
+    int idCineElegido = 0;
+    int idSalaElegida = 0;
+    
     /**
      * Creates new form AnadirAsiento
      */
@@ -19,6 +24,29 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
         initConf();
         initComponents();
         add_background();
+        
+        for (int i = 0; i < fachada.getCines().getSize(); i ++) { 
+            ElegirCine.addItem(fachada.getCines().cines.get(i).getNombre());
+        }
+
+        String cineElegido = ElegirCine.getSelectedItem().toString();
+        
+        for (int i = 0; i < fachada.getCines().getSize(); i ++) {
+            if (fachada.getCines().buscarCine(i).getNombre().equals(cineElegido))
+            {
+                idCineElegido = i;
+            }
+        }
+        
+        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).getSalas().size(); i ++) { 
+            ElegirSala.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).getSalas().get(i).getId()));
+            idSalaElegida = i;
+        }
+        
+        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().size(); i ++) { 
+            int idFuncion = fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().get(i).getId();
+            ElegirFuncion.addItem(Integer.toString(idFuncion));
+        }
     }
 
     /**
@@ -30,11 +58,11 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox3 = new Grafica.PanelUI.DefaultComboBox();
+        ElegirCine = new Grafica.PanelUI.DefaultComboBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jComboBox4 = new Grafica.PanelUI.DefaultComboBox();
-        jComboBox5 = new Grafica.PanelUI.DefaultComboBox();
+        ElegirFuncion = new Grafica.PanelUI.DefaultComboBox();
+        ElegirSala = new Grafica.PanelUI.DefaultComboBox();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new Grafica.PanelUI.DefaultLabel(2);
@@ -46,7 +74,11 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ElegirCine.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ElegirCineItemStateChanged(evt);
+            }
+        });
 
         jButton1.setText("Confirmar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,14 +94,17 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
             }
         });
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        ElegirFuncion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                ElegirFuncionActionPerformed(evt);
             }
         });
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ElegirSala.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ElegirSalaItemStateChanged(evt);
+            }
+        });
 
         jLabel1.setText("Numero");
 
@@ -92,20 +127,20 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
                 .addContainerGap(55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jTextField1)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.LEADING, 0, 84, Short.MAX_VALUE)
+                    .addComponent(ElegirCine, javax.swing.GroupLayout.Alignment.LEADING, 0, 84, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox5, 0, 299, Short.MAX_VALUE)
+                    .addComponent(ElegirSala, 0, 299, Short.MAX_VALUE)
                     .addComponent(jTextField2)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ElegirFuncion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -125,9 +160,9 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ElegirCine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ElegirFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ElegirSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -146,9 +181,9 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+    private void ElegirFuncionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElegirFuncionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+    }//GEN-LAST:event_ElegirFuncionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         OperacionesEmpleados ventana = new OperacionesEmpleados();
@@ -162,6 +197,34 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
         ventana.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ElegirCineItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ElegirCineItemStateChanged
+        ElegirSala.removeAllItems();
+        
+        String cineElegido = ElegirCine.getSelectedItem().toString();
+        
+        for (int i = 0; i < fachada.getCines().getSize(); i ++) {
+            if (fachada.getCines().buscarCine(i).getNombre().equals(cineElegido)) {
+                idCineElegido = i;
+                System.out.println("El cine que encontro es: " + fachada.getCines().buscarCine(idCineElegido).getNombre());
+                System.out.println("La candidad de salas es:  " + Integer.toString(fachada.getCines().buscarCine(i).getSalas().size()));
+            }
+        }
+        
+        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).getSalas().size(); i ++) { 
+            ElegirSala.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).getSalas().get(i).getId()));
+            idSalaElegida = i;
+        }
+    }//GEN-LAST:event_ElegirCineItemStateChanged
+
+    private void ElegirSalaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ElegirSalaItemStateChanged
+    ElegirFuncion.removeAllItems();
+    
+    for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().size(); i ++) { 
+        int idFuncion = fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().get(i).getId();
+        ElegirFuncion.addItem(Integer.toString(idFuncion));
+        }
+    }//GEN-LAST:event_ElegirSalaItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -199,11 +262,11 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ElegirCine;
+    private javax.swing.JComboBox<String> ElegirFuncion;
+    private javax.swing.JComboBox<String> ElegirSala;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
