@@ -169,8 +169,8 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int ancho = Integer.parseInt(FilaField.getText());
-        int largo = Integer.parseInt(FilaField.getText());
-        fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).buscarFuncion(idFuncionElegida).nuevoAsiento(idSalaElegida, idCineElegido, ancho, largo);
+        int largo = Integer.parseInt(NumeroField.getText());
+        fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).buscarFuncion(idFuncionElegida).nuevoAsiento(idSalaElegida, idCineElegido, largo, ancho);
         
         OperacionesEmpleados ventana = new OperacionesEmpleados();
         ventana.setVisible(true);
