@@ -31,17 +31,13 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
         
         System.out.println("La cantidad de salas son: " + fachada.getCines().buscarCine(idCineElegido).getSalas().size());
         
+        // Elegir sala
         for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).getSalas().size(); i ++) { 
             ElegirSala.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).getSalas().get(i).getId()));
         }
         if (ElegirSala.getSelectedItem() != null) { 
             idSalaElegida = Integer.parseInt((String) ElegirSala.getSelectedItem());
-        }
-        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().size(); i ++) { 
-            int idFuncion = fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().get(i).getId(); 
-        }
-        if (ElegirSala.getSelectedItem() != null) { 
-            idFuncionElegida = Integer.parseInt((String) ElegirFuncion.getSelectedItem());
+            System.out.println("La sala elegida es: " + idSalaElegida);
         }
     }
 
@@ -185,12 +181,19 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ElegirSalaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ElegirSalaItemStateChanged
-    ElegirFuncion.removeAllItems();
-    
-    for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().size(); i ++) { 
-        int idFuncion = fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().get(i).getId();
-        idFuncionElegida = idFuncion;
-        ElegirFuncion.addItem(Integer.toString(idFuncion));
+        ElegirFuncion.removeAllItems();
+        
+        idSalaElegida = ElegirSala.getSelectedIndex();
+        
+        System.out.println(fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().size());
+        
+        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().size(); i ++) { 
+            System.out.println("La sala actual es: " + i);
+            ElegirFuncion.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().get(i).getId()));
+        }
+        
+        if (ElegirSala.getSelectedItem() != null) { 
+            idFuncionElegida = ElegirSala.getSelectedIndex();
         }
     }//GEN-LAST:event_ElegirSalaItemStateChanged
 
