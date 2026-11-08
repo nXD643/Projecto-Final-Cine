@@ -25,7 +25,7 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
         initComponents();
         add_background();
         
-        idCineElegido = fachada.getEmpleado().getIdCine();
+        idCineElegido = fachada.getCines().getCineSeleccionado();
         
         System.out.println("El cine del empleado es: " + fachada.getEmpleado().getIdCine());
         
@@ -198,21 +198,21 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
         int sala_id = ElegirSala.getSelectedIndex();
         int pelicula_id = ElegirPelicula.getSelectedIndex();
         LocalDate fecha = LocalDate.parse(FechaField.getText());
-        int cine_id = Fachada.getInstancia().getCines().getCineSeleccionado();
+        int cine_id = fachada.getCines().getCineSeleccionado();
         int precio = Integer.parseInt(PrecioTextField.getText());
         String hora = HoraField.getText();
         
-        int sala_iddb = Fachada.getInstancia().getCines().buscarCine(cine_id).buscarSala(sala_id).getId();
-        int cine_iddb = Fachada.getInstancia().getCines().buscarCine(cine_id).getId();
+        int sala_iddb = fachada.getCines().buscarCine(cine_id).buscarSala(sala_id).getId();
+        int cine_iddb = fachada.getCines().buscarCine(cine_id).getId();
         
         System.out.println(fecha.toString());
         System.out.println(precio);
         System.out.println(hora);
         System.out.println(pelicula_id);
         
-        pelicula_id = Fachada.getInstancia().getCines().obtenerPeliculas(pelicula_id).getId();
+        pelicula_id = fachada.getCines().obtenerPeliculas(pelicula_id).getId();
         
-        Boolean agregado = Fachada.getInstancia().getCines().buscarCine(cine_id).buscarSala(sala_id).agregarFuncion(sala_iddb, cine_iddb, pelicula_id, fecha, hora, precio);
+        Boolean agregado = fachada.getCines().buscarCine(cine_id).buscarSala(sala_id).agregarFuncion(sala_iddb, cine_iddb, pelicula_id, fecha, hora, precio);
         
         if (agregado)
         {

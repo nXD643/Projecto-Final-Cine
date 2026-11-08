@@ -27,7 +27,7 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
         initComponents();
         add_background();
         
-        idCineElegido = fachada.getEmpleado().getIdCine();
+        idCineElegido = fachada.getCines().getCineSeleccionado();
         
         System.out.println("La cantidad de salas son: " + fachada.getCines().buscarCine(idCineElegido).getSalas().size());
         
