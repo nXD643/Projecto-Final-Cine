@@ -1,1 +1,0 @@
-create database complejo_cines;
