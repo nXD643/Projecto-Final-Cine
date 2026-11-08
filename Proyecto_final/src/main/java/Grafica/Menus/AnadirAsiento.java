@@ -5,6 +5,7 @@
 package Grafica.Menus;
 
 import Logica.Fachada;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +17,7 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     Fachada fachada = Fachada.getInstancia();
     int idCineElegido = 0;
     int idSalaElegida = 0;
+    int idFuncionElegida = 0;
     
     /**
      * Creates new form AnadirAsiento
@@ -25,27 +27,21 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
         initComponents();
         add_background();
         
-        for (int i = 0; i < fachada.getCines().getSize(); i ++) { 
-            ElegirCine.addItem(fachada.getCines().cines.get(i).getNombre());
-        }
-
-        String cineElegido = ElegirCine.getSelectedItem().toString();
+        idCineElegido = fachada.getEmpleado().getIdCine();
         
-        for (int i = 0; i < fachada.getCines().getSize(); i ++) {
-            if (fachada.getCines().buscarCine(i).getNombre().equals(cineElegido))
-            {
-                idCineElegido = i;
-            }
-        }
+        System.out.println("La cantidad de salas son: " + fachada.getCines().buscarCine(idCineElegido).getSalas().size());
         
         for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).getSalas().size(); i ++) { 
             ElegirSala.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).getSalas().get(i).getId()));
-            idSalaElegida = i;
         }
-        
+        if (ElegirSala.getSelectedItem() != null) { 
+            idSalaElegida = Integer.parseInt((String) ElegirSala.getSelectedItem());
+        }
         for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().size(); i ++) { 
-            int idFuncion = fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().get(i).getId();
-            ElegirFuncion.addItem(Integer.toString(idFuncion));
+            int idFuncion = fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().get(i).getId(); 
+        }
+        if (ElegirSala.getSelectedItem() != null) { 
+            idFuncionElegida = Integer.parseInt((String) ElegirFuncion.getSelectedItem());
         }
     }
 
@@ -58,27 +54,19 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ElegirCine = new Grafica.PanelUI.DefaultComboBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         ElegirFuncion = new Grafica.PanelUI.DefaultComboBox();
         ElegirSala = new Grafica.PanelUI.DefaultComboBox();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        NumeroField = new javax.swing.JTextField();
+        FilaField = new javax.swing.JTextField();
         jLabel1 = new Grafica.PanelUI.DefaultLabel(2);
         jLabel2 = new Grafica.PanelUI.DefaultLabel(2);
-        jLabel4 = new Grafica.PanelUI.DefaultLabel(2);
         jLabel5 = new Grafica.PanelUI.DefaultLabel(2);
         jLabel6 = new Grafica.PanelUI.DefaultLabel(2);
         jLabel7 = new Grafica.PanelUI.DefaultLabel(3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        ElegirCine.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ElegirCineItemStateChanged(evt);
-            }
-        });
 
         jButton1.setText("Confirmar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -110,8 +98,6 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
 
         jLabel2.setText("Fila");
 
-        jLabel4.setText("Cine");
-
         jLabel5.setText("Funcion");
 
         jLabel6.setText("Sala");
@@ -126,16 +112,14 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(ElegirCine, javax.swing.GroupLayout.Alignment.LEADING, 0, 84, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(NumeroField)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ElegirSala, 0, 299, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
+                    .addComponent(FilaField)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -155,12 +139,10 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ElegirCine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ElegirFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ElegirSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
@@ -169,8 +151,8 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NumeroField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FilaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -186,9 +168,13 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     }//GEN-LAST:event_ElegirFuncionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int ancho = Integer.parseInt(FilaField.getText());
+        int largo = Integer.parseInt(FilaField.getText());
+        fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).buscarFuncion(idFuncionElegida).nuevoAsiento(idSalaElegida, idCineElegido, ancho, largo);
+        
         OperacionesEmpleados ventana = new OperacionesEmpleados();
         ventana.setVisible(true);
-        setVisible(false);         // TODO add your handling code here:
+        setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -198,30 +184,12 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void ElegirCineItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ElegirCineItemStateChanged
-        ElegirSala.removeAllItems();
-        
-        String cineElegido = ElegirCine.getSelectedItem().toString();
-        
-        for (int i = 0; i < fachada.getCines().getSize(); i ++) {
-            if (fachada.getCines().buscarCine(i).getNombre().equals(cineElegido)) {
-                idCineElegido = i;
-                System.out.println("El cine que encontro es: " + fachada.getCines().buscarCine(idCineElegido).getNombre());
-                System.out.println("La candidad de salas es:  " + Integer.toString(fachada.getCines().buscarCine(i).getSalas().size()));
-            }
-        }
-        
-        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).getSalas().size(); i ++) { 
-            ElegirSala.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).getSalas().get(i).getId()));
-            idSalaElegida = i;
-        }
-    }//GEN-LAST:event_ElegirCineItemStateChanged
-
     private void ElegirSalaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ElegirSalaItemStateChanged
     ElegirFuncion.removeAllItems();
     
     for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().size(); i ++) { 
         int idFuncion = fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().get(i).getId();
+        idFuncionElegida = idFuncion;
         ElegirFuncion.addItem(Integer.toString(idFuncion));
         }
     }//GEN-LAST:event_ElegirSalaItemStateChanged
@@ -262,18 +230,16 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ElegirCine;
     private javax.swing.JComboBox<String> ElegirFuncion;
     private javax.swing.JComboBox<String> ElegirSala;
+    private javax.swing.JTextField FilaField;
+    private javax.swing.JTextField NumeroField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
