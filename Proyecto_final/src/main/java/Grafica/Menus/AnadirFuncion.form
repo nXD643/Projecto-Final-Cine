@@ -54,11 +54,11 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="IDTextField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="DuracionTextField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="PrecioTextField" alignment="0" max="32767" attributes="0"/>
                                       <Component id="ClasificacionTextField" alignment="0" min="-2" pref="768" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="AnioEstrenoTextField" alignment="0" min="-2" pref="768" max="-2" attributes="0"/>
-                                  <Component id="GeneroTextField" alignment="0" min="-2" pref="768" max="-2" attributes="0"/>
+                                  <Component id="FechaField" alignment="0" min="-2" pref="768" max="-2" attributes="0"/>
+                                  <Component id="HoraField" alignment="0" min="-2" pref="768" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -109,13 +109,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="IDTextField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="70" max="32767" attributes="0"/>
-                      <Component id="DuracionTextField" min="-2" max="-2" attributes="0"/>
+                      <Component id="PrecioTextField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="67" max="32767" attributes="0"/>
                       <Component id="ClasificacionTextField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="67" max="32767" attributes="0"/>
-                      <Component id="AnioEstrenoTextField" min="-2" max="-2" attributes="0"/>
+                      <Component id="FechaField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="69" max="32767" attributes="0"/>
-                      <Component id="GeneroTextField" min="-2" max="-2" attributes="0"/>
+                      <Component id="HoraField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" pref="25" max="-2" attributes="0"/>
@@ -232,20 +232,26 @@
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultLabel(3)"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="DuracionTextField">
+    <Component class="javax.swing.JTextField" name="PrecioTextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrecioTextFieldActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultTextField()"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Largo"/>
+        <Property name="text" type="java.lang.String" value="Precio base"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultLabel(1)"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="AnioEstrenoTextField">
+    <Component class="javax.swing.JTextField" name="FechaField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FechaFieldActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultTextField()"/>
       </AuxValues>
@@ -258,9 +264,9 @@
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultLabel(1)"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="GeneroTextField">
+    <Component class="javax.swing.JTextField" name="HoraField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GeneroTextFieldActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HoraFieldActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultTextField()"/>
@@ -273,7 +279,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ID de la pelicula"/>
+        <Property name="text" type="java.lang.String" value="Borrar"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultLabel(1)"/>
@@ -297,7 +303,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ancho"/>
+        <Property name="text" type="java.lang.String" value="Borrar"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultLabel(1)"/>

@@ -56,13 +56,23 @@ public class Sala {
         return ancho;
     }
     
-    public void agregarFuncion(int sala, int cine, int pelicula, LocalDate dia, String hora, int precio)
+    public boolean agregarFuncion(int sala, int cine, int pelicula, LocalDate dia, String hora, int precio)
     {
-        String datos = "19;" + sala + "/" + cine + "/" + pelicula + "/" + dia + "/" + hora + "/" + precio;
-        String[] datos_obtenidos = null;
-        
-        datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
-        
-        this.cargarFuncion(dia, Integer.parseInt(datos_obtenidos[0]), precio, pelicula, hora);
+        try
+        {
+            String datos = "19;" + sala + "/" + cine + "/" + pelicula + "/" + dia.toString() + "/" + hora + "/" + precio;
+            String[] datos_obtenidos = null;
+
+            datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
+
+            System.out.println(datos_obtenidos[0]);
+            this.cargarFuncion(dia, Integer.parseInt(datos_obtenidos[0]), precio, pelicula, hora);
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 }

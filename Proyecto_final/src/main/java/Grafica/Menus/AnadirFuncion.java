@@ -5,6 +5,7 @@
 package Grafica.Menus;
 
 import Logica.Fachada;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
@@ -64,11 +65,11 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
         jLabel6 = new Grafica.PanelUI.DefaultLabel(2);
         ElegirSala = new Grafica.PanelUI.DefaultComboBox();
         jLabel7 = new Grafica.PanelUI.DefaultLabel(3);
-        DuracionTextField = new Grafica.PanelUI.DefaultTextField();
+        PrecioTextField = new Grafica.PanelUI.DefaultTextField();
         jLabel8 = new Grafica.PanelUI.DefaultLabel(1);
-        AnioEstrenoTextField = new Grafica.PanelUI.DefaultTextField();
+        FechaField = new Grafica.PanelUI.DefaultTextField();
         jLabel9 = new Grafica.PanelUI.DefaultLabel(1);
-        GeneroTextField = new Grafica.PanelUI.DefaultTextField();
+        HoraField = new Grafica.PanelUI.DefaultTextField();
         IDTextField = new Grafica.PanelUI.DefaultTextField();
         jLabel2 = new Grafica.PanelUI.DefaultLabel(1);
         ClasificacionTextField = new Grafica.PanelUI.DefaultTextField();
@@ -123,17 +124,29 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Funcion");
 
-        jLabel8.setText("Largo");
-
-        jLabel9.setText("Fecha");
-
-        GeneroTextField.addActionListener(new java.awt.event.ActionListener() {
+        PrecioTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GeneroTextFieldActionPerformed(evt);
+                PrecioTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("ID de la pelicula");
+        jLabel8.setText("Precio base");
+
+        FechaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FechaFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Fecha");
+
+        HoraField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HoraFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Borrar");
 
         ClasificacionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +156,7 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
 
         jLabel10.setText("Hora");
 
-        jLabel11.setText("Ancho");
+        jLabel11.setText("Borrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,10 +188,10 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(IDTextField)
-                                        .addComponent(DuracionTextField)
+                                        .addComponent(PrecioTextField)
                                         .addComponent(ClasificacionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(AnioEstrenoTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(GeneroTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(FechaField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(HoraField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(121, 121, 121)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -216,13 +229,13 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                        .addComponent(DuracionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addComponent(ClasificacionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                        .addComponent(AnioEstrenoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(FechaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                        .addComponent(GeneroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(HoraField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
@@ -244,10 +257,39 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(rootPane, "Se ha agregado la funcion correctamente");
-        OperacionesEmpleados ventana = new OperacionesEmpleados();
-        ventana.setVisible(true);
-        setVisible(false);
+        // Cuidar el imput de la fecha
+        
+        int sala_id = ElegirSala.getSelectedIndex();
+        int pelicula_id = ElegirPelicula.getSelectedIndex();
+        LocalDate fecha = LocalDate.parse(FechaField.getText());
+        int cine_id = Fachada.getInstancia().getCines().getCineSeleccionado();
+        int precio = Integer.parseInt(PrecioTextField.getText());
+        String hora = HoraField.getText();
+        
+        int sala_iddb = Fachada.getInstancia().getCines().buscarCine(cine_id).buscarSala(sala_id).getId();
+        int cine_iddb = Fachada.getInstancia().getCines().buscarCine(cine_id).getId();
+        
+        System.out.println(fecha.toString());
+        System.out.println(precio);
+        System.out.println(hora);
+        System.out.println(pelicula_id);
+        
+        pelicula_id = Fachada.getInstancia().getCines().buscarCine(cine_id).ListaPeliculas().get(pelicula_id).getId();
+        
+        Boolean agregado = Fachada.getInstancia().getCines().buscarCine(cine_id).buscarSala(sala_id).agregarFuncion(sala_iddb, cine_iddb, pelicula_id, fecha, hora, precio);
+        
+        if (agregado)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Se ha agregado la funcion correctamente");
+
+            OperacionesEmpleados ventana = new OperacionesEmpleados();
+            ventana.setVisible(true);
+            setVisible(false);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido agrgar la funcion");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -260,9 +302,9 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
         // TODO add your handling code here:
     }//GEN-LAST:event_ElegirPeliculaActionPerformed
 
-    private void GeneroTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneroTextFieldActionPerformed
+    private void HoraFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoraFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GeneroTextFieldActionPerformed
+    }//GEN-LAST:event_HoraFieldActionPerformed
 
     private void ClasificacionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClasificacionTextFieldActionPerformed
         // TODO add your handling code here:
@@ -296,6 +338,14 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
             ElegirPelicula.addItem(fachada.getCines().buscarCine(idCineElegido).ListaPeliculas().get(i).getTitulo());
         }
     }//GEN-LAST:event_ElegirCineItemStateChanged
+
+    private void FechaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FechaFieldActionPerformed
+
+    private void PrecioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PrecioTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,14 +383,14 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AnioEstrenoTextField;
     private javax.swing.JTextField ClasificacionTextField;
-    private javax.swing.JTextField DuracionTextField;
     private javax.swing.JComboBox<String> ElegirCine;
     private javax.swing.JComboBox<String> ElegirPelicula;
     private javax.swing.JComboBox<String> ElegirSala;
-    private javax.swing.JTextField GeneroTextField;
+    private javax.swing.JTextField FechaField;
+    private javax.swing.JTextField HoraField;
     private javax.swing.JTextField IDTextField;
+    private javax.swing.JTextField PrecioTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
