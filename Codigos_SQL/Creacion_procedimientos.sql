@@ -128,3 +128,8 @@ create procedure inicio_sesion_empleado(in ci int, passwd varchar(30))
 begin
     select cine_ID, nombre, apellido from empleado where documento = ci and contrasena = passwd;
 end //
+
+create procedure todas_peliculas()
+begin
+	select duracion, clasificacion_por_edad, titulo, id, anio_estreno from pelicula;
+end //

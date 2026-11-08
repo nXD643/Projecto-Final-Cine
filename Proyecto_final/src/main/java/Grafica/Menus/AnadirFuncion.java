@@ -41,10 +41,6 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
         for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).getSalas().size(); i ++) { 
             ElegirSala.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).getSalas().get(i).getId()));
         }
-        
-        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).ListaPeliculas().size(); i ++) { 
-            ElegirPelicula.addItem(fachada.getCines().buscarCine(idCineElegido).ListaPeliculas().get(i).getTitulo());
-        }
     }
 
     /**
@@ -123,12 +119,6 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Funcion");
-
-        PrecioTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrecioTextFieldActionPerformed(evt);
-            }
-        });
 
         jLabel8.setText("Precio base");
 
@@ -274,7 +264,7 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
         System.out.println(hora);
         System.out.println(pelicula_id);
         
-        pelicula_id = Fachada.getInstancia().getCines().buscarCine(cine_id).ListaPeliculas().get(pelicula_id).getId();
+        pelicula_id = Fachada.getInstancia().getCines().obtenerPeliculas(pelicula_id).getId();
         
         Boolean agregado = Fachada.getInstancia().getCines().buscarCine(cine_id).buscarSala(sala_id).agregarFuncion(sala_iddb, cine_iddb, pelicula_id, fecha, hora, precio);
         
@@ -310,42 +300,31 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
         // TODO add your handling code here:
     }//GEN-LAST:event_ClasificacionTextFieldActionPerformed
 
-    private void ElegirCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElegirCineActionPerformed
-
-    }//GEN-LAST:event_ElegirCineActionPerformed
-
     private void ElegirSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElegirSalaActionPerformed
     }//GEN-LAST:event_ElegirSalaActionPerformed
-
-    private void ElegirCineItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ElegirCineItemStateChanged
-        ElegirSala.removeAllItems();
-        ElegirPelicula.removeAllItems();
-        
-        String cineElegido = ElegirCine.getSelectedItem().toString();
-        
-        for (int i = 0; i < fachada.getCines().getSize(); i ++) {
-            if (fachada.getCines().buscarCine(i).getNombre().equals(cineElegido))
-            {
-                idCineElegido = i;
-            }
-        }
-        
-        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).getSalas().size(); i ++) { 
-            ElegirSala.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).getSalas().get(i).getId()));
-        }
-        
-        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).ListaPeliculas().size(); i ++) { 
-            ElegirPelicula.addItem(fachada.getCines().buscarCine(idCineElegido).ListaPeliculas().get(i).getTitulo());
-        }
-    }//GEN-LAST:event_ElegirCineItemStateChanged
 
     private void FechaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FechaFieldActionPerformed
 
-    private void PrecioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PrecioTextFieldActionPerformed
+    private void ElegirCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElegirCineActionPerformed
+
+    }//GEN-LAST:event_ElegirCineActionPerformed
+
+    private void ElegirCineItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ElegirCineItemStateChanged
+        ElegirSala.removeAllItems();
+        ElegirPelicula.removeAllItems();
+
+        String cineElegido = ElegirCine.getSelectedItem().toString();
+
+        for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).getSalas().size(); i ++) {
+            ElegirSala.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).getSalas().get(i).getId()));
+        }
+
+        for (int i = 0; i < fachada.getCines().getPeliculas().size(); i ++) {
+            ElegirPelicula.addItem(fachada.getCines().obtenerPeliculas(i).getTitulo());
+        }
+    }//GEN-LAST:event_ElegirCineItemStateChanged
 
     /**
      * @param args the command line arguments

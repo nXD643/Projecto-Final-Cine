@@ -324,6 +324,8 @@ public class Fachada {
             this.cines.cargarCine(valores[1], valores[2], Integer.parseInt(valores[0]), valores[3]);
         }
         
+        todasPeliculas();
+        
         return true;
     }
     public boolean anadir_peliculas (int id_pelicula)
@@ -506,5 +508,31 @@ public class Fachada {
 
     public Empleado getEmpleado() {
         return empleado;
+    }
+    
+    public void todasPeliculas()
+    {
+        String[] resultado = null;
+        String[] valores = null;
+        ArrayList<String> generos = null;
+        LocalDate anio_estreno;
+        int id_cine = this.cines.getCineSeleccionado();
+        Boolean repetida = false;
+        String datos = "23;";
+        
+        resultado = cs.conexion(datos);
+        
+        for (int i = 0; i < resultado.length; i ++)
+        {
+            valores = resultado[i].split(":");
+
+            generos = obtener_generos(Integer.parseInt(valores[3]));
+
+            anio_estreno = LocalDate.parse(valores[4]);
+
+            Pelicula pelicula = new Pelicula(valores[0], valores[1], valores[2], Integer.parseInt(valores[3]), anio_estreno, generos);
+
+            this.cines.anadirPelicula(pelicula);
+        }
     }
 }

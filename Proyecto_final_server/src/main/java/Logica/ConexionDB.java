@@ -556,4 +556,23 @@ public class ConexionDB {
         }
         return datos_obtenidos;
     }
+    
+    public static String todasPeliculas() {
+        String datos_obtenidos = "";
+
+        try {
+            String sql = "call todas_peliculas()";
+            Connection connection = realizarConexion();
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                datos_obtenidos += rs.getString("duracion") + ":" + rs.getString("clasificacion_por_edad") + ":" + rs.getString("titulo") + ":" + rs.getInt("id") + ":" + rs.getDate("anio_estreno") + ";";
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error con la sentencia MYSQL");
+        }
+        return datos_obtenidos;
+    }
 }
