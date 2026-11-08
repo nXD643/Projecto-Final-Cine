@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Grafica.Menus;
+import Logica.Fachada;
 
 /**
  *
@@ -10,6 +11,7 @@ package Grafica.Menus;
  */
 public class OperacionesEmpleados extends Grafica.PanelUI.DefaultConf {
 
+    Fachada fachada = Fachada.getInstancia();
     /**
      * Creates new form OperacionesEmpleados
      */
@@ -113,6 +115,8 @@ public class OperacionesEmpleados extends Grafica.PanelUI.DefaultConf {
     }//GEN-LAST:event_AniadirAsientoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        fachada.getCines().getPeliculas().clear();
+        
         Presentacion ventanaPresentacion = new Presentacion();
         ventanaPresentacion.setVisible(true);
         setVisible(false);

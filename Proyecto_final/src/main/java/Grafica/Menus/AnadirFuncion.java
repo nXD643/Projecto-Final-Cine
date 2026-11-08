@@ -194,10 +194,18 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Cuidar el imput de la fecha
-        
         int sala_id = ElegirSala.getSelectedIndex();
         int pelicula_id = ElegirPelicula.getSelectedIndex();
-        LocalDate fecha = LocalDate.parse(FechaField.getText());
+        boolean agregarDB = true;
+        boolean agregado = false;
+        
+        LocalDate fecha = null;
+        try {
+            fecha = LocalDate.parse(FechaField.getText());
+        } catch (Exception e) {
+            agregarDB = false;
+        }
+        
         int cine_id = fachada.getCines().getCineSeleccionado();
         int precio = Integer.parseInt(PrecioTextField.getText());
         String hora = HoraField.getText();
@@ -205,15 +213,11 @@ public class AnadirFuncion extends Grafica.PanelUI.DefaultConf {
         int sala_iddb = fachada.getCines().buscarCine(cine_id).buscarSala(sala_id).getId();
         int cine_iddb = fachada.getCines().buscarCine(cine_id).getId();
         
-        System.out.println(fecha.toString());
-        System.out.println(precio);
-        System.out.println(hora);
-        System.out.println(pelicula_id);
-        
         pelicula_id = fachada.getCines().obtenerPeliculas(pelicula_id).getId();
         
-        Boolean agregado = fachada.getCines().buscarCine(cine_id).buscarSala(sala_id).agregarFuncion(sala_iddb, cine_iddb, pelicula_id, fecha, hora, precio);
-        
+        if (agregarDB) {
+            agregado = fachada.getCines().buscarCine(cine_id).buscarSala(sala_id).agregarFuncion(sala_iddb, cine_iddb, pelicula_id, fecha, hora, precio);
+        } 
         if (agregado)
         {
             JOptionPane.showMessageDialog(rootPane, "Se ha agregado la funcion correctamente");

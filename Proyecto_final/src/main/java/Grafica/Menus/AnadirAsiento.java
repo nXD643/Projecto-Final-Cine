@@ -189,7 +189,7 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
         
         if (agregado)
         {
-            JOptionPane.showMessageDialog(rootPane, "Se ha el asiento la pelicula correctamente");
+            JOptionPane.showMessageDialog(rootPane, "Se ha agregado el asiento correctamente");
             OperacionesEmpleados ventana = new OperacionesEmpleados();
             ventana.setVisible(true);
             setVisible(false);
