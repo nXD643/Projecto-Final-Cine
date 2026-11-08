@@ -126,6 +126,9 @@ public class Proyecto_final_server {
             case 23:
                 datos_recibidos = ConexionDB.todasPeliculas();
                 break;
+            case 24:
+                datos_recibidos = ConexionDB.nuevoAsiento(valores[1]);
+                break;
         }
         return datos_recibidos;
     }

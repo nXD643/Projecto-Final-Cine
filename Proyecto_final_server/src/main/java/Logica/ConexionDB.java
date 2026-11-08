@@ -23,7 +23,7 @@ public class ConexionDB {
     public static Connection realizarConexion() {
         String url = "jdbc:mysql://localhost:3306/complejo_cines";
         String usuario = "root";
-        String clave = "1234";
+        String clave = "";
         Connection conexion = null;
         try {
             conexion = DriverManager.getConnection(url, usuario, clave);
@@ -515,7 +515,7 @@ public class ConexionDB {
         String datos_obtenidos = "";
 
         try {
-            String[] valores = datos.split("/");
+            String[] valores = datos.split(":");
             String sql = "call nuevo_asiento(?, ?, ?, ?, ?)";
             Connection connection = realizarConexion();
             PreparedStatement ps = connection.prepareStatement(sql);

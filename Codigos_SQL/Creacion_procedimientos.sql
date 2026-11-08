@@ -121,12 +121,12 @@ end //
 create procedure nuevo_asiento (in id_funcion int, id_sala int, id_cine int, x int, y int)
 begin
 	insert into asiento (sala_ID, cine_ID, funcion_ID, fila, numero, estado) values (id_sala, id_cine, id_funcion, y, x, true);
-    select id from pelicula where sala_ID = id_sala and cine_ID = id_cine and funcion_ID = id_funcion and fila = y and numero = x and estado = true;
+    select id from asiento where sala_ID = id_sala and cine_ID = id_cine and funcion_ID = id_funcion and fila = y and numero = x and estado = true;
 end //
 
 create procedure inicio_sesion_empleado(in ci int, passwd varchar(30))
 begin
-    select cine_ID, nombre, apellido from empleado where documento = ci and contrasena = passwd;
+    select cine_ID, nombre, apellido from empleado where documento = ci and contrasena = passwd and cargo = 'administrador';
 end //
 
 create procedure todas_peliculas()

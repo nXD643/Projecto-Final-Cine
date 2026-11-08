@@ -65,7 +65,6 @@ create table asiento(
     numero int not null,
     estado boolean not null,
     primary key (id, sala_ID, cine_ID, funcion_ID),
-    unique (sala_ID, fila, numero, funcion_ID),
     constraint fk_asiento_sala foreign key (sala_ID, cine_ID) references sala (id, cine_ID)
 );
 

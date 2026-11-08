@@ -17,7 +17,6 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     Fachada fachada = Fachada.getInstancia();
     int idCineElegido = 0;
     int idSalaElegida = 0;
-    int idFuncionElegida = 0;
     
     /**
      * Creates new form AnadirAsiento
@@ -164,9 +163,6 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     }//GEN-LAST:event_ElegirFuncionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int ancho = Integer.parseInt(FilaField.getText());
-        int largo = Integer.parseInt(NumeroField.getText());
-        fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).buscarFuncion(idFuncionElegida).nuevoAsiento(idSalaElegida, idCineElegido, largo, ancho);
         
         OperacionesEmpleados ventana = new OperacionesEmpleados();
         ventana.setVisible(true);
@@ -174,10 +170,34 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(rootPane, "Se ha el asiento la pelicula correctamente");
-        OperacionesEmpleados ventana = new OperacionesEmpleados();
-        ventana.setVisible(true);
-        setVisible(false);
+        
+        Boolean agregado = false;
+        
+        int sala_db = fachada.getCines().buscarCine(idCineElegido).buscarSala(ElegirSala.getSelectedIndex()).getId();
+        int cine_Db = fachada.getCines().buscarCine(idCineElegido).getId();
+        int largo = fachada.getCines().buscarCine(idCineElegido).buscarSala(ElegirSala.getSelectedIndex()).getLargo();
+        int ancho = fachada.getCines().buscarCine(idCineElegido).buscarSala(ElegirSala.getSelectedIndex()).getAncho();
+        
+        if (largo < Integer.parseInt(NumeroField.getText()) || ancho < Integer.parseInt(FilaField.getText()))
+        {
+            JOptionPane.showMessageDialog(rootPane, "La sala tiene maximo " + largo + " de numero y " + ancho + " de filas");
+        }
+        else
+        {
+            agregado = fachada.getCines().buscarCine(idCineElegido).buscarSala(ElegirFuncion.getSelectedIndex()).buscarFuncion(ElegirFuncion.getSelectedIndex()).nuevoAsiento(sala_db, cine_Db, Integer.parseInt(NumeroField.getText()), Integer.parseInt(FilaField.getText()));
+        }
+        
+        if (agregado)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Se ha el asiento la pelicula correctamente");
+            OperacionesEmpleados ventana = new OperacionesEmpleados();
+            ventana.setVisible(true);
+            setVisible(false);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido agregar el asiento");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ElegirSalaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ElegirSalaItemStateChanged
@@ -190,10 +210,6 @@ public class AnadirAsiento extends Grafica.PanelUI.DefaultConf {
         for (int i = 0; i < fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().size(); i ++) { 
             System.out.println("La sala actual es: " + i);
             ElegirFuncion.addItem(Integer.toString(fachada.getCines().buscarCine(idCineElegido).buscarSala(idSalaElegida).getFunciones().get(i).getId()));
-        }
-        
-        if (ElegirSala.getSelectedItem() != null) { 
-            idFuncionElegida = ElegirSala.getSelectedIndex();
         }
     }//GEN-LAST:event_ElegirSalaItemStateChanged
 

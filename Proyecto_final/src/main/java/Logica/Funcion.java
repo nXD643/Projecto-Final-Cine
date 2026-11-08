@@ -62,21 +62,30 @@ public class Funcion {
     {
         Asiento asiento = new Asiento(id, fila, numero, estado);
         
-        this.asientos[fila - 1][numero - 1] = asiento;
+        this.asientos[numero - 1][fila - 1] = asiento;
     }
     
-    public void nuevoAsiento(int sala, int cine, int x, int y)
+    public boolean nuevoAsiento(int sala, int cine, int x, int y)
     {
-        String datos = "21;" + this.id + ":" + sala + ":" + cine + ":" + x + ":" + y;
-        String[] datos_obtenidos = null;
-        int id;
-        
-        datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
-        
-        id = Integer.parseInt(datos_obtenidos[0]);
-        
-        Asiento asiento = new Asiento(id, y, x, true);
-        
-        this.asientos[y][x] =  asiento;
+        try
+        {
+            String datos = "24;" + this.id + ":" + sala + ":" + cine + ":" + x + ":" + y;
+            String[] datos_obtenidos = null;
+            int id;
+
+            datos_obtenidos = Fachada.getInstancia().getCs().conexion(datos);
+
+            id = Integer.parseInt(datos_obtenidos[0]);
+
+            Asiento asiento = new Asiento(id, y, x, true);
+
+            this.asientos[x - 1][y - 1] =  asiento;
+            
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 }

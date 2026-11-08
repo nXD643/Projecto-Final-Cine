@@ -8,6 +8,7 @@ insert into cine (calle, ciudad, nombre) values
 
 insert into empleado (documento, cine_ID, cargo, nombre, apellido, fecha_ingreso, contrasena) values
 (58376015, 1, "administrador", "Marcos", "Díaz", "2021-05-01", "12345"),
+(58478883, 1, "administrador", "Pepe", "Peposo", "2021-05-01", "123"),
 (11111111, 3, "acomodador", "Natalia", "Cruz", "2022-08-15" , "qwert"),
 (22222222, 2, "cajero", "Óscar", "Peña", "2020-03-10", "oscarcito");
 
@@ -53,7 +54,8 @@ insert into cliente (documento, nombre, apellido, correo_electronico, contrasena
 (12345672, "Paula", "Nuñez", "xxxxx@mail.com", "1234"),
 (48338819, "Pepe", "Pepi", "123456@mail.com", "adada"),
 (51348948, "Ramiro", "Techera", "aaaaaaa@mail.com", "8942"),
-(58376015, "Sofía", "Larrosa", "bbbbbbbb@mail.com", "1234");
+(58376015, "Sofía", "Larrosa", "bbbbbbbb@mail.com", "1234"),
+(58478883, "Jacinta", "Lacinta", "123abc@mail.com", "123");
 
 insert into asiento (sala_ID, cine_ID, funcion_ID, fila, numero, estado) values
 (1, 1, 1, 1, 1, false),
@@ -113,4 +115,5 @@ insert into telefono (cliente_CI, telefono) values
 (51348948, 089668754),
 (58376015, 712357311),
 (58376015, 682214123),
-(58376015, 798372044);
+(58376015, 798372044),
+(58478883, 435465413);
