@@ -9,7 +9,7 @@ package Grafica.PanelUI;
  *
  * @author nacho
  */
-public class CancelarCompraPopup extends javax.swing.JFrame {
+public class CancelarCompraPopup extends Grafica.PanelUI.DefaultConf {
 
     ComprasUI compra;
     
@@ -17,8 +17,10 @@ public class CancelarCompraPopup extends javax.swing.JFrame {
      * Creates new form CancelarCompraPopup
      */
     public CancelarCompraPopup(ComprasUI compra) {
+        initConf();
         this.compra = compra;
         initComponents();
+        add_background();
     }
 
     /**
@@ -30,8 +32,8 @@ public class CancelarCompraPopup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JustificacionTextField = new javax.swing.JTextField();
-        AceptarBtn = new javax.swing.JButton();
+        JustificacionTextField = new Grafica.PanelUI.DefaultTextField();
+        AceptarBtn = new Grafica.PanelUI.DefaultBtn(2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +53,7 @@ public class CancelarCompraPopup extends javax.swing.JFrame {
                 .addComponent(AceptarBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addComponent(JustificacionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
         );

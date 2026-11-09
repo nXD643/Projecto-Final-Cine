@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  *
  * @author nacho
  */
-public class PopupCancelarCompra extends javax.swing.JPanel {
+public class PopupCancelarCompra extends Grafica.PanelUI.DefaultConf {
 
     ComprasUI compra;
     
@@ -18,7 +18,9 @@ public class PopupCancelarCompra extends javax.swing.JPanel {
      * Creates new form PopupCancelarCompra
      */
     public PopupCancelarCompra(ComprasUI compra) {
+        initConf();
         initComponents();
+        add_background();
         this.compra = compra;
     }
     
@@ -31,8 +33,8 @@ public class PopupCancelarCompra extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ConfirmarTextField = new javax.swing.JButton();
-        JustifiacionTextField = new javax.swing.JTextField();
+        ConfirmarTextField = new Grafica.PanelUI.DefaultBtn(2);
+        JustifiacionTextField = new Grafica.PanelUI.DefaultTextField();
 
         ConfirmarTextField.setText("Aceptar");
         ConfirmarTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -52,11 +54,11 @@ public class PopupCancelarCompra extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(JustifiacionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(273, 273, 273)
                 .addComponent(ConfirmarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -65,7 +67,7 @@ public class PopupCancelarCompra extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(JustifiacionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                 .addComponent(ConfirmarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

@@ -29,7 +29,7 @@
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
               <Component id="JustificacionTextField" min="-2" pref="351" max="-2" attributes="0"/>
               <EmptySpace pref="48" max="32767" attributes="0"/>
           </Group>
@@ -49,6 +49,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="JustificacionTextField">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultTextField()"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="AceptarBtn">
       <Properties>
@@ -57,6 +60,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AceptarBtnActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Grafica.PanelUI.DefaultBtn(2)"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

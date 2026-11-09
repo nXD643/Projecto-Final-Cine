@@ -86,6 +86,7 @@ public class PeliculaUI extends javax.swing.JPanel {
         NombrePeli.setForeground(new java.awt.Color(255, 255, 255));
         NombrePeli.setText("Spiderman");
 
+        PeliculaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grafica/PanelUI/ImagenPeliTest.png"))); // NOI18N
         PeliculaBtn.setMaximumSize(new java.awt.Dimension(235, 235));
         PeliculaBtn.addActionListener(this::PeliculaBtnActionPerformed);
 

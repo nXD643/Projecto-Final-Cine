@@ -8,6 +8,10 @@ public class MenuUI extends JButton {
 
     public MenuUI() {
         super();
+        this.setOpaque(false);
+        this.setContentAreaFilled(false);
+        this.setBorderPainted(false);
+        this.setFocusPainted(false);
         Dimension dimensionBtn = new Dimension(128,128);
         this.setPreferredSize(dimensionBtn);
         ImageIcon imagenFondo = new ImageIcon("UI/Menu.png");
