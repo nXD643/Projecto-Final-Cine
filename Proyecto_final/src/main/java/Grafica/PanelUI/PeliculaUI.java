@@ -10,6 +10,7 @@ import Logica.Cine;
 import Logica.Fachada;
 import Logica.Pelicula;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -30,6 +31,12 @@ public class PeliculaUI extends javax.swing.JPanel {
     
     public PeliculaUI(ElegirPelicula siguienteVentana,Pelicula pelicula) {
         initComponents();
+        ImageIcon imagen = new ImageIcon("UI/ImagenPeliTest.png");
+        PeliculaBtn.setIcon(imagen);
+        PeliculaBtn.setOpaque(false);
+        PeliculaBtn.setContentAreaFilled(false);
+        PeliculaBtn.setBorderPainted(false);
+        PeliculaBtn.setFocusPainted(false);
         
         peliculaElegida = pelicula;
         String peliculaNombre = peliculaElegida.getTitulo();
@@ -86,7 +93,6 @@ public class PeliculaUI extends javax.swing.JPanel {
         NombrePeli.setForeground(new java.awt.Color(255, 255, 255));
         NombrePeli.setText("Spiderman");
 
-        PeliculaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grafica/PanelUI/ImagenPeliTest.png"))); // NOI18N
         PeliculaBtn.setMaximumSize(new java.awt.Dimension(235, 235));
         PeliculaBtn.addActionListener(this::PeliculaBtnActionPerformed);
 

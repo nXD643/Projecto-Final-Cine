@@ -10,7 +10,7 @@ public class ConexionServer {
         DataInputStream entrada = null;
         DataOutputStream salida = null;
         try {
-            cliente = new Socket("localhost", 2000);
+            cliente = new Socket("10.20.50.123", 2000);
             salida = new DataOutputStream(cliente.getOutputStream());
             entrada = new DataInputStream(cliente.getInputStream());
         }
